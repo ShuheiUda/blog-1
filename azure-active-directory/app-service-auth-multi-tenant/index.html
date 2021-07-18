@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/app-service-auth-multi-tenant/screen1.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/app-service-auth-multi-tenant/screen2.png">
 <meta property="article:published_time" content="2021-06-29T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-11T00:52:35.607Z">
+<meta property="article:modified_time" content="2021-07-18T05:00:03.639Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="App Service">
@@ -106,7 +106,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+b83b253f-d5df-50cd-9553-9a6d1f025c4c%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BApp+Service+%E8%AA%8D%E8%A8%BC%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E8%A4%87%E6%95%B0%E3%81%AE%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E3%81%AE+Azure+AD+%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%82%92%E3%82%B5%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%81%95%E3%81%9B%E3%82%8B%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fapp-service-auth-multi-tenant%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fapp-service-auth-multi-tenant.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fapp-service-auth-multi-tenant.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/app-service-auth-multi-tenant/" data-id="ckqyhfs46001l0oq5eb4thma0" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/app-service-auth-multi-tenant/" data-id="ckr8qd34z00eh0mpdezmp4xz2" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -144,7 +144,7 @@
 </thead>
 <tbody><tr>
 <td>X-MS-CLIENT-PRINCIPAL-NAME</td>
-<td><a href="mailto:&#x74;&#101;&#x73;&#116;&#64;&#99;&#x6f;&#x6e;&#x74;&#x6f;&#x73;&#111;&#46;&#99;&#111;&#109;">&#x74;&#101;&#x73;&#116;&#64;&#99;&#x6f;&#x6e;&#x74;&#x6f;&#x73;&#111;&#46;&#99;&#111;&#109;</a></td>
+<td><a href="mailto:&#116;&#x65;&#x73;&#x74;&#64;&#99;&#111;&#x6e;&#x74;&#111;&#x73;&#111;&#46;&#x63;&#111;&#x6d;">&#116;&#x65;&#x73;&#x74;&#64;&#99;&#111;&#x6e;&#x74;&#111;&#x73;&#111;&#46;&#x63;&#111;&#x6d;</a></td>
 </tr>
 <tr>
 <td>X-MS-CLIENT-PRINCIPAL-ID</td>
@@ -158,7 +158,7 @@
 <li>App Service を構成しているテナントに Azure AD のグローバル管理者やゲスト招待元のディレクトリ ロールを持つユーザーでサインインします。</li>
 <li>Azure Active Directory ブレードに進み、[ユーザー] を開きます。</li>
 <li>[+ 新しいゲスト ユーザー] を押します。</li>
-<li>招待したい外部校テナントのユーザーの E メール アドレス (<a href="mailto:&#x74;&#x65;&#115;&#116;&#64;&#102;&#x61;&#x62;&#x72;&#x69;&#107;&#x61;&#x6d;&#x2e;&#x63;&#x6f;&#109;">&#x74;&#x65;&#115;&#116;&#64;&#102;&#x61;&#x62;&#x72;&#x69;&#107;&#x61;&#x6d;&#x2e;&#x63;&#x6f;&#109;</a>) を入力して、招待ボタンを押します。</li>
+<li>招待したい外部校テナントのユーザーの E メール アドレス (<a href="mailto:&#116;&#x65;&#x73;&#116;&#x40;&#x66;&#x61;&#x62;&#114;&#x69;&#x6b;&#x61;&#109;&#46;&#x63;&#111;&#109;">&#116;&#x65;&#x73;&#116;&#x40;&#x66;&#x61;&#x62;&#114;&#x69;&#x6b;&#x61;&#109;&#46;&#x63;&#111;&#109;</a>) を入力して、招待ボタンを押します。</li>
 <li>指定されたユーザーで招待メールが届いているかを確認します。</li>
 <li>招待メールを受け取ったユーザーは、メールに従い招待の処理を完了します。</li>
 </ol>
@@ -200,6 +200,50 @@
 <p>以上で操作は完了です。</p>
 <p>Azure AD ではアプリケーション オブジェクト側の構成とログオン時の URL の指定内容によって、どのユーザーがアプリケーションにサインイン可能かを制御しています。元々上記 [発行者の URL] にはテナント ID を含む値が指定されていました。この場合、アプリケーションがマルチテナントで構成されていても、そのアプリにサインインできるのはその指定されたテナント上のユーザーのみとなります。発行者の URL を <a target="_blank" rel="noopener" href="https://login.microsoftonline.com/common/v2.0">https://login.microsoftonline.com/common/v2.0</a> に書き換えると、URL としてもマルチテナントを受け入れるようになるため、複数のテナントのユーザーからサインインが可能となります。</p>
 <p>なお、上記状態では構成したとおり様々な Azure AD テナントから Web アプリにアクセスが可能となります。もしアプリを特定の数テナントだけにアクセスさせたいという場合は、アプリケーション側で X-MS-CLIENT-PRINCIPAL-NAME ヘッダーの値を確認し、サインインしたユーザーのドメイン名が意図したものでなければアクセスを拒否するなどの対応をご検討ください。</p>
+<h2 id="シナリオ-4-App-Service-の-Web-サイトを、App-Service-を構成したテナントとは別のテナントのユーザーにアクセスさせたい"><a href="#シナリオ-4-App-Service-の-Web-サイトを、App-Service-を構成したテナントとは別のテナントのユーザーにアクセスさせたい" class="headerlink" title="シナリオ 4: App Service の Web サイトを、App Service を構成したテナントとは別のテナントのユーザーにアクセスさせたい"></a>シナリオ 4: App Service の Web サイトを、App Service を構成したテナントとは別のテナントのユーザーにアクセスさせたい</h2><p>App Service に紐づくサブスクリプションがあるテナントと、ユーザーを管理しているテナントが異なる場合などに、ご利用いただける方法です。ここでご紹介する手順は、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/app-service/configure-authentication-provider-aad#use-an-existing-registration-created-separately">Azure AD ログインを使用するように App Service または Azure Functions アプリを構成する - 個別に作成された既存の登録を使用する</a> の公開情報でも解説がございます。</p>
+<p><strong>テナント構成の前提</strong></p>
+<ul>
+<li>テナント A: App Service の Web サイトをホストしているテナント</li>
+<li>テナント B: App Service にアクセスするユーザーが存在しているテナント</li>
+</ul>
+<p><strong>テナント B 上での作業</strong></p>
+<ol>
+<li>テナント B の Azure ポータルにサインインし、Azure Active Directory ブレードを開き、[アプリの登録] を開きます。</li>
+<li>[+ 新規登録] を選択し、各項目を下記のように設定し、[登録] を押下します。<ul>
+<li>[名前] に任意の名前を設定します。</li>
+<li>[サポートされているアカウント] の種類は [この組織ディレクトリのみに含まれるアカウント (シングル テナント)] を選択します。</li>
+<li>[リダイレクト URI] では [Web] を選択し、”&lt;App Service の URL&gt;/.auth/login/aad/callback” と入力します<br>(例: “<a target="_blank" rel="noopener" href="https://contoso.azurewebsites.net/.auth/login/aad/callback&quot;">https://contoso.azurewebsites.net/.auth/login/aad/callback&quot;</a>)</li>
+</ul>
+</li>
+<li>アプリの登録完了したら、 [アプリケーション (クライアント) ID] と [ディレクトリ (テナント) ID] を控えておきます。</li>
+<li>左端メニューから [認証] タブを選択します。 [暗黙的な許可およびハイブリッド フロー] で “ID トークン” を有効にします。</li>
+<li>(省略可能) 左端メニューから [ブランド] で [ホーム ページ URL] に App Service アプリの URL を入力して [保存] を選択します。</li>
+<li>左端メニューから [API の公開] を選択します。</li>
+<li>[アプリケーション ID の URI] に App Service アプリの URL を入力し、[保存] を選択します。</li>
+<li>左端メニューから [証明書とシークレット] を選択します。</li>
+<li>[新しいクライアント シークレット] を選択し、クライアント シークレットを追加します。  </li>
+</ol>
+<p>なお、クライアント シークレットの追加後は、画面に表示されるクライアント シークレットの値を必ずお控えください。一度この画面を離れたら二度と表示されません。クライアント シークレットの有効期限は最長 2 年間です。有効期限が切れた場合は更新の対応が必要です。</p>
+<p><strong>テナント A 上での作業</strong></p>
+<ol>
+<li>テナント A の Azure ポータルにサインインし、Web アプリをホストしている App Service の画面を開きます。</li>
+<li>左側のメニューで [認証] を選択します。 [ID プロバイダーの追加] をクリックします。</li>
+<li>[ID プロバイダー] ドロップダウンで [Microsoft] を選択し、下記のように設定します。<ul>
+<li>[アプリの登録の種類] では [既存アプリの登録の詳細を提供します] を選択します。</li>
+<li>[アプリケーション (クライアント) ID] には、前述の手順で控えた [アプリケーション (クライアント) ID] を設定します。</li>
+<li>[クライアント シークレット] には前述の手順で控えたクライアント シークレットの値を設定します。</li>
+<li>[発行者の URL] には “<a target="_blank" rel="noopener" href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a>&lt;テナント B のテナント ID&gt;/v2.0” を設定します。<br>テナント B のテナント ID は、前述の手順で控えた [ディレクトリ (テナント) ID] です。</li>
+</ul>
+</li>
+<li>これまで Web アプリに他の ID プロバイダーがされていない場合は、[App Service 認証設定] のセクションが表示されます。<ul>
+<li>[認証] は “認証が必要” を選択します。</li>
+<li>[認証されていない要求] では、[HTTP 302 リダイレクトが見つかりました: Web サイトに推奨] を選びます。<br>この設定は、アプリケーションが認証されていない要求にどのように応答するかを決定します。基本的には上記設定で問題ありません。</li>
+</ul>
+</li>
+<li>[追加] をクリックします。 </li>
+</ol>
+<p>設定手順は以上です。</p>
+<p>App Service のアプリの URL にアクセスすることで、Azure AD の認証画面が表示されます。ここからサインインできるのは、テナント B 上のユーザー (テナントユーザー、テナント B に招待されたゲストユーザー) のみです。他のテナントのユーザーの資格情報でサインインを試行すると、エラーが表示されて失敗します。</p>
 
       
       
