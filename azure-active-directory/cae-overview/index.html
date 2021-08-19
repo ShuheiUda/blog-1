@@ -15,7 +15,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/cae-overview/cae-gui.png">
 <meta property="article:published_time" content="2021-05-16T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-29T17:31:57.557Z">
+<meta property="article:modified_time" content="2021-08-19T00:09:18.247Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="Conditional Access">
@@ -106,7 +106,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+934081a0-c435-58dd-94c3-ef3f99d47004%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BCAE+%28Continuous+Access+Evaluation%3A+%E7%B6%99%E7%B6%9A%E7%9A%84%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E8%A9%95%E4%BE%A1%29%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fcae-overview%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fcae-overview.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fcae-overview.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/cae-overview/" data-id="ckrp72b2t002r0mqrecopelqc" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/cae-overview/" data-id="cksi62bzk002r0pmvfixt5z65" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -115,13 +115,15 @@
 <p>みなさんは CAE (Continuous Access Evaluation: 継続的アクセス評価) という機能をご存知でしょうか。<br>2021 年 5 月現在、以下のようなお知らせがあり、目にされた方も多いのではないかと思います。</p>
 <ul>
 <li>Microsoft 365 管理ポータルのメッセージ センターに MC255540 (Continuous access evaluation on by default) として情報が公開</li>
-<li>送信元 : Microsoft Azure <a href="mailto:&#97;&#x7a;&#x75;&#114;&#101;&#45;&#110;&#x6f;&#x72;&#x65;&#112;&#x6c;&#121;&#64;&#109;&#x69;&#x63;&#114;&#111;&#115;&#111;&#102;&#x74;&#46;&#x63;&#111;&#x6d;">&#97;&#x7a;&#x75;&#114;&#101;&#45;&#110;&#x6f;&#x72;&#x65;&#112;&#x6c;&#121;&#64;&#109;&#x69;&#x63;&#114;&#111;&#115;&#111;&#102;&#x74;&#46;&#x63;&#111;&#x6d;</a> から TRACKING ID: 5T93-LTG として以下の件名のメールでお知らせ<br>-&gt;Continuous access evaluation will be enabled in premium Azure AD tenants beginning on 15 June 2021</li>
+<li>送信元 : Microsoft Azure <a href="mailto:&#x61;&#x7a;&#x75;&#x72;&#x65;&#x2d;&#x6e;&#x6f;&#114;&#101;&#x70;&#x6c;&#121;&#64;&#109;&#x69;&#99;&#114;&#111;&#x73;&#x6f;&#102;&#x74;&#46;&#x63;&#x6f;&#109;">&#x61;&#x7a;&#x75;&#x72;&#x65;&#x2d;&#x6e;&#x6f;&#114;&#101;&#x70;&#x6c;&#121;&#64;&#109;&#x69;&#99;&#114;&#111;&#x73;&#x6f;&#102;&#x74;&#46;&#x63;&#x6f;&#109;</a> から TRACKING ID: 5T93-LTG として以下の件名のメールでお知らせ<br>-&gt; Continuous access evaluation will be enabled in premium Azure AD tenants beginning on 15 June 2021</li>
+<li>Microsoft 365 管理ポータルのメッセージ センターに MC273937 (Update: CAE On By Default) として展開時期が変更となる情報が公開</li>
 </ul>
 <p>CAE とは、簡単に言いますと <strong>あるサービスを利用しているクライアントの状態が変わった際、ほぼリアルタイムでその変化を検知してアクセス制御を行う</strong> ことができる機能、です！<br>実は以下のような技術情報、Blog にてお伝えしてきた通り、2020 年から機能自体は実装が進んでいました。</p>
 <p><a href="https://jpazureid.github.io/blog/azure-active-directory/moving-towards-real-time-policy-and-security-enforcement/">ポリシーとセキュリティのリアル タイムな適用に向けて</a></p>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/fundamentals/resilience-with-continuous-access-evaluation">継続的アクセス評価を使用して回復性を強化する</a></p>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/concept-continuous-access-evaluation">継続的アクセス評価</a></p>
-<p>この CAE 機能が、Azure AD Premium を有効にしているテナントについても 2021 年　6 月 15 日から 9 月 30 日にかけて順次有効になります、というお知らせが MC255540 であり 5T93-LTG の通知となります。</p>
+<p>この CAE 機能が、Azure AD Premium を有効にしているテナントについても2021 年 9 月 30 日から 2021 年 11 月の終わりにかけて順次有効になります、というお知らせが MC255540 であり 5T93-LTG の通知となります。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>当初 2021 年 6 月 15 日から 9 月 30 日での展開を予定しておりましたが MC273937 にて、2021 年 9 月 30 日から 2021 年 11 月の終わりの間に展開予定に変更されたとアナウンスされました。</p></div>
 <h2 id="CAE-とは具体的にどんな機能なの？"><a href="#CAE-とは具体的にどんな機能なの？" class="headerlink" title="CAE とは具体的にどんな機能なの？"></a>CAE とは具体的にどんな機能なの？</h2><p>これまで、条件付きアクセス (CA) によるアクセス制御を行われている環境では [Azure AD (AAD) に対してクライアントがアクセス トークンの新規取得、もしくは取得済みアクセス トークンの更新] を行うタイミングで、CA ポリシーの評価が行われていました。これは、逆に言うと [クライアントの取得済みアクセス トークンの有効期限内であれば、AAD へのアクセスが行われず CA ポリシーの評価もその間は行われない] ことを意味しています。</p>
 <p>通常、あるリソース (Exchange Online や SharePoint Online 等) へクライアントがアクセスするために、AAD が発行しているアクセス トークンの有効期限は既定では 60 分です。つまり、アクセス トークンを取得してから 60 分間は、該当クライアントはリソースに対してアクセスし続けることが可能です。<br>もしその 60 分間に、該当 AAD ユーザー自体が (運用によって適切に) 無効もしくは削除されたり、セキュリティ リスクに伴いパスワードの変更や発行済みトークンの失効が行われたり、アクセスが許可されていない場所にクライアントが移動したりしたとしても、これまでは [アクセス トークンの更新タイミング = 前回取得から約 60 分後] までは、リソースへのアクセスが継続して行えてしまいました。</p>
 <p>ここで、CAE が有効な AAD テナントでは、CAE に対応しているリソースに対して AAD から状態変化の Event がほぼリアルタイム (*) で通知されるようになります。また、CA ポリシーがリソースにも共有され、クライアントのアクセス元 IP アドレスのチェックがリソース側でも行われるようになり、アクセスが許可されていない場所にクライアントが移動した場合の検知がほぼリアルタイム (*) に行えることになります。</p>
@@ -140,8 +142,9 @@
 <h2 id="CAE-はどのリソースおよびクライアントでも実現できるの？"><a href="#CAE-はどのリソースおよびクライアントでも実現できるの？" class="headerlink" title="CAE はどのリソースおよびクライアントでも実現できるの？"></a>CAE はどのリソースおよびクライアントでも実現できるの？</h2><p>現時点では、リソースとしては Exchange Online と SharePoint Online、アクセス元のクライアントとしてはブラウザと Office アプリが対象になります。<br>なお、Exchange Onine や SharePoint Online が併用されている Teams も対象になります。</p>
 <p>CAE に対応していないリソース、クライアント アプリの場合は、アクセス トークンの考え方はこれまで通りです。</p>
 <h2 id="CAE-は無効にできるの？"><a href="#CAE-は無効にできるの？" class="headerlink" title="CAE は無効にできるの？"></a>CAE は無効にできるの？</h2><p>はい、CAE を無効にすることは、Azure ポータル上の操作にて可能です。<br>前述の技術情報 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/concept-continuous-access-evaluation">継続的アクセス評価</a> <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/concept-continuous-access-evaluation#enable-or-disable-cae-preview">CAE を有効または無効にする (プレビュー)</a> をご覧ください。</p>
-<p>技術情報にも記載がありますが、既定の設定画面が多少分かりづらいので補足しますと、既定の設定画面は以下のように [<strong>プレビューを無効にする</strong>] が選択された状態が初期値になっています。<br><img src="/blog/azure-active-directory/cae-overview/cae-gui.png"></p>
-<p>[<strong>なんだ、無効じゃないか</strong>] と思ってしまいそうですが、このままの状態で 6 月 15 日以降になると、CAE は有効になってしまいます。<BR><br>とても紛らわしい話で申し訳ないのですが、 CAE を無効にして、6 月 15 日以降に自動的に有効になることを防ぎたい方は、上記の画面で一度 Enable を選択してから、再度 Disable を選択して [保存] をクリックしてください。</p>
+<p>既定では <code>一般提供の後に自動で有効にする</code> が選択されており、2021 年 9 月 30 日から 2021 年 11 月の終わりの間に CAE が有効化される予定になります。</p>
+<p><img src="/blog/azure-active-directory/cae-overview/cae-gui.png"></p>
+<p>もし CAE を自動で有効化させたくない場合には、2021 年 9 月 30 日までに <code>プレビューを無効にする</code> に変更ください。</p>
 <p>上記内容が CAE の理解に向けて、皆様の参考となりますと幸いです。<br>どちら様も素敵な AAD ライフをお過ごしください！</p>
 
       
