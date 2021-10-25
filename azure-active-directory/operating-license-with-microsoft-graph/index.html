@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph/licenseDetail4.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph/image4.png">
 <meta property="article:published_time" content="2021-10-01T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-20T19:39:26.224Z">
+<meta property="article:modified_time" content="2021-10-25T03:25:15.706Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="Microsoft Graph">
@@ -112,7 +112,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+46b96b98-ebd1-5cf0-b401-81c17207f03f%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BMicrosoft+Graph+PowerShell+SDK+%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E7%AE%A1%E7%90%86%E6%93%8D%E4%BD%9C%E3%81%AE%E7%B4%B9%E4%BB%8B%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Foperating-license-with-microsoft-graph%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Foperating-license-with-microsoft-graph.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Foperating-license-with-microsoft-graph.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph/" data-id="ckuzx60hz00gq0mrt7jf54xai" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph/" data-id="ckv63kgv600gq0lpr8txxbdcz" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -124,7 +124,11 @@
 <h1 id="はじめに-Microsoft-Graph-PowerShell-とは？"><a href="#はじめに-Microsoft-Graph-PowerShell-とは？" class="headerlink" title="はじめに: Microsoft Graph PowerShell とは？"></a>はじめに: Microsoft Graph PowerShell とは？</h1><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/powershell/microsoftgraph/overview?view=graph-powershell-1.0">Microsoft Graph PowerShell</a> は、Microsoft Graph API をコマンドを実行して呼び出せるようにした PowerShell モジュールです。</p>
 <p>では Microsoft Graph API とは何かというと、 Azure AD だけでなく SharePoint、Outlook、Teams などの Microsoft 各サービスにアクセスし、データを取得できる統一のエンドポイントを提供しています。</p>
 <p>Azure AD テナントにおける情報取得は、これまで<a href="https://jpazureid.github.io/blog/azure-active-directory/powershell-module/">MSOnline および Azure AD PowerShell モジュール</a> を用いてきました。Azure AD PowerShell では、2022 年 7 月以降にサポート終了予定の Azure AD Graph API を呼び出しており、上述の翻訳記事では、Set-AzureADUserLicense を中心とするライセンス管理のコマンドが廃止となる予定であることをアナウンスいたしました。</p>
-<p><strong>ライセンス管理操作以外のコマンドは従来通りレスポンスを受け取れる予定であり、現時点では今後も利用可能ですが、利用するコマンドの移行をご検討いただくようお願いします。</strong></p>
+<p><strong>ライセンス管理操作以外のコマンドは従来通りレスポンスを受け取れる予定です。</strong></p>
+<p>それ以外のコマンドについて Azure AD や MSOnline の PowerShell で提供されていたコマンドで MS Graph PowerShell コマンドで利用できる対照表としては次の公開情報があります。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powershell/microsoftgraph/azuread-msoline-cmdlet-map?view=graph-powershell-1.0">Find Azure AD and MSOnline cmdlets in Microsoft Graph PowerShell</a></p>
+<p>対照表にしたがって、 MS Graph コマンドが利用できるものについての移行も併せてお願いしたいところではあるのですが、<br>実際のところ、対応表に記載があるコマンドであっても、従来のパラメーターやプロパティが Microsoft Graph PowerShell コマンドでは一部利用できないものもあります。<br>ライセンス管理以外のコマンドは現時点 (2021 年 10 月段階) では今後も利用可能な見込みであり、それ以外のコマンドについて無理に急いで移行を進める必要が無いということも付記させていただきます。</p>
+<p>状況に変化がありましたら、改めてサポート チームでのブログでもお知らせを予定しています。</p>
 <p>(Azure AD Graph API を呼び出すアプリケーションを作成されている場合、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/graph/migrate-azure-ad-graph-overview">公開情報</a> を参考に、Microsoft Graph API への移行をお願いいたします。)</p>
 <hr>
 <p>さて、前置きが長くなってしまいましたが、以下より、Microsoft Graph PowerShell を用いたライセンス管理操作についてご紹介いたします！</p>
