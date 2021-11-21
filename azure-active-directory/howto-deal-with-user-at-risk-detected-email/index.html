@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/howto-deal-with-user-at-risk-detected-email/UserRisk26.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/howto-deal-with-user-at-risk-detected-email/UserRisk27.png">
 <meta property="article:published_time" content="2021-11-04T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-17T00:52:02.751Z">
+<meta property="article:modified_time" content="2021-11-21T12:28:50.004Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="Security">
@@ -132,7 +132,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+0e518979-5886-5ae9-8a79-372ad5df422d%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BUser+at+risk+detected+%E3%81%AE%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%92%E5%8F%97%E3%81%91%E5%8F%96%E3%81%A3%E3%81%9F%E3%81%A8%E3%81%8D%E3%81%AE%E5%AF%BE%E5%BF%9C%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fhowto-deal-with-user-at-risk-detected-email%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fhowto-deal-with-user-at-risk-detected-email.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fhowto-deal-with-user-at-risk-detected-email.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/howto-deal-with-user-at-risk-detected-email/" data-id="ckw2t80lj00h20mn75fsmcfik" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/howto-deal-with-user-at-risk-detected-email/" data-id="ckw97vidh00h20nmv7zxfh2mg" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -147,10 +147,11 @@
 <h2 id="A-User-at-risk-detected-のメールはなぜ届くのか"><a href="#A-User-at-risk-detected-のメールはなぜ届くのか" class="headerlink" title="A. User at risk detected のメールはなぜ届くのか"></a>A. User at risk detected のメールはなぜ届くのか</h2><p>User at risk detected という件名のメールは、Identity Protection 機能がユーザーのリスクを検出した旨を通知しています。<br>Identity Protection では、機械学習機能を用いて、テナント上に存在するユーザーに関するオンライン リスク (サインイン時のリスク)、オフライン リスク (非サインイン時に計算処理によって検出されるリスク) を検出することが可能です。<br>これらのリスク検出の結果、リスク レベル (低・中・高) が、事前に設定した通知の閾値 (たとえば高を通知) に達した際に、メールが送信されます。  </p>
 <p>実際に、メールのリンクから Identity Protection の画面にアクセスして確認してみると、たとえば以下のように、何人かのユーザーが “危険なユーザー” として検知されていることが分かります。<br><img src="/blog/azure-active-directory/howto-deal-with-user-at-risk-detected-email/UserRisk2.png"></p>
 <p>リスクの詳細は、 Identity Protection の “リスク検出” 画面にて確認いただくことも可能です。<br>以下のように [IP アドレス] の列を確認いただくことで、アクセス元のグローバル IP アドレスを確認いただくこともできます。<br><img src="/blog/azure-active-directory/howto-deal-with-user-at-risk-detected-email/UserRisk3.png"></p>
-<h2 id="B-メールが届いたら、どのように対応したらよいか"><a href="#B-メールが届いたら、どのように対応したらよいか" class="headerlink" title="B. メールが届いたら、どのように対応したらよいか"></a>B. メールが届いたら、どのように対応したらよいか</h2><p>Microsoft では、ユーザーのリスクが高になった場合に管理者が対処を行うことを推奨しています。  </p>
+<h2 id="B-メールが届いたら、どのように対応したらよいか"><a href="#B-メールが届いたら、どのように対応したらよいか" class="headerlink" title="B. メールが届いたら、どのように対応したらよいか"></a>B. メールが届いたら、どのように対応したらよいか</h2><p>Microsoft では、ユーザーのリスクがしきい値以上になった場合に、ユーザー リスク ポリシーなどを活用して、自動的にリスクを修復することを推奨しています。  </p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies#choosing-acceptable-risk-levels">https://docs.microsoft.com/ja-jp/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies#choosing-acceptable-risk-levels</a><br>Microsoft で推奨しているのは、ユーザー リスク ポリシーのしきい値を [高] に設定し、サインイン リスク ポリシーを [中以上] に設定して、自己修復オプションを許可することです。 </p>
 </blockquote>
+<p>そのため、ユーザー リスク ポリシーやサインイン リスク ポリシーをすでに利用されている場合は、本フローを実施する必要は通常ございません。<br>しかしながら、リスク ポリシーをまだ利用されていない環境や、長期にわたりリスクが修復されていないユーザーがいる環境などでは、管理者がリスクを修復・無視することで対処を行うことが可能です。  </p>
 <p>以下はユーザーのリスクが高として検出され、管理者に User at risk detected メールが送付された時の管理者の対応フローです。こちらを参考に、管理者は検知されたリスクへの対処を速やかに実施ください。<br><img src="/blog/azure-active-directory/howto-deal-with-user-at-risk-detected-email/UserRisk4.png">  </p>
 <p>それぞれのフローについて下記で詳細に説明します。  </p>
 <div class="alert is-success"><p class="alert-title">ヒント</p><p>下記フローでは、Azure AD Identity Protection でリスクを検出した際の一般的な対処方法について記載しています。</p><p>すでに被害が発生しているなど緊急の場合は、このフローを 1 から順に実施する必要はありません。</p><p>被害の拡大を防ぐために、まずは本フローの 5-1 を確認し、パスワードのリセットやアカウントのブロックなどを実施してください。（その後ヒアリングや調査を行います）  </p></div>
