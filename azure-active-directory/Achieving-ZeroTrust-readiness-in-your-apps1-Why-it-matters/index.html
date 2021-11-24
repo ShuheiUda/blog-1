@@ -4,25 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>サービス プリンシパルに対する Azure AD アクセス レビューの紹介 | Japan Azure Identity Support Blog</title>
+  <title>アプリでゼロ トラスト対応を実現する | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Azure Identity サポート チームの中井です。 本記事は、2021 年 6 月 10 日に米国の Azure Active Directory Identity Blog で公開された Introducing Azure AD access reviews for service principals を意訳したものになります。ご不明点等ございましたらサポート チームまでお">
+  <meta name="description" content="こんにちは、 Azure Identity サポート チームの小出です。 本記事は、 2021 年 11 月15 日に米国の Azure Active Directory Identity Blog で公開された Achieving Zero Trust readiness in your apps #1: Why it matters を意訳したものになります。ご不明点などございましたら、サポー">
 <meta property="og:type" content="article">
-<meta property="og:title" content="サービス プリンシパルに対する Azure AD アクセス レビューの紹介">
-<meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azure-ad-access-reviews-for-service-principals/index.html">
+<meta property="og:title" content="アプリでゼロ トラスト対応を実現する">
+<meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/Achieving-ZeroTrust-readiness-in-your-apps1-Why-it-matters/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="こんにちは、Azure Identity サポート チームの中井です。 本記事は、2021 年 6 月 10 日に米国の Azure Active Directory Identity Blog で公開された Introducing Azure AD access reviews for service principals を意訳したものになります。ご不明点等ございましたらサポート チームまでお">
+<meta property="og:description" content="こんにちは、 Azure Identity サポート チームの小出です。 本記事は、 2021 年 11 月15 日に米国の Azure Active Directory Identity Blog で公開された Achieving Zero Trust readiness in your apps #1: Why it matters を意訳したものになります。ご不明点などございましたら、サポー">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azure-ad-access-reviews-for-service-principals/CreateAnAccessReview.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azure-ad-access-reviews-for-service-principals/SPN.png">
-<meta property="article:published_time" content="2021-07-07T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-24T22:54:12.380Z">
+<meta property="article:published_time" content="2021-11-24T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-11-24T22:54:12.164Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="US Identity Blog">
-<meta property="article:tag" content="Access review">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azure-ad-access-reviews-for-service-principals/CreateAnAccessReview.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Azure Identity Support Blog" type="application/atom+xml">
   
@@ -84,7 +80,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-azure-active-directory/introducing-azure-ad-access-reviews-for-service-principals" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-azure-active-directory/Achieving-ZeroTrust-readiness-in-your-apps1-Why-it-matters" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -93,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      サービス プリンシパルに対する Azure AD アクセス レビューの紹介
+      アプリでゼロ トラスト対応を実現する
     </h1>
   
 
@@ -101,36 +97,41 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2021-07-07T00:00:00.000Z" itemprop="datePublished">2021-07-07</time>
+  <time datetime="2021-11-24T15:00:00.000Z" itemprop="datePublished">2021-11-25</time>
 </a>
         
         
-        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+63cdc04f-9fdd-546e-b258-43dde0c2c8d6%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9+%E3%83%97%E3%83%AA%E3%83%B3%E3%82%B7%E3%83%91%E3%83%AB%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B+Azure+AD+%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9+%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%81%AE%E7%B4%B9%E4%BB%8B%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fintroducing-azure-ad-access-reviews-for-service-principals%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fintroducing-azure-ad-access-reviews-for-service-principals.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fintroducing-azure-ad-access-reviews-for-service-principals.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+fc65c5a6-120e-538a-be8b-3aff74e87002%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A7%E3%82%BC%E3%83%AD+%E3%83%88%E3%83%A9%E3%82%B9%E3%83%88%E5%AF%BE%E5%BF%9C%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2FAchieving-ZeroTrust-readiness-in-your-apps1-Why-it-matters%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2FAchieving-ZeroTrust-readiness-in-your-apps1-Why-it-matters.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2FAchieving-ZeroTrust-readiness-in-your-apps1-Why-it-matters.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/introducing-azure-ad-access-reviews-for-service-principals/" data-id="ckwe4jb34004q0mqmck7r1f60" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/Achieving-ZeroTrust-readiness-in-your-apps1-Why-it-matters/" data-id="ckwe4jb0v000y0mqmcu9b9qyy" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Azure Identity サポート チームの中井です。</p>
-<p>本記事は、2021 年 6 月 10 日に米国の Azure Active Directory Identity Blog で公開された <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-azure-ad-access-reviews-for-service-principals/ba-p/1942488">Introducing Azure AD access reviews for service principals</a> を意訳したものになります。ご不明点等ございましたらサポート チームまでお問い合わせください。</p>
-<hr>
-<p>皆さん、こんにちは！</p>
-<p>より多くのアプリケーションやサービスがクラウドに移行する中で、これらのワークロードで使用される ID を主体的に管理し、その方法を改善していく必要性が高まっています。本日、Azure AD のサービス プリンシパルに対するアクセス レビューのパブリック プレビューを発表いたします。多くのお客様では、ユーザー アカウントのアクセスを管理するために Azure AD のアクセス レビューをすでにご利用いただいておりますが、この機能をサービス プリンシパルやアプリケーションにも拡張してほしいという要望をいただいておりました。</p>
-<p>今回のパブリック プレビューでは、Azure AD の特権ディレクトリ ロールが割り当てられているサービス プリンシパルやアプリケーションのレビューを要求することができます。さらに、サービス プリンシパルが割り当てられている Azure サブスクリプションのロールのレビューを作成することも可能となります。これにより、サービス プリンシパルに必要なロールのみが割り当てられていることを定期的に確認し、環境のセキュリティの改善に役立てることができます。</p>
-<p>テナントや Azure サブスクリプションのサービス プリンシパルに対するアクセス レビューの設定は簡単です。アクセス レビューの作成時に “サービス プリンシパル” を選択すれば、あとは他のアクセスレビューと同様の手順です。</p>
-<p>この新しい Azure AD の機能を Azure ポータルにて設定するには、以下の手順で行います。</p>
-<ol>
-<li>Azure Active Directory &gt; Identity Governance に移動します。</li>
-<li>Azure AD ロール または Azure リソース を選択し、続いてリソース名を選択します。</li>
-<li>アクセス レビューの項目において、新しいアクセス レビューを作成します。</li>
-<li><strong>スコープ</strong> を <strong>サービス プリンシパル</strong> に設定します。</li>
-</ol>
-<p><img src="/blog/azure-active-directory/introducing-azure-ad-access-reviews-for-service-principals/CreateAnAccessReview.png"></p>
-<p>選択されたレビュアーには、Azure ポータルからのアクセスのレビューを依頼するメールが届きます。</p>
-<p><img src="/blog/azure-active-directory/introducing-azure-ad-access-reviews-for-service-principals/SPN.png"></p>
-<p>また、MS Graph API や ARM (Azure Resource Manager) API を用いて、Azure AD ロールや Azure リソース ロールにそれぞれに対し、このアクセス レビューを作成することもできます。この機能の詳細につきましては、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review?toc=/azure/active-directory/governance/toc.json">Azure AD ロール</a>のレビューや、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review?toc=/azure/active-directory/governance/toc.json">Azure リソース ロール</a> の割り当てに関するドキュメントをご覧ください。</p>
-<p>今後様々なワークロードに対して ID の関連機能を拡張していく中で、本プレビュー機能を利用してお客様よりフィードバックを収集し、これらの機能を GA するにあたっての最適な方法を模索していく予定です。</p>
+        <p>こんにちは、 Azure Identity サポート チームの小出です。</p>
+<p>本記事は、 2021 年 11 月15 日に米国の Azure Active Directory Identity Blog で公開された <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/achieving-zero-trust-readiness-in-your-apps-1-why-it-matters/ba-p/2959972">Achieving Zero Trust readiness in your apps #1: Why it matters</a> を意訳したものになります。ご不明点などございましたら、サポート チームまでお問い合わせください。</p>
+<p>こんにちは、Jeff Sakowiczです。私は Microsoft Identity チームで、Application Platform Security の Principal Program Management Lead をしています。私たちのチームの目標は、安全で信頼性が高く、発展的なアプリのエコシステムを作っていくことです。この目標を達成する一環として、アプリがゼロ トラストのセキュリティ モデルをサポートできるようにすることがあげられます。</p>
+<p>今回、弊社アプリ プラットフォームのセキュリティ チームより、皆様が開発したアプリでどのようにゼロ トラスト対応を実現すればよいかと、なぜそれが重要かについて、一連のブログで紹介してまいります。</p>
+<p>従来、アプリケーションのセキュリティを確保するというのは、安全なネットワーク境界内にアプリケーションを配置し、悪用される可能性のあるコードを修正することでした。何か問題が発生した場合、その影響は直接アプリケーション自体に及ぶことが多かったのです。しかし今日、ユーザーや組織が依存するアプリケーションやサービスは相互に絡み合った状況にあります。侵害されたアプリケーションや安全でないアプリケーションは、他の基盤への入り口として機能し、組織全体に影響を与える可能性があります。</p>
+<p>さらに、<a target="_blank" rel="noopener" href="https://www.microsoft.com/security/blog/2021/05/12/how-to-secure-your-hybrid-work-world-with-a-zero-trust-approach/">「どこでも仕事ができる」というハイブリッド型勤務</a> を背景に、アプリケーションは急速にクラウドへ移行しています。これは従業員が、自分のネットワークやデバイスからリソースにアクセスするためです。もはや、アプリケーションが保護されたネットワーク境界内でのみ使用されると考えることはできません。</p>
+<p><a target="_blank" rel="noopener" href="https://www.microsoft.com/security/business/zero-trust">ゼロ トラスト</a> の原則である「<strong>明示的に検証する</strong>」「<strong>最小限の特権アクセスを使用する</strong>」「<strong>侵害を想定する</strong>」は、このような新しい現実に対応するためのセキュリティの枠組みを提供してくれます。エンド・ツー・エンドのゼロトラスト戦略を採用し、基本的なセキュリティ衛生管理を行うことは、組織のデジタル資産を保護する助けとなります。ゼロトラストの原則を念頭に置いてアプリを開発することで、より安全なハイブリッド型勤務環境を実現でき、セキュリティ インシデントの影響範囲を小さくできます。さらに、迅速に修復や回復を行えるようにもなり、ゼロ トラスト戦略を実施する環境でアプリがシームレスに動作するようになります。</p>
+<p>このブログ シリーズでは、マイクロソフトの ID プラットフォームがどのようにゼロ トラストの原則をサポートしているかを説明し、皆様が ID とアクセス管理にゼロ トラストのアプローチを採用したアプリケーションを作成する手助けをしてまいりたいと思います。まずは、なぜゼロ トラストが重要なのかについてこの記事で説明します。来月は、マイクロソフトの ID プラットフォームを使用して、最小特権アクセスの原則を使用するアプリケーションの設計について説明する予定です。 </p>
+<h2 id="ゼロ-トラストの-ID-セキュリティを実現するためには開発者と-IT-担当者の協力が必須"><a href="#ゼロ-トラストの-ID-セキュリティを実現するためには開発者と-IT-担当者の協力が必須" class="headerlink" title="ゼロ トラストの ID セキュリティを実現するためには開発者と IT 担当者の協力が必須"></a>ゼロ トラストの ID セキュリティを実現するためには開発者と IT 担当者の協力が必須</h2><p>アプリを評価する際に、IT 部門は評価基準をより厳格にする必要があります。IT 部門はリスクを伴うアプリケーションや、高いセキュリティが求められる環境で正しく機能しないアプリケーションの使用を回避するでしょう。よって、アプリケーションが採用されるためには、ゼロ トラストを念頭に置いて設計されている必要があります。</p>
+<p>しかし、ゼロ トラストのアプローチでアプリケーションを開発、設定、展開するには、チーム全体での努力が必要です。IT 部門は自らの環境内のアプリケーションに、どのようなポリシーを適用するか決定しなければなりません。開発者には、IT 部門がよりアプリケーションの安全性を高め、さらにそれを採用し管理できる形でアプリケーションを構築および統合する責任があります。こうした協力により、企業は以下のことが可能になります。</p>
+<ul>
+<li>組織内でアプリケーションを大規模に展開する。</li>
+<li>情報漏洩の可能性を最小限に抑える。また、”侵害を想定する” 観点では、侵害が発生した際の影響を最小限に抑える。</li>
+<li>攻撃や侵害に迅速に対応する。こうした攻撃などから迅速に復旧することで、ビジネスへの損害を軽減する。</li>
+</ul>
+<h2 id="お客様はゼロ-トラストの原則を取り入れ始めており、最初に-ID-から取り組んでいます"><a href="#お客様はゼロ-トラストの原則を取り入れ始めており、最初に-ID-から取り組んでいます" class="headerlink" title="お客様はゼロ トラストの原則を取り入れ始めており、最初に ID から取り組んでいます"></a>お客様はゼロ トラストの原則を取り入れ始めており、最初に ID から取り組んでいます</h2><p>組織のゼロ トラストへの道のりはそれぞれ異なりますが、ほとんどの場合、まず取り組むべき場所はユーザーとアプリケーションの ID です。多くの企業がゼロ トラストを展開する際に、優先的に取り組むアプリケーションのポリシーと制御は以下のとおりとなります。</p>
+<ul>
+<li><strong>認証情報の管理とローテーション ポリシー</strong>: 証明書やパスワードなどの秘密情報は、保護すべき最も重要な資産の 1 つです。これはこれら秘密情報を手にした攻撃者はシステム内部のより深くにアクセスすることができるからです。コードや設定からすべてのシークレットを取り除いてください。取り除いた情報は <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/key-vault/general/basic-concepts">Azure Key Vault</a> に配置し、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/managed-identities-azure-resources/overview">マネージド ID</a> を介してアクセスします。IT 管理者においては、アプリケーションの認証情報の管理を徹底する <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/graph/api/resources/applicationauthenticationmethodpolicy?view=graph-rest-beta">アプリケーション認証方法ポリシー</a> を導入ください。</li>
+<li><strong>強力なリスク ベース認証</strong>: IT 管理者は、多要素認証を必要とするポリシーを設定したいと考えるでしょう。<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/overview">条件付きアクセス ポリシー</a> を使用することで、管理者は必要に応じて適切なアクセス制御を行うことで、組織の安全性を保ちつつも、制御の必要のないときにはユーザーの邪魔をしないようにできます。</li>
+<li><strong><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/develop/publisher-verification-overview">発行者確認済み</a> としているリスクの低いアクセス許可を要求するアプリケーションへの同意を制限する</strong>: Microsoft Graph などの API を使用してデータにアクセスすることで、リッチなアプリケーションを構築することができますが、同時に組織ではエンド ユーザーが特定の条件でアプリケーションに許可を与えることのできるポリシーを設定し、リスクを制限することが可能です。IT 部門は、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/manage-apps/configure-admin-consent-workflow">Azure AD の管理者同意ワークフロー</a> を使用して、ユーザー側で承諾できない要求をレビューすることができます。</li>
+<li><strong>レガシーなプロトコルと API のブロック</strong>: これには、「Basic 認証」のような <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/block-legacy-authentication">古い認証プロトコルをブロック</a> し、「Open ID Connect」や「OAuth 2」のような最新のプロトコルを使うようにすることが含まれます。利用しているアプリケーションがこれらの要件を満たしていることを組織全体で確認ください。</li>
+</ul>
+<h2 id="ゼロ-トラストでの構築を始める方法"><a href="#ゼロ-トラストでの構築を始める方法" class="headerlink" title="ゼロ トラストでの構築を始める方法"></a>ゼロ トラストでの構築を始める方法</h2><p>さらに詳しく知りたい方は、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/security/zero-trust/">Zero Trust Guidance Center</a> に公開された開発者向けの新しいガイダンスをご覧ください。このガイダンスには、Zero Trust に対応したアプリケーションを開発するための <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/security/zero-trust/identity-developer">新しい開発および統合リソース</a> が含まれています。</p>
+<p>詳細については、こちらからダウンロードできる開発者向けホワイトペーパーをご覧ください: <a target="_blank" rel="noopener" href="https://aka.ms/ztdev">Zero Trust for the Microsoft Identity developer</a></p>
 
       
       
@@ -144,10 +145,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Access-review/" rel="tag">Access review</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
 
         
-        <a href="https://github.com/jpazureid/blog/edit/main/articles/azure-active-directory/introducing-azure-ad-access-reviews-for-service-principals.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpazureid/blog/edit/main/articles/azure-active-directory/Achieving-ZeroTrust-readiness-in-your-apps1-Why-it-matters.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -155,19 +156,10 @@
     
 <nav id="article-nav">
   
-    <a href="../provision-users-into-apps-using-sql-as-a-user-store-more-easily/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          ユーザー ストアとして SQL を使用したアプリへのユーザー プロビジョニング、複雑な変換式の簡単な構築、などなど
-        
-      </div>
-    </a>
   
-  
-    <a href="../secure-collaboration-with-AAD-guest-access-reviews/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../new-identity-partnerships-and-integrations-to-strengthen-your/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Azure AD ゲスト アクセス レビューを活用したゲスト ユーザーとの安全なコラボレーション</div>
+      <div class="article-nav-title">お客様のセキュリティを強化する新しい ID パートナーシップと統合</div>
     </a>
   
 </nav>
@@ -186,7 +178,7 @@
       <ul>
         
           <li>
-            <a href="../Achieving-ZeroTrust-readiness-in-your-apps1-Why-it-matters/">アプリでゼロ トラスト対応を実現する</a>
+            <a href="">アプリでゼロ トラスト対応を実現する</a>
           </li>
         
           <li>
