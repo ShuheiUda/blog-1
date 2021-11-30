@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/new-authenticator-security-features/fig3.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/new-authenticator-security-features/fig4.png">
 <meta property="article:published_time" content="2021-12-01T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-29T19:16:35.389Z">
+<meta property="article:modified_time" content="2021-11-30T14:39:34.090Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="US Identity Blog">
@@ -108,7 +108,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+664cc095-1ce2-5ff4-bee7-39798c5ad3b4%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BMicrosoft+Authenticator+%E3%81%AE%E6%96%B0%E3%81%9F%E3%81%AA%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E6%A9%9F%E8%83%BD%E3%81%8C%E5%88%A9%E7%94%A8%E5%8F%AF%E8%83%BD%E3%81%A8%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fnew-authenticator-security-features%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fnew-authenticator-security-features.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fnew-authenticator-security-features.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/new-authenticator-security-features/" data-id="ckwl1yoci005v0mpdb3bx7yyl" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/new-authenticator-security-features/" data-id="ckwm7ia84005v0nljbnmw763l" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -117,23 +117,23 @@
 <p>本記事は、2021 年 11 月 18 日に米国の Azure Active Directory Identity Blog で公開された <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-microsoft-authenticator-security-features-are-now-available/ba-p/2464386">New Microsoft Authenticator security features are now available!</a> を意訳したものになります。ご不明点等ございましたらサポート チームまでお問い合わせください。</p>
 <hr>
 <p>皆さん、こんにちは。</p>
-<p>昨年、私たちは 「<a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752">認証のための SMS や音声通話を使うのはそろそろやめよう</a> 」　(原題：”It’s Time to Hang Up on Phone Transports for Authentication”) という記事を公開しました。今日、弊社は Microsoft Authenticator をユーザーにとってより安全に、管理者にとってはより簡便に展開できるようにしました。</p>
+<p>昨年、私たちは「<a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752">認証のための SMS や音声通話を使うのはそろそろやめよう</a>」(原題: “It’s Time to Hang Up on Phone Transports for Authentication”) という記事を公開しました。今日、弊社は Microsoft Authenticator をユーザーにとってより安全に、管理者にとってはより簡便に展開できるようにしました。</p>
 <ol>
-<li>管理者は、Microsoft Authenticator において、番号照合や追加情報の提示により、誤った承認を防ぐことができるようになりました (パブリック プレビュー)。</li>
+<li>管理者は Microsoft Authenticator において、番号照合や追加情報の提示により、誤った承認を防ぐことができるようになりました (パブリック プレビュー)。</li>
 <li>管理者は Microsoft Authenticator を使用して、GPS 位置情報に基づく条件付きアクセス ポリシーを設定することができるようになりました (一般提供)。</li>
-<li>管理者は、「登録キャンペーン」機能を使用して、サインイン時に Microsoft Authenticator を設定するようユーザーに促すことができるようになりました (一般提供)。</li>
+<li>管理者は「登録キャンペーン」機能を使用して、サインイン時に Microsoft Authenticator を設定するようユーザーに促すことができるようになりました (一般提供)。</li>
 </ol>
-<p>これらの Microsoft Authenticator のセキュリティ アップグレードを是非お試しいただき、ご意見をお聞かせください。これら新機能の詳細については、以下をご覧ください。</p>
-<h2 id="Microsoft-Authenticator-で-MFA-を利用する際の番号照合-パブリック-プレビュー"><a href="#Microsoft-Authenticator-で-MFA-を利用する際の番号照合-パブリック-プレビュー" class="headerlink" title="Microsoft Authenticator で MFA を利用する際の番号照合 (パブリック プレビュー)"></a>Microsoft Authenticator で MFA を利用する際の番号照合 (パブリック プレビュー)</h2><p>セキュリティを高め、誤った承認を減らすために、管理者は Authenticator で MFA リクエストを承認する際に、サインイン画面に表示されている番号の入力をユーザーに要求することができます。</p>
+<p>これらの Microsoft Authenticator のセキュリティ アップグレードを是非お試しいただき、ご意見をお聞かせください。これら新機能の詳細については以下をご覧ください。</p>
+<h2 id="Microsoft-Authenticator-で-MFA-を利用する際の番号照合-パブリック-プレビュー"><a href="#Microsoft-Authenticator-で-MFA-を利用する際の番号照合-パブリック-プレビュー" class="headerlink" title="Microsoft Authenticator で MFA を利用する際の番号照合 (パブリック プレビュー)"></a>Microsoft Authenticator で MFA を利用する際の番号照合 (パブリック プレビュー)</h2><p>セキュリティを高め誤った承認を減らすために、管理者は Authenticator で MFA リクエストを承認する際に、サインイン画面に表示されている番号の入力をユーザーに要求することができます。</p>
 <p><img src="/blog/azure-active-directory/new-authenticator-security-features/fig1.png" alt="図1 - 番号の照合"></p>
-<p>ユーザーに番号照合を利用させる方法については、<a target="_blank" rel="noopener" href="https://aka.ms/numbermatchdoc">こちら</a>をご覧ください。</p>
+<p>ユーザーに番号照合を利用させる方法については、<a target="_blank" rel="noopener" href="https://aka.ms/numbermatchdoc">こちら</a> をご覧ください。</p>
 <h2 id="Microsoft-Authenticator-の承認リクエストにおける追加情報の提示-パブリック-プレビュー"><a href="#Microsoft-Authenticator-の承認リクエストにおける追加情報の提示-パブリック-プレビュー" class="headerlink" title="Microsoft Authenticator の承認リクエストにおける追加情報の提示 (パブリック プレビュー)"></a>Microsoft Authenticator の承認リクエストにおける追加情報の提示 (パブリック プレビュー)</h2><p>誤った承認を減らすためのもう一つの方法は、Authenticator の通知でユーザーに追加の情報を表示することです。この機能は、ユーザーがどのアプリケーションにサインインしているか、また IP アドレスに基づいてサインインしている場所を表示します。</p>
 <p><img src="/blog/azure-active-directory/new-authenticator-security-features/fig2.png" alt="図 2 - 通知内に番号照合と併せて追加情報を提示"></p>
 <p>ユーザーに追加の情報を表示する方法については、<a target="_blank" rel="noopener" href="https://aka.ms/additionalcontextdoc">こちら</a> をご覧ください。</p>
 <h2 id="GPS-ベースのネームド-ロケーション-一般提供"><a href="#GPS-ベースのネームド-ロケーション-一般提供" class="headerlink" title="GPS ベースのネームド ロケーション (一般提供)"></a>GPS ベースのネームド ロケーション (一般提供)</h2><p>管理者は、条件付きアクセス ポリシーを使用して、Microsoft Authenticator の GPS を使用して、リソースへのアクセスを特定の国の境界内に制限できるようになりました。</p>
 <p>この機能を有効にしたユーザーは、サインイン時に Microsoft Authenticator アプリを使用して GPS 位置情報を共有するよう求められます。GPS 位置情報の完全性を確保するため、デバイスが脱獄またはルート化されている場合、Microsoft Authenticator は認証を拒否します。</p>
 <p><img src="/blog/azure-active-directory/new-authenticator-security-features/fig3.png" alt="図 3 – GPO 座標を利用してネームドロケーションを追加"></p>
-<p>詳細については、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/location-condition">管理者向けドキュメント</a> 、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/graph/api/resources/countrynamedlocation?view=graph-rest-1.0">Graph API ドキュメント</a>、<a target="_blank" rel="noopener" href="https://support.microsoft.com/en-us/account-billing/common-problems-with-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd">FAQページ</a> をご覧ください。</p>
+<p>詳細については、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/location-condition">管理者向けドキュメント</a>、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/graph/api/resources/countrynamedlocation?view=graph-rest-1.0">Graph API ドキュメント</a>、<a target="_blank" rel="noopener" href="https://support.microsoft.com/en-us/account-billing/common-problems-with-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd">FAQページ</a> をご覧ください。</p>
 <h2 id="Microsoft-Authenticator-登録キャンペーン-一般提供"><a href="#Microsoft-Authenticator-登録キャンペーン-一般提供" class="headerlink" title="Microsoft Authenticator 登録キャンペーン (一般提供)"></a>Microsoft Authenticator 登録キャンペーン (一般提供)</h2><p>Microsoft Authenticator 登録キャンペーンの機能を使用することで、ユーザーに Authenticator の設定を促し、安全性の低い SMS / 電話認証からの移行を促すことができます。この機能は、Microsoft Authenticator が有効でありながら設定されていないユーザーを対象としています。ユーザーは MFA サインインの完了後に Authenticator の設定を促され、設定後は既定の認証方法が Microsoft Authenticator アプリに変更されます。</p>
 <p>ユーザーの登録キャンペーンを有効にする方法については、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/authentication/how-to-mfa-registration-campaign">こちら</a>をご覧ください。</p>
 <p><img src="/blog/azure-active-directory/new-authenticator-security-features/fig4.png" alt="登録キャンペーンの有効化"></p>
