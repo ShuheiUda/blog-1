@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-authentication-context/authentication-context-sample-post.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-authentication-context/authentication-context-sample-delete.png">
 <meta property="article:published_time" content="2021-12-01T08:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-01T08:23:15.626Z">
+<meta property="article:modified_time" content="2021-12-01T11:11:49.081Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="Conditional Access Policy">
@@ -124,16 +124,14 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+43ce12c3-0923-546e-acd1-22f970609f14%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%AE%E8%AA%8D%E8%A8%BC%E3%82%B3%E3%83%B3%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%82%92%E8%A7%A6%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fintroducing-authentication-context%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fintroducing-authentication-context.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fintroducing-authentication-context.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/introducing-authentication-context/" data-id="ckwn9i6ux00hm0nll3e753owl" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/introducing-authentication-context/" data-id="ckwnfj07n00hm0ol678s00dxh" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>本記事は <a target="_blank" rel="noopener" href="https://qiita.com/advent-calendar/2021/microsoft-azure-tech">Azure Tech Advent Calendar 2021</a> 1 日目の記事です。<br>Japan Azure Identity Support Blog では、お問合せの多い事象へのトラブルシューティング方法や、運用環境でのおススメの構成などサポート情報を中心に案内しておりますが、今回の記事は、プレビュー機能についていろいろと試してみた所謂「やってみた系」の記事です。</p>
 <p>認証コンテキスト自体は 2021 年 3 月に <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775">Microsoft Ignite で 発表された</a>条件付きアクセス ポリシーの新しい機能ですが、日本語での解説記事が全然出ておらず、個人的にもっと広まってほしいと思い、この機会にご紹介します。</p>
-<blockquote>
-<p>![IMPORTANT]<br>認証コンテキスト機能は、現在 Public Preview での提供であり、プレビュー期間中は作成した認証コンテキストを削除できません。<br>そのため以下の手順をお試しいただく際には、検証用テナントなどで動作を確認いただくことを推奨します。<br>本記事でご紹介する機能は 2021/12/01 現在の動作であり、最新の動作については公開ドキュメントをご参照ください。</p>
-</blockquote>
+<div class="alert is-important"><p class="alert-title">重要</p><p>認証コンテキスト機能は、現在 Public Preview での提供であり、プレビュー期間中は作成した認証コンテキストを削除できません。</p><p>そのため以下の手順をお試しいただく際には、検証用テナントなどで動作を確認いただくことを推奨します。</p><p>本記事でご紹介する機能は 2021/12/01 現在の動作であり、最新の動作については公開ドキュメントをご参照ください。</p></div>
 <h2 id="認証コンテキストとは？"><a href="#認証コンテキストとは？" class="headerlink" title="認証コンテキストとは？"></a>認証コンテキストとは？</h2><p>Azure AD の条件付きアクセス ポリシーは、サインインの場所、デバイスの状態、ユーザーのリスクなど様々なシグナルをもとに Azure AD で保護されたリソースへのアクセスを制御する機能です。<br>従来のポリシーで制御可能な操作は、保護されたリソース (クラウド アプリ) へのアクセス、セキュリティ情報の登録またはデバイスの登録または参加の操作のみでした。</p>
 <p>しかしながら、より高度なアクセス制御を求めたいアプリケーションでは、特定の操作を行うときのみ多要素認証を要求する、あるいは、準拠済みデバイスからのアクセスを要求するといった、ステップアップ認証を設定したい場合があります。<br>このような要件を満たすために実装が進んでいる機能が、認証コンテキストです。</p>
 <ul>
@@ -155,18 +153,14 @@
 <li>認証コンテキストを利用アプリに割り当てる</li>
 </ol>
 <p>構認証コンテキストは単体で動作するわけではなく、アプリ、認証コンテキスト、条件付きアクセスが連動して動作します。<br>もう少し具体的に言うと、アプリが認証コンテキストを利用するという認証要求を Azure AD に送信し、Azure AD は指定された認証コンテキストに紐づく条件付きアクセス ポリシーを適用、結果としてポリシーに基づいた追加のアクセス制御が可能となります。</p>
-<blockquote>
-<p>![NOTE]<br>認証コンテキスト機能を利用するには Azure AD Premium P1 以上のライセンスが必要です。</p>
-</blockquote>
+<div class="alert is-info"><p class="alert-title">Note</p><p>認証コンテキスト機能を利用するには Azure AD Premium P1 以上のライセンスが必要です。</p></div>
 <h3 id="認証コンテキストの作成"><a href="#認証コンテキストの作成" class="headerlink" title="認証コンテキストの作成"></a>認証コンテキストの作成</h3><p>認証コンテキストを作成するには、Azure ポータルの <code>Azure Active Directory</code> &gt; <code>セキュリティ</code> &gt; <code>条件付きアクセス ポリシー</code> &gt; <code>認証コンテキスト</code> から作成します。</p>
 <p><img src="/blog/azure-active-directory/introducing-authentication-context/authentication-context01.png" alt="認証コンテキストの作成"></p>
 <p>今回は、Require_MFA, Require_CompliantDevice, Require_TOU の 3 つの認証コンテキストを作成しました。</p>
 <p><img src="/blog/azure-active-directory/introducing-authentication-context/authentication-context02.png" alt="作成した認証コンテキスト"></p>
 <p>認証コンテキストは作成順に c1 ~ c25 までの ID が割り振られます。</p>
 <p><img src="/blog/azure-active-directory/introducing-authentication-context/authentication-context-id.png" alt="認証コンテキストの ID"></p>
-<blockquote>
-<p>![IMPORTANT]<br>認証コンテキスト機能は、現在 Public Preview での提供であり、プレビュー期間中認証コンテキストの上限は 25 個で、作成した認証コンテキストを削除できません。</p>
-</blockquote>
+<div class="alert is-important"><p class="alert-title">重要</p><p>認証コンテキスト機能は、現在 Public Preview での提供であり、プレビュー期間中認証コンテキストの上限は 25 個で、作成した認証コンテキストを削除できません。</p></div>
 <h3 id="認証コンテキストへ条件付きアクセスの適用"><a href="#認証コンテキストへ条件付きアクセスの適用" class="headerlink" title="認証コンテキストへ条件付きアクセスの適用"></a>認証コンテキストへ条件付きアクセスの適用</h3><p>作成した認証コンテキストは、それのみでは何も機能しません。そのため、認証コンテキストに条件付きアクセス ポリシーを割り当てます。<br>認証コンテキストは「コンテキスト」の定義で合って、実際の動作は条件付きアクセス ポリシーで制御します。</p>
 <p><img src="/blog/azure-active-directory/introducing-authentication-context/apply-policy-to-authentication-context.png" alt="認証コンテキストとポリシーの関係"></p>
 <p>通常の条件付きアクセス ポリシー同様にユーザーや適用の条件などを設定でき、緊急用の管理アカウントなどを除外することも可能です。</p>
@@ -187,9 +181,7 @@
 <p><img src="/blog/azure-active-directory/introducing-authentication-context/authentication-context05.png" alt="条件付きアクセス ポリシーによるブロック"></p>
 <p>サインイン ログの条件付きアクセス ポリシーの項目を確認すると、期待通り認証コンテキストに割り当てたポリシーが適用されていることが確認できます。</p>
 <p><img src="/blog/azure-active-directory/introducing-authentication-context/authentication-context06.png" alt="適用された条件付きアクセス"></p>
-<blockquote>
-<p>![NOTE]<br>サインインログから条件付きアクセス ポリシーの適用状況を確認する方法は、<a href="/blog/azure-active-directory/conditional-cannot-access-rightnow/">「現時点ではこれにはアクセスできません」 エラーについて</a> を参照下さい。</p>
-</blockquote>
+<div class="alert is-info"><p class="alert-title">Note</p><p>サインインログから条件付きアクセス ポリシーの適用状況を確認する方法は、<a href="/blog/azure-active-directory/conditional-cannot-access-rightnow/">「現時点ではこれにはアクセスできません」 エラーについて</a> を参照下さい。</p></div>
 <h2 id="プロトコルの詳細を見てみる"><a href="#プロトコルの詳細を見てみる" class="headerlink" title="プロトコルの詳細を見てみる"></a>プロトコルの詳細を見てみる</h2><p>機能紹介はここまでですが、今回はもう少し認証コンテキストが動作する仕組みを見てみましょう。SharePoint Online へアクセスをする際には Azure AD で OpenID Connect を利用した認証が実施されます。つまり、SharePoint Online から Azure AD に対し、ID トークンを発行するための認可リクエストが送信されています。</p>
 <p>そこでブラウザーの F12 ツールなどを利用し、条件付きアクセス ポリシーでブロックされた際の通信トレースを取得してみます。<br>以下の通信は、認証コンテキストを設定した SharePoint サイトにアクセスを行った際、Azure AD に送信された認可リクエストの中身です。ここで注目してほしいのは claims パラメータの中身です。</p>
 <p><img src="/blog/azure-active-directory/introducing-authentication-context/authentication-context07.png" alt="claims パラメーター"></p>
@@ -201,9 +193,7 @@
 <p>認証コンテキストに割り当てられた条件付きアクセス ポリシーを突破したかどうかは、発行される ID トークンの acrs クレームを確認することで判定が可能です。実際に条件付きアクセス ポリシーを突破した状態でアクセスを行った際には、以下のように acrs クレームが含まれる ID トークンが発行されます</p>
 <p><img src="/blog/azure-active-directory/introducing-authentication-context/authentication-context09.png" alt="ID トークン"></p>
 <p>SharePoint Online 側では、acrs クレームをチェックして、本当にユーザーが認証コンテキストを満たす認証を実施したかを判定できます。</p>
-<blockquote>
-<p>![NOTE]<br>xms_cc オプションはクライアント アプリケーションがクレーム チャレンジに対応しており、API が返却するクレーム チャレンジ ヘッダーを適切に処理できることを示しています。<br>話の本筋からそれますのでここでは紹介しませんが、詳しくは <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/develop/claims-challenge">クレーム チャレンジ、クレーム要求、およびクライアントの機能 - Microsoft identity platform | Microsoft Docs</a> や、<a target="_blank" rel="noopener" href="https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/71b9d8a07de995d47b030e8449202016a9f76c41/TodoListClient/Controllers/TodoListController.cs#L44">該当の</a> <a target="_blank" rel="noopener" href="https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/74146a201bf28b04145d1743d4d8d52919bd5896/TodoListClient/Infrastructure/ExtractAuthenticationHeader.cs">ソース</a> <a target="_blank" rel="noopener" href="https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/74146a201bf28b04145d1743d4d8d52919bd5896/TodoListService/Controllers/TodoListController.cs#L98">コード</a> を参照ください。</p>
-</blockquote>
+<div class="alert is-info"><p class="alert-title">Note</p><p>xms_cc オプションはクライアント アプリケーションがクレーム チャレンジに対応しており、API が返却するクレーム チャレンジ ヘッダーを適切に処理できることを示しています。</p><p>話の本筋からそれますのでここでは紹介しませんが、詳しくは <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/develop/claims-challenge">クレーム チャレンジ、クレーム要求、およびクライアントの機能 - Microsoft identity platform | Microsoft Docs</a> や、<a target="_blank" rel="noopener" href="https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/71b9d8a07de995d47b030e8449202016a9f76c41/TodoListClient/Controllers/TodoListController.cs#L44">該当の</a> <a target="_blank" rel="noopener" href="https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/74146a201bf28b04145d1743d4d8d52919bd5896/TodoListClient/Infrastructure/ExtractAuthenticationHeader.cs">ソース</a> <a target="_blank" rel="noopener" href="https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/74146a201bf28b04145d1743d4d8d52919bd5896/TodoListService/Controllers/TodoListController.cs#L98">コード</a> を参照ください。</p></div>
 <h2 id="Appendix-公式サンプルを触ってみる"><a href="#Appendix-公式サンプルを触ってみる" class="headerlink" title="Appendix: 公式サンプルを触ってみる"></a>Appendix: 公式サンプルを触ってみる</h2><p>ここまで SharePoint Online を例にして、実際の認証コンテキストの動作を確認してきました。<br>認証コンテキストの動作をまとめると、以下のようなフローになります。</p>
 <ol>
 <li>アプリが保持する機密情報へのアクセス</li>
@@ -223,9 +213,7 @@
 <p>さて、サンプルの動作に戻りましょう。上記の管理者ページでは、ToDo List の POST または DELETE 操作を実施時に必要な認証コンテキストを選択することが可能です。試しに TODO リストの POST に Require_TOU を、TODO リストの削除に Require_MFA を設定したところ、それぞれの操作を実施時に設定した認証コンテキストによる追加の認証が行われました。</p>
 <p><img src="/blog/azure-active-directory/introducing-authentication-context/authentication-context-sample-post.png" alt="TODO リストの作成時に規約の同意が求められる"></p>
 <p><img src="/blog/azure-active-directory/introducing-authentication-context/authentication-context-sample-delete.png" alt="TODO リストの削除時に多要素認証が求められる"></p>
-<blockquote>
-<p>![IMPORTANT]<br>認証コンテキストに限りませんが、条件付きアクセス ポリシーは適用時に必ず認証を求めるものではなく、要求された条件を満たした認証を完了しているかを判定します。<br>上記のサンプルでも一度多要素認証を実施したのちは、Azure AD 側あるいはアプリの認証キャッシュが有効な間は TODO リストの削除が可能です。</p>
-</blockquote>
+<div class="alert is-important"><p class="alert-title">重要</p><p>認証コンテキストに限りませんが、条件付きアクセス ポリシーは適用時に必ず認証を求めるものではなく、要求された条件を満たした認証を完了しているかを判定します。</p><p>上記のサンプルでも一度多要素認証を実施したのちは、Azure AD 側あるいはアプリの認証キャッシュが有効な間は TODO リストの削除が可能です。</p></div>
 <h2 id="まとめ"><a href="#まとめ" class="headerlink" title="まとめ"></a>まとめ</h2><p>今回は Azure AD の条件付きアクセス ポリシーのプレビュー機能である、Authentication Context を紹介しました。実際に設定をしたのは SharePoint Online のみですが、Microsoft Defender for Cloud Apps (旧 MCAS) でセッション制御に利用したり、また自作のアプリでもステップアップ認証要求を求めるよう実装したりすることが可能です。また、Azure AD Privileged Identity で、ロールの昇格の条件として認証コンテキスト利用できるようになるという発表もされており (早く Public Preview 来てくれー)、今後の展開も大変楽しみです。</p>
 <p>皆さんもぜひこの新機能をお試しいただき何かお気づきの点などございましたらフィードバックをお待ちしております。</p>
 <p>Azure AD を含む弊社のクラウド サービスでは日々新機能が発表されますが、お客様をサポートできるようサポート チームでも新しい機能について学習し、日々検証を行っています。本記事は、そんな検証の様子の一コマとしてもお楽しみいただければ幸いです。</p>
