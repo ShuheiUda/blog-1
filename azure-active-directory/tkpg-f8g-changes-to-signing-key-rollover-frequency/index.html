@@ -4,28 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>[ベースライン ポリシー] から [セキュリティの既定値] への移行 | Japan Azure Identity Support Blog</title>
+  <title>TKPG-F8G 署名キーのロールオーバー頻度の変更について | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Azure &amp; Identity サポート チームの石川です。今回は、Azure AD において、無料で利用できる多要素認証の機能の移行についてご紹介します。  概要Azure AD の多要素認証 (MFA) を実現するために 2020 年 1 月時点ではプレビュー機能の “ベースライン ポリシー” (条件付きアクセスの [ベースライン ポリシー]) を利用することができます。">
+  <meta name="description" content="2021-12-01 にサービス正常性通知の TKPG-F8G にて通知されております、「Action recommended: Azure Changes to Signing Key Rollover Frequency description: Active: Action recommended: Azure Changes to Signing Key Rollover Frequenc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[ベースライン ポリシー] から [セキュリティの既定値] への移行">
-<meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-security-defaults/index.html">
+<meta property="og:title" content="TKPG-F8G 署名キーのロールオーバー頻度の変更について">
+<meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/tkpg-f8g-changes-to-signing-key-rollover-frequency/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="こんにちは、Azure &amp; Identity サポート チームの石川です。今回は、Azure AD において、無料で利用できる多要素認証の機能の移行についてご紹介します。  概要Azure AD の多要素認証 (MFA) を実現するために 2020 年 1 月時点ではプレビュー機能の “ベースライン ポリシー” (条件付きアクセスの [ベースライン ポリシー]) を利用することができます。">
+<meta property="og:description" content="2021-12-01 にサービス正常性通知の TKPG-F8G にて通知されております、「Action recommended: Azure Changes to Signing Key Rollover Frequency description: Active: Action recommended: Azure Changes to Signing Key Rollover Frequenc">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-security-defaults/sample-enable.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-security-defaults/sample-securityinfo.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-security-defaults/sample-securityinfo.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-security-defaults/sample-register.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-security-defaults/sample-setup.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-security-defaults/sample-setupdone.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-security-defaults/sample-setupdone.png">
-<meta property="article:published_time" content="2020-01-16T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-02T06:24:44.856Z">
+<meta property="article:published_time" content="2021-12-02T01:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-02T06:24:45.116Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
+<meta property="article:tag" content="Security">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-security-defaults/sample-enable.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Azure Identity Support Blog" type="application/atom+xml">
   
@@ -87,7 +80,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-azure-active-directory/azure-ad-security-defaults" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-azure-active-directory/tkpg-f8g-changes-to-signing-key-rollover-frequency" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -96,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      [ベースライン ポリシー] から [セキュリティの既定値] への移行
+      TKPG-F8G 署名キーのロールオーバー頻度の変更について
     </h1>
   
 
@@ -104,105 +97,35 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2020-01-16T15:00:00.000Z" itemprop="datePublished">2020-01-17</time>
+  <time datetime="2021-12-02T01:00:00.000Z" itemprop="datePublished">2021-12-02</time>
 </a>
         
         
-        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+7e6bc278-66dd-5f1d-8f22-a33b23d9d0a0%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%5B%E3%83%99%E3%83%BC%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%B3+%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%5D+%E3%81%8B%E3%82%89+%5B%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%AE%E6%97%A2%E5%AE%9A%E5%80%A4%5D+%E3%81%B8%E3%81%AE%E7%A7%BB%E8%A1%8C%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fazure-ad-security-defaults%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fazure-ad-security-defaults.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fazure-ad-security-defaults.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+f72dc591-4490-588e-a595-efdd0bec45a6%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BTKPG-F8G+%E7%BD%B2%E5%90%8D%E3%82%AD%E3%83%BC%E3%81%AE%E3%83%AD%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E9%A0%BB%E5%BA%A6%E3%81%AE%E5%A4%89%E6%9B%B4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Ftkpg-f8g-changes-to-signing-key-rollover-frequency%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Ftkpg-f8g-changes-to-signing-key-rollover-frequency.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Ftkpg-f8g-changes-to-signing-key-rollover-frequency.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-security-defaults/" data-id="ckwokpnek002j0nqje85zbre9" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/tkpg-f8g-changes-to-signing-key-rollover-frequency/" data-id="ckwokpngt00760nqjd3n9glrw" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Azure &amp; Identity サポート チームの石川です。<br>今回は、Azure AD において、無料で利用できる多要素認証の機能の移行についてご紹介します。</p>
-<hr>
-<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>Azure AD の多要素認証 (MFA) を実現するために 2020 年 1 月時点ではプレビュー機能の “ベースライン ポリシー” (条件付きアクセスの [ベースライン ポリシー]) を利用することができます。<br>ベースライン ポリシーを有効にすることで、特定のディレクトリ ロールを持つユーザーに対して MFA を要求するなどのベースライン レベルのセキュリティ強化を追加の費用なしで有効にすることができます。</p>
-<p>※ベースラインポリシーの詳細はこちらでご確認ください。</p>
-<p>ベースライン ポリシーとは ?<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/concept-baseline-protection">https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/concept-baseline-protection</a></p>
-<p>しかし、ベースライン ポリシーは、[セキュリティの既定値] という新機能 (無料) に置き換えられ、2020 年 2 月 29 日に機能の削除を予定しています。<br>これにより、すべてのテナントからベースライン ポリシーが削除されます。</p>
-<p>現在、ベースライン ポリシーを有効にしているテナントでは、ポリシーが削除されることにより MFA の要求がされなくなりますので、ベースライン ポリシーを有効にしているテナントの管理者は、お早めに [セキュリティの既定値] への移行を検討する必要があります。<br>[セキュリティの既定値] の機能は以下の手順で有効に設定することができます。</p>
-<p>[セキュリティの既定値] の有効化手順:</p>
-<ol>
-<li>Azure ポータル (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com</a>) にグローバル管理者 (全体管理者) でサインインします。</li>
-<li>[その他のサービス] – [Azure Active Directory] をクリックします。</li>
-<li>[プロパティ] をクリックします。</li>
-<li>[セキュリティの既定値の管理] をクリックします。</li>
-<li>[セキュリティの既定値の有効化] を [はい] に設定します。</li>
-</ol>
-<p><img src="/blog/azure-active-directory/azure-ad-security-defaults/sample-enable.png" alt="sample enable"></p>
-<ol start="6">
-<li>[保存] をクリックします。</li>
-</ol>
-<p>[セキュリティの既定値] の詳細はこちらでご確認ください。</p>
-<p>セキュリティ デフォルトとは<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/fundamentals/concept-fundamentals-security-defaults">https://docs.microsoft.com/ja-jp/azure/active-directory/fundamentals/concept-fundamentals-security-defaults</a></p>
-<p>ベースライン ポリシーを有効にしていないテナントでは、ベースライン ポリシーが削除されても特に影響はありません。<br>ただし、有償版の条件付きアクセスの機能を利用して多要素認証をすでに設定している環境以外では、セキュリティ強化のため、[セキュリティの既定値] を有効にすることをお勧めします。</p>
-<p>なお、 Azure AD Premium ライセンスで提供される条件付きアクセスや Azure AD Identity Protection を利用した多要素認証では、[セキュリティの既定値] よりも高度かつ柔軟なセキュリティ機能をご利用いただくことができます。<br>Azure AD Premium ライセンスをまだお持ちでない方も、是非ご検討いただければと思います。</p>
-<p>Azure AD Premium の機能の一覧<br><a target="_blank" rel="noopener" href="https://azure.microsoft.com/ja-jp/pricing/details/active-directory/">https://azure.microsoft.com/ja-jp/pricing/details/active-directory/</a></p>
-<h2 id="よくあるご質問"><a href="#よくあるご質問" class="headerlink" title="よくあるご質問"></a>よくあるご質問</h2><p>ここからは、よくお問い合わせをいただくご質問について、Q&amp;A 形式でご紹介します。</p>
-<hr>
-<p>Q. ベースライン ポリシーが現在有効となっているかは、どうやって確認しますか？</p>
-<p>A. 次の手順で確認します。</p>
-<ol>
-<li>   Azure ポータル (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com</a>) にグローバル管理者でサインインします。</li>
-<li>   [その他のサービス] – [Azure Active Directory] をクリックします。</li>
-<li>   左メニューの [セキュリティ] をクリックします。</li>
-<li>   左メニューの [条件付きアクセス] をクリックします。</li>
-<li>   次のそれぞれのポリシーの状態がオンになっていれば有効です。オフの場合は無効です。</li>
-</ol>
-<p>Baseline policy: Require MFA for admins (プレビュー)<br>Baseline policy: End user protection (プレビュー)<br>Baseline policy: Block legacy authentication (プレビュー)<br>Baseline policy: Require MFA for Service Management (プレビュー)  </p>
-<hr>
-<p>Q.  [セキュリティの既定値] を有効にできない。 ([保存] をクリックできない)</p>
-<p>A. Azure AD Premium ライセンスのあるテナントで、条件付きアクセスや ID 保護ポリシーが有効になっている場合、[セキュリティの既定値] を有効にできません。<br>これらの機能は、[セキュリティの既定値] よりも高度かつ柔軟な設定が可能ですので、[セキュリティの既定値] は無効のままとして、引き続きこれらの機能をご利用ください。</p>
-<hr>
-<p>Q. [セキュリティの既定値] を有効にする際にベースライン ポリシーが削除されると表示されるが、実行しても大丈夫か。</p>
-<p>A. ベースライン ポリシーは、間もなく (2020 年 2 月 29 日) の段階で削除を予定しているプレビュー機能になります。<br>セキュリティの既定値を有効にすると、自動的にすべてのベースライン ポリシーが削除され、[セキュリティの既定値] を無効にしても、ベースライン ポリシーは復元されません。</p>
-<hr>
-<p>Q. [セキュリティの既定値] を有効にした後に、Azure にサインインをすると、[詳細情報が必要] という画面が表示される。</p>
-<p><img src="/blog/azure-active-directory/azure-ad-security-defaults/sample-securityinfo.png" alt="sample security info"></p>
-<p>A. [セキュリティの既定値] の機能により、グローバル管理者など管理者アカウントは、サインイン時に MFA が要求されるようになります。<br>また、それ以外のユーザーも Azure ポータルや Azure CLI 等の利用を試みる際に MFA が要求されます。<br>対象となるアカウント、操作については以下の情報を参照ください。</p>
-<p>セキュリティ デフォルトとは<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/fundamentals/concept-fundamentals-security-defaults">https://docs.microsoft.com/ja-jp/azure/active-directory/fundamentals/concept-fundamentals-security-defaults</a></p>
-<p>また、初回サインイン時に、MFA 認証用のモバイル アプリ (Microsoft Authenticator) のインストールとアカウントの追加の操作が必要となりますので、iOS、Android デバイスをご用意ください。</p>
-<p>Microsoft Authenticator アプリの使い方<br><a target="_blank" rel="noopener" href="https://support.microsoft.com/ja-jp/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app">https://support.microsoft.com/ja-jp/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app</a></p>
-<p>[詳細情報が必要] 画面で画面の指示に従い、Authenticator アプリにアカウントを追加することで、Azure にサインインすることができます。<br>次回以降は、パスワード認証後に、Authenticator アプリに通知が送信されるので、これに応答することで Azure にサインインすることができます。</p>
-<h2 id="参考情報-Microsoft-Authenticator-アプリによる追加の認証方式の登録手順"><a href="#参考情報-Microsoft-Authenticator-アプリによる追加の認証方式の登録手順" class="headerlink" title="(参考情報) Microsoft Authenticator アプリによる追加の認証方式の登録手順"></a>(参考情報) Microsoft Authenticator アプリによる追加の認証方式の登録手順</h2><p>手順:</p>
-<ol>
-<li>まず、事前準備として、管理者のスマートフォンに認証用のモバイル アプリをインストールしておきます。</li>
-<li>iOS、または Android、Windows Phone 上で、Microsoft Authenticator というアプリをインストールします。(アプリは無料です。)</li>
-<li>Azure ポータルにアクセスして、Azure AD 認証でユーザー名/パスワードの認証が完了すると次のような画面が表示されます。</li>
-<li>[次へ] をクリックします。</li>
-</ol>
-<p><img src="/blog/azure-active-directory/azure-ad-security-defaults/sample-securityinfo.png" alt="sample security info"></p>
-<ol start="5">
-<li>[確認のための通知を受け取る] をオンにして、[セットアップ] をクリックします。</li>
-</ol>
-<p><img src="/blog/azure-active-directory/azure-ad-security-defaults/sample-register.png" alt="sample security info"></p>
-<ol start="6">
-<li>   次のような画面が表示されるので、画面の指示にしたがって、Microsoft Authenticator アプリで QR コードをスキャンします。</li>
-<li>   [次へ] をクリックします。</li>
-</ol>
-<p><img src="/blog/azure-active-directory/azure-ad-security-defaults/sample-setup.png" alt="sample setup"></p>
-<ol start="8">
-<li>   [次へ] をクリックします。</li>
-</ol>
-<p><img src="/blog/azure-active-directory/azure-ad-security-defaults/sample-setupdone.png" alt="sample setup"></p>
-<ol start="9">
-<li>Microsoft Authenticator アプリに 「承認しますか」という画面が表示されるので、[承認] をクリックします。</li>
-<li>[完了] をクリックします。</li>
-</ol>
-<p><img src="/blog/azure-active-directory/azure-ad-security-defaults/sample-setupdone.png" alt="sample finish"></p>
-<h3 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h3><p>Microsoft Authenticator アプリや、アプリ内で追加したアカウントを削除しないでください。<br>削除した場合、MFA を完了できず、結果として Azure ポータルなどにサインインができなくなります。</p>
-<p>もし、誤って削除をしてしまった場合、テナント内の別のグローバル管理者に、対象ユーザーの認証方法のリセットを実行するように依頼します。<br>これにより、次回のサインイン時に、再度 Microsoft Authenticator アプリの設定画面が表示されます。</p>
-<p>認証方法のリセット手順:  </p>
-<ol>
-<li>Azure ポータル (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com/</a>) にサインインします。</li>
-<li>[その他のサービス] - [Azure Active Directory] - [ユーザー] で対象のユーザーを開きます。</li>
-<li>[認証方法] をクリックします。</li>
-<li>[MFA の再登録が必要] をクリックします。</li>
-</ol>
-<p>テナント内の唯一のグローバル管理者が Authenticator アプリのアカウントを削除し、サインインできない場合、自分自身では解除できないので、弊社 Azure サポート窓口にお問い合わせください。<br>可能であれば、対象テナントに別のユーザーで Azure ポータルにサインインして、サービス リクエストを発行してください。<br>また、解除までは依頼をいただいてから通常 1, 2 営業日要します。</p>
-<hr>
-<p>上記内容が少しでも皆様の参考となりますと幸いです。</p>
+        <p>2021-12-01 にサービス正常性通知の TKPG-F8G にて通知されております、「Action recommended: Azure Changes to Signing Key Rollover Frequency description: Active: Action recommended: Azure Changes to Signing Key Rollover Frequency service」について、具体的な通知の内容について解説いたします。</p>
+<blockquote>
+<p>You’re receiving this notice because you use Azure Active Directory (Azure AD).<br>At Microsoft, we want to ensure that we’re providing our customers with frequently rotated signing keys for security tokens. This announcement is a courtesy notification to Azure AD application developers that we’re making changes to the signing key rotation frequency.<br>What is the Microsoft Identity change?<br>To provide greater security for signing key rollover, there will be a gradual increase in the frequency of key rollovers starting in December until a one-week frequency is reached over the course of several months.<br>Previously, Microsoft informed customers that the Microsoft identity platform’s signing key rolls on a periodic basis and, in the case of an emergency, could be rolled over immediately. There will continue to be no set or guaranteed time between these key rolls. Any application that integrates with the Microsoft identity platform should be prepared to handle a key rollover event no matter how frequently it may occur.</p>
+<p>Am I affected by this change?<br>How your application handles key rollover depends on variables such as the type of application or what identity protocol and library was used. As such, not all Azure AD applications will be affected.<br>Please reference our documentation and follow the instructions to assess if your application will be affected. If your application will be affected, follow the guidance on how to update the application to support automatic key rollover or manually update the key to prevent impact.<br>If you have any questions or concerns, please contact us.</p>
+</blockquote>
+<h2 id="OverView"><a href="#OverView" class="headerlink" title="OverView"></a>OverView</h2><p>Azure AD では OpenID Connect などの標準技術を利用し、公開鍵基盤を利用したアプリケーション間の信頼を構成しています。具体的には Azure AD が保持する秘密鍵を利用しトークンに署名を行い、連携先のアプリケーションはメタデータとして公開されている公開鍵を利用し、署名の検証を行いトークンの有効性を確認します。</p>
+<p>メタデータとして公開されている公開鍵は、これまでもセキュリティ上の理由から定期的にロールオーバーされていました。一方でそのロールオーバーがより頻繁に行われるようになる旨を今回の通知ではご案内しております。具体的には、これまで約 6 週おきにロールオーバーされていたものが 12 月から順次更新間隔を短くし、数ヶ月かけて 1 週間の頻度に達するようにします。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/develop/active-directory-signing-key-rollover?WT.mc_id=Portal-Microsoft_Azure_Health#overview-of-signing-keys-in-the-microsoft-identity-platform">Microsoft ID プラットフォームでの署名キーのロールオーバー | Microsoft Docs</a></li>
+</ul>
+<p>通常、ライブラリがメタデータの定期的なチェックし、公開鍵の自動更新を実装していることが一般的です。しかしながら、ライブラリがメタデータの定期チェックを実装していない、あるいはメタデータの自動更新を実装していない独自アプリは、今回の変更の影響を受ける可能性があります。</p>
+<h2 id="私のアプリは影響を受けますか？"><a href="#私のアプリは影響を受けますか？" class="headerlink" title="私のアプリは影響を受けますか？"></a>私のアプリは影響を受けますか？</h2><p>本影響は貴社アプリ内にて、トークンの署名検証を行うアプリのみに影響があります。たとえば、 Web API や OpenID Connect で連携するアプリを開発している場合に影響を受ける可能性がございます。トークンの署名検証を行うアプリであっても、弊社の標準ライブラリなどでメタデータを定期的に更新するよう実装されている場合には影響を受けません。またこれまでもメタデータの公開鍵は、約 6 週間おきにロールオーバーされておりましたので、すでに 6 週間以上動作しているアプリは問題ないと判断いただけるものと存じます。</p>
+<p>メタデータを利用した署名の検証をしているかは、Azure ポータル上で確認することはできず、アプリの実装観点での確認が必要です。上記公開情報に<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/develop/active-directory-signing-key-rollover?WT.mc_id=Portal-Microsoft_Azure_Health#how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it">一般的な実装パターンごとに確認方法と対処方法</a>をおまとめしておりますので、こちらをご確認ください。</p>
+<h2 id="よくある質問"><a href="#よくある質問" class="headerlink" title="よくある質問"></a>よくある質問</h2><p>以下に、よくある質問をおまとめします。</p>
+<h3 id="az-login-などでサービス-プリンシパルを利用した認証を実施していますが影響を受けますか"><a href="#az-login-などでサービス-プリンシパルを利用した認証を実施していますが影響を受けますか" class="headerlink" title="az login などでサービス プリンシパルを利用した認証を実施していますが影響を受けますか"></a>az login などでサービス プリンシパルを利用した認証を実施していますが影響を受けますか</h3><p>いいえ、az login などクライアントではトークンの検証を行いませんので影響を受けません。</p>
+<h3 id="エンタープライズ-アプリケーションでシングル-サインオン設定をしている-SAML-アプリには影響がありますか"><a href="#エンタープライズ-アプリケーションでシングル-サインオン設定をしている-SAML-アプリには影響がありますか" class="headerlink" title="エンタープライズ アプリケーションでシングル サインオン設定をしている SAML アプリには影響がありますか"></a>エンタープライズ アプリケーションでシングル サインオン設定をしている SAML アプリには影響がありますか</h3><p>いいえ、エンタープライズ アプリケーションのシングル サインオン設定にて、トークン署名証明書を生成している SAML アプリは、今回のロールオーバーの影響を受けません。個別の SAML アプリのトークン署名用証明書は引き続きお客さまにて管理いただけます。</p>
+<h3 id="OpenID-Connect-で連携している-SaaS-アプリに影響はありますか"><a href="#OpenID-Connect-で連携している-SaaS-アプリに影響はありますか" class="headerlink" title="OpenID Connect で連携している SaaS アプリに影響はありますか"></a>OpenID Connect で連携している SaaS アプリに影響はありますか</h3><p>はい、OpenID Connect で連携している SaaS アプリが ID トークンの検証をしている場合、今回の影響を受ける可能性があります。ただ、通常は SaaS アプリベンダーにて対処が実施されるかと存じますので、ご不安な場合には各アプリベンダーまでご確認ください。</p>
+<h3 id="Azure-AD-アプリケーション-プロキシで公開されたアプリは影響を受けますか"><a href="#Azure-AD-アプリケーション-プロキシで公開されたアプリは影響を受けますか" class="headerlink" title="Azure AD アプリケーション プロキシで公開されたアプリは影響を受けますか"></a>Azure AD アプリケーション プロキシで公開されたアプリは影響を受けますか</h3><p>公開されたアプリが OpenID Connect で Azure AD と連携しており、アプリ側でトークンの検証を実装している場合は対処が必要です。Azure AD アプリケーション プロキシの事前認証のみで認証を実施している場合、お客様での対処は不要です。</p>
 
       
       
@@ -216,10 +139,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Security/" rel="tag">Security</a></li></ul>
 
         
-        <a href="https://github.com/jpazureid/blog/edit/main/articles/azure-active-directory/azure-ad-security-defaults.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpazureid/blog/edit/main/articles/azure-active-directory/tkpg-f8g-changes-to-signing-key-rollover-frequency.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -227,19 +150,10 @@
     
 <nav id="article-nav">
   
-    <a href="../troubleshoot-hybrid-azure-ad-join-managed/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          Hybrid Azure AD Join 失敗時の初動調査方法について (マネージド編)
-        
-      </div>
-    </a>
   
-  
-    <a href="../azure-ad-ds-scenario/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../introducing-authentication-context/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Azure AD Domain Services の利用シナリオ</div>
+      <div class="article-nav-title">条件付きアクセスの認証コンテキストを触ってみた</div>
     </a>
   
 </nav>
@@ -258,7 +172,7 @@
       <ul>
         
           <li>
-            <a href="../tkpg-f8g-changes-to-signing-key-rollover-frequency/">TKPG-F8G 署名キーのロールオーバー頻度の変更について</a>
+            <a href="">TKPG-F8G 署名キーのロールオーバー頻度の変更について</a>
           </li>
         
           <li>
