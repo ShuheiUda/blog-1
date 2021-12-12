@@ -14,8 +14,8 @@
 <meta property="og:description" content="Note2021 年 12 月 11 日更新: 以前のサインイン エクスペリエンスの内容を削除し、条件付きアクセスにて提供されている永続的なブラウザー セッションについて追記しました。 こんにちは、Azure ID サポートチームの高田です。 本日は、Azure AD のサインイン画面の変更とそれに伴うフェデレーション環境への影響についておまとめしました。 Azure AD にサインインする際の「">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpazureid.github.io/blog/active-directory-federation-service/kmsi-not-shown-wia/new-signin-page-kmsi.png">
-<meta property="article:published_time" content="2017-12-13T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-11T17:02:44.258Z">
+<meta property="article:published_time" content="2021-12-10T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-12T18:15:34.244Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="AD FS">
 <meta property="article:tag" content="Azure AD">
@@ -99,13 +99,13 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2017-12-13T15:00:00.000Z" itemprop="datePublished">2017-12-14</time>
+  <time datetime="2021-12-10T15:00:00.000Z" itemprop="datePublished">2021-12-11</time>
 </a>
         
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+8683fcd5-edec-53e0-8fef-637dea1044f8%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%95%E3%82%A7%E3%83%87%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%92%B0%E5%A2%83+%28Windows+%E7%B5%B1%E5%90%88%E8%AA%8D%E8%A8%BC%29+%E3%81%A7+%5B%E3%82%B5%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%81%AE%E7%8A%B6%E6%85%8B%E3%82%92%E7%B6%AD%E6%8C%81%E3%81%97%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F%5D+%E3%81%AE%E7%94%BB%E9%9D%A2%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Factive-directory-federation-service%2Fkmsi-not-shown-wia%2F%29%0A*+Content+Source%3A+%5Barticles%2Factive-directory-federation-service%2Fkmsi-not-shown-wia.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Factive-directory-federation-service%2Fkmsi-not-shown-wia.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/active-directory-federation-service/kmsi-not-shown-wia/" data-id="ckx22gsl4000h0nmr8qbi7zhc" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/active-directory-federation-service/kmsi-not-shown-wia/" data-id="ckx3kiaar000h0olt7pbmbh45" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -203,19 +203,10 @@
     
 <nav id="article-nav">
   
-    <a href="../../azure-active-directory/access-restriction-azure-portal/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          Azure ポータルへのアクセス制限
-        
-      </div>
-    </a>
   
-  
-    <a href="../../azure-active-directory-connect/azure-ad-connect-mc125948/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../azure-active-directory/more-coverage-to-protect-your-identities/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Azure AD Connect サービスアカウントに関するセキュリティ アドバイザリについて (MC125948)</div>
+      <div class="article-nav-title">ID の保護をより広範囲に</div>
     </a>
   
 </nav>
@@ -234,6 +225,10 @@
       <ul>
         
           <li>
+            <a href="">フェデレーション環境 (Windows 統合認証) で [サインインの状態を維持しますか？] の画面が表示されない</a>
+          </li>
+        
+          <li>
             <a href="../../azure-active-directory/more-coverage-to-protect-your-identities/">ID の保護をより広範囲に</a>
           </li>
         
@@ -247,10 +242,6 @@
         
           <li>
             <a href="../../azure-active-directory/introducing-authentication-context/">条件付きアクセスの認証コンテキストを触ってみた</a>
-          </li>
-        
-          <li>
-            <a href="../../azure-active-directory/act-fast-by-moving-to-tls-1-2/">TLS 1.2 へ移行して基盤環境のセキュリティ確保を</a>
           </li>
         
       </ul>
