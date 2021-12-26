@@ -13,19 +13,19 @@
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
 <meta property="og:description" content="こんにちは、 Azure ID チームの小出です。 本記事は、2021 年 12 月 1 日に米国の Azure Active Directory Identity Blog で公開された Introducing Azure AD custom security attributes を意訳したものになります。ご不明点などございましたら、サポート チームまでお問い合わせください。  今回の Mic">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/introducing-azuread-custom-security-attibutes/1_addattribute.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/introducing-azuread-custom-security-attibutes/2_assignment.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/introducing-azuread-custom-security-attibutes/3_filtering.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/introducing-azuread-custom-security-attibutes/4_xia.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/introducing-azuread-custom-security-attibutes/5_abac.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/introducing-azuread-custom-security-attibutes/6_roleassignmentcondition.png">
-<meta property="article:published_time" content="2021-12-26T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-12-25T23:47:05.088Z">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/1_addattribute.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/2_assignment.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/3_filtering.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/4_xia.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/5_abac.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/6_roleassignmentcondition.png">
+<meta property="article:published_time" content="2021-12-26T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-26T00:19:06.685Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="US Identity Blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/introducing-azuread-custom-security-attibutes/1_addattribute.png">
+<meta name="twitter:image" content="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/1_addattribute.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Azure Identity Support Blog" type="application/atom+xml">
   
@@ -104,13 +104,13 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2021-12-26T15:00:00.000Z" itemprop="datePublished">2021-12-27</time>
+  <time datetime="2021-12-26T00:00:00.000Z" itemprop="datePublished">2021-12-26</time>
 </a>
         
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+2a867489-8534-56fa-9258-fc58df52dc6e%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BAzure+AD+%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%A0+%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E5%B1%9E%E6%80%A7%E3%81%AE%E7%B4%B9%E4%BB%8B%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fintroducing-azuread-custom-security-attributes%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fintroducing-azuread-custom-security-attributes.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fintroducing-azuread-custom-security-attributes.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/" data-id="ckxmh2sh600500np7d2wy5n1c" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/introducing-azuread-custom-security-attributes/" data-id="ckxmi7w4400500op7djnsbbyk" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -127,11 +127,11 @@
 </ul>
 <p>ここでは、どのように属性を管理し、Azure ADオブジェクトをフィルタリングすればよいか、Azure でアクセス制御を拡張する方法を簡単に見てみましょう。</p>
 <h2 id="ステップ-1-Azure-AD-での属性の定義"><a href="#ステップ-1-Azure-AD-での属性の定義" class="headerlink" title="ステップ 1: Azure AD での属性の定義"></a>ステップ 1: Azure AD での属性の定義</h2><p>最初のステップは、関連する属性の集まりである “属性セット” を作成することです。たとえば、マーケティング部門に関連する属性を参照したい場合は、「marketing」という名前の属性セットを作成することができます。次に、属性セット内の属性と、属性セットの特徴を定義します。たとえば、属性にはあらかじめ定義された値しか使用できないことや、属性に割り当てられる値は 1 つか、もしくは複数かなどを指定します。この例では、プロジェクト属性に3つの値 (Cascade、Baker、Skagit) があり、ユーザーには 3 つの値のうち 1 つしか割り当てられません。下の図は、上記の例を示しています。</p>
-<p><img src="./introducing-azuread-custom-security-attibutes/1_addattribute.png"></p>
+<p><img src="/blog/azure-active-directory/introducing-azuread-custom-security-attributes/1_addattribute.png"></p>
 <h2 id="ステップ-2-ユーザーまたはエンタープライズ-アプリケーションへの属性の割り当て"><a href="#ステップ-2-ユーザーまたはエンタープライズ-アプリケーションへの属性の割り当て" class="headerlink" title="ステップ 2: ユーザーまたはエンタープライズ アプリケーションへの属性の割り当て"></a>ステップ 2: ユーザーまたはエンタープライズ アプリケーションへの属性の割り当て</h2><p>属性が定義されると、ユーザー、エンタープライズ アプリケーション、およびマネージド ID に割り当てることができます。</p>
-<p><img src="./introducing-azuread-custom-security-attibutes/2_assignment.png"></p>
+<p><img src="/blog/azure-active-directory/introducing-azuread-custom-security-attributes/2_assignment.png"></p>
 <p>属性を割り当てると、属性を使ってユーザーやアプリケーションをフィルタリングできます。たとえば、秘密度レベルが「高」のすべてのエンタープライズ アプリケーションを確認することができます。</p>
-<p><img src="./introducing-azuread-custom-security-attibutes/3_filtering.png"></p>
+<p><img src="/blog/azure-active-directory/introducing-azuread-custom-security-attributes/3_filtering.png"></p>
 <h2 id="ステップ-3-属性管理の委任"><a href="#ステップ-3-属性管理の委任" class="headerlink" title="ステップ 3: 属性管理の委任"></a>ステップ 3: 属性管理の委任</h2><p>属性を管理するために利用できる Azure AD の組み込みロールは 4 つあります。</p>
 <table>
 <thead>
@@ -194,7 +194,7 @@
 </tr>
 </tbody></table>
 <p>既定ではグローバル管理者とグローバル閲覧者は、属性を作成、読み取り、または更新することができません。グローバル管理者または特権ロール管理者は、属性を管理するために、属性管理ロールを他のユーザーまたは自身に割り当てる必要があります。これら 4 つのロールは、テナントまたは属性セットのスコープで割り当てることができます。テナント スコープで役割を割り当てると、すべての属性セットの管理を委任することができます。属性セットのスコープで役割を割り当てると、特定の属性セットの管理を委任することができます。例を挙げて説明します。</p>
-<p><img src="./introducing-azuread-custom-security-attibutes/4_xia.png"></p>
+<p><img src="/blog/azure-active-directory/introducing-azuread-custom-security-attributes/4_xia.png"></p>
 <ol>
 <li>Xia は特権ロール管理者です。そのため、Xia はテナント レベルで属性定義管理者ロールを自身に割り当てます。これにより、彼女は属性セットを作成することができます。</li>
 <li>エンジニアリング部門では、Alice が属性の定義を担当し、Chandra が属性の割り当てを担当しています。Xia はエンジニアリング属性セットを作成し、Alice には属性定義管理者ロールを、Chandra にはエンジニアリング属性セット スコープの属性割り当て管理者ロールを割り当て、Alice と Chandra が必要最小限の権限を持つようにします。</li>
@@ -202,9 +202,9 @@
 </ol>
 <h2 id="ステップ-4-少ない-Azure-ロール割り当てできめ細かなアクセス制御を実現する"><a href="#ステップ-4-少ない-Azure-ロール割り当てできめ細かなアクセス制御を実現する" class="headerlink" title="ステップ 4: 少ない Azure ロール割り当てできめ細かなアクセス制御を実現する"></a>ステップ 4: 少ない Azure ロール割り当てできめ細かなアクセス制御を実現する</h2><p>前回のブログ記事 <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-attribute-based-access-control-abac-in-azure/ba-p/2147069">Azure ロール割り当てでの ABAC 条件</a> で紹介した架空の例をもとに考えてみましょう。 Bob は、照明や家電など何千ものカテゴリの商品を販売するホームセンター チェーンである Contoso 株式会社営業チームの Azure サブスクリプション所有者です。これらのカテゴリの日次売上レポートは、その日 (たとえば 2021-03-24) の Azure ストレージ コンテナに保存されており、中央の財務チームのメンバーは、より簡単にレポートにアクセスできます。Charlie は照明カテゴリのセールス マネージャーで、照明カテゴリの売上レポートをどのストレージコンテナでも読めるようにする必要がありますが、他のカテゴリーのレポートを読むことはできません。</p>
 <p>リソース属性（例えば、blob インデックス タグ）だけでは、Bob は Charlie のロール割り当てを 1 つ作成し、blob インデックス タグが「category = lighting」となっている blob への読み取りアクセスを制限する条件を追加する必要があります。Bob は Charlie のようなユーザーの数だけ、多くのロール割り当てを作成する必要があります。リソース属性と併用してユーザー属性を使用すると、Bob は Azure AD グループ内のすべてのユーザーを対象とした 1 つのロール割り当てを作成し、”ユーザーの category 属性値が blob の category タグ値と一致する” ように要求する ABAC 条件を追加することができます。Azure AD 管理者の Xia は、「contosocentralfinance」という属性セットを作成し、Bob に属性セットの Azure AD 属性定義管理者と属性割り当て管理者のロールを割り当て、Bob が自分の仕事をするのに最低限必要な権限を与えます。以下の図は、このシナリオを示しています。</p>
-<p><img src="./introducing-azuread-custom-security-attibutes/5_abac.png"></p>
+<p><img src="/blog/azure-active-directory/introducing-azuread-custom-security-attributes/5_abac.png"></p>
 <p>Bob は、ユーザー属性とリソース属性を使って、ABAC 条件ビルダーで次のような条件を書きます。</p>
-<p><img src="./introducing-azuread-custom-security-attibutes/6_roleassignmentcondition.png"></p>
+<p><img src="/blog/azure-active-directory/introducing-azuread-custom-security-attributes/6_roleassignmentcondition.png"></p>
 <p>まとめると、ユーザー属性、リソース属性、ABAC 条件を使えば、わずか 1 つのロール割り当てで、何百万もの Azure ストレージ Blob へのアクセスを管理することができるのです。  </p>
 <h2 id="監査とツール"><a href="#監査とツール" class="headerlink" title="監査とツール"></a>監査とツール</h2><p>属性には機密情報が含まれ、アクセスを許可または拒否することができるため、属性の定義、割り当て、および割り当て解除に関するアクティビティは Azure AD 監査ログに記録されます。属性に関連するタスクの管理と自動化には、ポータルに加えて、PowerShell や Microsoft Graph API を使用できます。Azure CLI、PowerShell、または Azure Resource Manager テンプレートと Azure REST API を使用して、Azure ロール割り当ての ABAC 条件を管理することもできます。</p>
 <h2 id="リソース"><a href="#リソース" class="headerlink" title="リソース"></a>リソース</h2><p>始めやすいように、条件のサンプルを含むいくつかの <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/storage/common/storage-auth-abac-examples?toc=/azure/role-based-access-control/toc.json">例</a> を用意しています。Contoso 株式会社の <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/role-based-access-control/conditions-custom-security-attributes-example">例</a> では、ABAC 条件を使用して Azure ストレージ Blob に関するシナリオのアクセス制御をどのように拡張できるかを案内しています。また、Azure AD のドキュメント、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/fundamentals/custom-security-attributes-manage">How-to</a>、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/fundamentals/custom-security-attributes-troubleshoot">トラブルシューティング</a> のガイドも利用できます。</p>
@@ -233,10 +233,19 @@
     
 <nav id="article-nav">
   
+    <a href="../end-of-support-for-azure-ad-graph-permission-sign-up-through/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Azure ポータル UX における Azure AD Graph 権限のサインアップのサポート終了
+        
+      </div>
+    </a>
   
-    <a href="../end-of-support-for-azure-ad-graph-permission-sign-up-through/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="../more-control-and-better-insights-for-your-zero-trust-deployments/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Azure ポータル UX における Azure AD Graph 権限のサインアップのサポート終了</div>
+      <div class="article-nav-title">ゼロ トラスト展開のためのよりよいコントロールとインサイト</div>
     </a>
   
 </nav>
@@ -255,11 +264,11 @@
       <ul>
         
           <li>
-            <a href="">Azure AD カスタム セキュリティ属性の紹介</a>
+            <a href="../end-of-support-for-azure-ad-graph-permission-sign-up-through/">Azure ポータル UX における Azure AD Graph 権限のサインアップのサポート終了</a>
           </li>
         
           <li>
-            <a href="../end-of-support-for-azure-ad-graph-permission-sign-up-through/">Azure ポータル UX における Azure AD Graph 権限のサインアップのサポート終了</a>
+            <a href="">Azure AD カスタム セキュリティ属性の紹介</a>
           </li>
         
           <li>
