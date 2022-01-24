@@ -4,24 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>ゼロ トラスト ソリューション提供パートナーを支援する統合ガイダンスのご紹介 | Japan Azure Identity Support Blog</title>
+  <title>アプリでゼロ トラスト対応を実現する 2 - 最小限の特権で設計する | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Azure Identity サポート チームの 村上 です。 本記事は、2021 年 10 月 6 日に米国の Azure Active Directory Identity Blog で公開された Integration guidance helps partners deliver Zero Trust solutions を意訳したものになります。ご不明点等ございましたらサポー">
+  <meta name="description" content="こんにちは、Azure Identity サポート チームの竜です。 本記事は、2022 年 1 月 18 日に米国の Azure Active Directory Identity Blog で公開された Achieving Zero Trust readiness in your apps #2: Designing for Least Privilege を意訳したものになります。  こんに">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ゼロ トラスト ソリューション提供パートナーを支援する統合ガイダンスのご紹介">
-<meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/integration-guidance-helps-partners-deliver-zero-trust-solutions/index.html">
+<meta property="og:title" content="アプリでゼロ トラスト対応を実現する 2 - 最小限の特権で設計する">
+<meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/achieving-zero-trust-readiness-in-your-apps-2-designing-for-least-privilege/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="こんにちは、Azure Identity サポート チームの 村上 です。 本記事は、2021 年 10 月 6 日に米国の Azure Active Directory Identity Blog で公開された Integration guidance helps partners deliver Zero Trust solutions を意訳したものになります。ご不明点等ございましたらサポー">
+<meta property="og:description" content="こんにちは、Azure Identity サポート チームの竜です。 本記事は、2022 年 1 月 18 日に米国の Azure Active Directory Identity Blog で公開された Achieving Zero Trust readiness in your apps #2: Designing for Least Privilege を意訳したものになります。  こんに">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/integration-guidance-helps-partners-deliver-zero-trust-solutions/F5.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/integration-guidance-helps-partners-deliver-zero-trust-solutions/Yubico.png">
-<meta property="article:published_time" content="2021-10-10T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-01-24T01:34:12.310Z">
+<meta property="article:published_time" content="2022-01-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-01-24T01:34:12.154Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="US Identity Blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpazureid.github.io/blog/azure-active-directory/integration-guidance-helps-partners-deliver-zero-trust-solutions/F5.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Azure Identity Support Blog" type="application/atom+xml">
   
@@ -83,7 +80,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-azure-active-directory/integration-guidance-helps-partners-deliver-zero-trust-solutions" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-azure-active-directory/achieving-zero-trust-readiness-in-your-apps-2-designing-for-least-privilege" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -92,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ゼロ トラスト ソリューション提供パートナーを支援する統合ガイダンスのご紹介
+      アプリでゼロ トラスト対応を実現する 2 - 最小限の特権で設計する
     </h1>
   
 
@@ -100,39 +97,45 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2021-10-10T00:00:00.000Z" itemprop="datePublished">2021-10-10</time>
+  <time datetime="2022-01-24T00:00:00.000Z" itemprop="datePublished">2022-01-24</time>
 </a>
         
         
-        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+21918ed7-30f9-5b9a-ba04-181f4c3a0bce%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%BC%E3%83%AD+%E3%83%88%E3%83%A9%E3%82%B9%E3%83%88+%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E6%8F%90%E4%BE%9B%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC%E3%82%92%E6%94%AF%E6%8F%B4%E3%81%99%E3%82%8B%E7%B5%B1%E5%90%88%E3%82%AC%E3%82%A4%E3%83%80%E3%83%B3%E3%82%B9%E3%81%AE%E3%81%94%E7%B4%B9%E4%BB%8B%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fintegration-guidance-helps-partners-deliver-zero-trust-solutions%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fintegration-guidance-helps-partners-deliver-zero-trust-solutions.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fintegration-guidance-helps-partners-deliver-zero-trust-solutions.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+0de21fd1-8e6d-5ecc-8672-0d16af0ae984%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A7%E3%82%BC%E3%83%AD+%E3%83%88%E3%83%A9%E3%82%B9%E3%83%88%E5%AF%BE%E5%BF%9C%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B+2+-+%E6%9C%80%E5%B0%8F%E9%99%90%E3%81%AE%E7%89%B9%E6%A8%A9%E3%81%A7%E8%A8%AD%E8%A8%88%E3%81%99%E3%82%8B%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fachieving-zero-trust-readiness-in-your-apps-2-designing-for-least-privilege%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fachieving-zero-trust-readiness-in-your-apps-2-designing-for-least-privilege.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fachieving-zero-trust-readiness-in-your-apps-2-designing-for-least-privilege.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/integration-guidance-helps-partners-deliver-zero-trust-solutions/" data-id="ckys0o4tm00530mn142d73xn5" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/achieving-zero-trust-readiness-in-your-apps-2-designing-for-least-privilege/" data-id="ckys0o4s7001r0mn16iev612t" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、Azure Identity サポート チームの 村上 です。</p>
-<p>本記事は、2021 年 10 月 6 日に米国の Azure Active Directory Identity Blog で公開された <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/integration-guidance-helps-partners-deliver-zero-trust-solutions/ba-p/2810650">Integration guidance helps partners deliver Zero Trust solutions</a> を意訳したものになります。ご不明点等ございましたらサポート チームまでお問い合わせください。</p>
+        <p>こんにちは、Azure Identity サポート チームの竜です。</p>
+<p>本記事は、2022 年 1 月 18 日に米国の Azure Active Directory Identity Blog で公開された <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/achieving-zero-trust-readiness-in-your-apps-2-designing-for/ba-p/2959986">Achieving Zero Trust readiness in your apps #2: Designing for Least Privilege</a> を意訳したものになります。</p>
 <hr>
-<p>優れた製品を作るにはお客様のニーズに耳を傾けることが大切です。弊社では、お客様よりゼロ トラストの導入がこれまで以上に重要であるという強い声をいただいております。2021 年の <a target="_blank" rel="noopener" href="https://www.microsoft.com/security/blog/2021/07/28/zero-trust-adoption-report-how-does-your-organization-compare/">ゼロ トラスト導入レポート</a> より、セキュリティの意思決定者の 96% が、企業の成功にはゼロ トラストが不可欠であると述べており、76% の企業が少なくともゼロ トラスト戦略の導入を開始していることがわかっています。今後 2、3 年の間、ゼロ トラスト戦略はセキュリティの最優先事項であり続けると予想され、企業はそれに対する投資を増やすと考えられています。</p>
-<p>ゼロ トラストの導入は米国政府でも加速しています。2021 年 5 月、ホワイト ハウスはゼロ トラスト アーキテクチャへの移行を含む、国のサイバー セキュリティの改善を求める <a target="_blank" rel="noopener" href="https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/">大統領令</a> に署名しました。直近では、アメリカ合衆国行政管理予算局 (Office of Management and Budget) が、2024 年 までに達成すべき主要な目標として、ゼロ トラスト アーキテクチャに向けた <a target="_blank" rel="noopener" href="https://www.whitehouse.gov/omb/briefing-room/2021/09/07/office-of-management-and-budget-releases-draft-federal-strategy-for-moving-the-u-s-government-towards-a-zero-trust-architecture/">連邦戦略のドラフト</a> を発表しました。マイクロソフトは <a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/federal/CyberEO.aspx">大統領令の目標を達成するための顧客ガイダンスとリソース</a> を公開しています。</p>
-<p>お客様がエンド ツー エンド (end-to-end) でゼロ トラストのセキュリティ体制を目指すなか、このような政府や業界の要請は、お客様へのサポートを強化する上でマイクロソフトとパートナーにとって大きな機会となります。マイクロソフトではお客様が最も包括的なセキュリティ ソリューションを容易に導入できるよう、独立系ソフトウェア ベンダーなどのパートナーとの連携に努めています。私たちは、お客様がゼロ トラストという目標に到達するために様々な道筋を経る必要があること、そしてすでに複数のセキュリティ ソリューションをお持ちであることを認識しています。私たちが協力し、お客様のニーズに応えることで、企業や国家をより強固に守ることができるのです。</p>
-<p>パートナーの統合とゼロ トラストへの対応をサポートするために、ゼロ トラスト ガイダンス センターにおいて <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/security/zero-trust/integrate/overview">パートナー統合ガイダンス</a> を公開しました。このガイダンスはゼロ トラストの基本概念に沿って構成されており、さまざまな製品やパートナーとの統合を支援するものです。以下にその例を示します。</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/security/zero-trust/integrate/identity">貴社のソリューションを Azure Active Directory と統合</a> することで、リスク シグナルを共有し、顧客の信頼を高めると共に高度なソリューション シナリオをサポートします。</li>
-<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/security/zero-trust/integrate/endpoints#microsoft-endpoint-manager">Microsoft Endpoint Manager</a> API を使用して、従業員が使用しているデバイスのコンプライアンスを確保します。</li>
-<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/security/zero-trust/integrate/visibility-automation-orchestration">Azure Sentinel との統合</a> により、顧客がよりデジタル資産全体を俯瞰できるよう強化します。</li>
-</ul>
-<p>セキュリティ ソリューションにゼロ トラスト アプローチを取り入れている企業を非常に嬉しく思います。以下にこれら企業の例として、ISV パートナーである F5 と Yubico が、ゼロ トラスト ガイダンス センターのパートナー統合ガイダンスをどのように活用したかご紹介します。</p>
-<h2 id="F5-とマイクロソフトがマルウェアからダーラム郡-ノース-カロライナ州-を救う"><a href="#F5-とマイクロソフトがマルウェアからダーラム郡-ノース-カロライナ州-を救う" class="headerlink" title="F5 とマイクロソフトがマルウェアからダーラム郡 (ノース カロライナ州) を救う"></a>F5 とマイクロソフトがマルウェアからダーラム郡 (ノース カロライナ州) を救う</h2><p><img src="/blog/azure-active-directory/integration-guidance-helps-partners-deliver-zero-trust-solutions/F5.png"></p>
-<p>多くの企業では、SAML や OIDC などの最新の認証プロトコルが採用される前に開発された基幹業務アプリケーションに依存しています。これは、ユーザを認証するために複数の方法を管理しなければならないことを意味し、結果としてユーザー体験を複雑にし、さらにコストも増加させます。<a target="_blank" rel="noopener" href="https://www.f5.com/products/security/access-policy-manager">BIG-IP Access Policy Manager (APM)</a> は、アプリケーション、API、データへのアクセスを一元化する F5 のアクセス管理プロキシ ソリューションです。BIG-IP APM を Microsoft Azure AD と統合することで、BIG-IP APM のユーザー インターフェイスへの <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/overview">条件付きアクセス</a> を実現できます。</p>
-<p>ダーラム郡 (アメリカ合衆国ノース カロライナ州に位置する郡) は昨年、深刻なサイバー セキュリティ事件をきっかけに、<a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/durham-county-enhances-security-across-a-hybrid-environment-with/ba-p/1633530">Azure AD と F5 BIG-IP APM を用いて、ハイブリッド環境のセキュリティを強化</a> しました。F5 BIG-IP APM により、従業員は従来のレガシーなオンプレミスのアプリにアクセスするために必要な統合ソリューションを得ることができました。F5 は Azure AD を使用して、すべてのアプリにセキュリティ制御を適用するとともに多要素認証を強制し、従業員のログイン場所などの状況に順応したポリシーを適用しています。さらに、このソリューションを利用したセルフ サービスのパスワード リセットにより、パスワードに関するヘルプデスクへの問い合わせが 80% 減少しました。</p>
-<p>【動画】 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=jokwi85vVTA">F5 and Microsoft Rescue a County From Malware</a></p>
-<h2 id="ヌナブト州政府、ランサムウェア攻撃を受けて-Yubico-と-Microsoft-にフィッシング対策を依頼"><a href="#ヌナブト州政府、ランサムウェア攻撃を受けて-Yubico-と-Microsoft-にフィッシング対策を依頼" class="headerlink" title="ヌナブト州政府、ランサムウェア攻撃を受けて Yubico と Microsoft にフィッシング対策を依頼"></a>ヌナブト州政府、ランサムウェア攻撃を受けて Yubico と Microsoft にフィッシング対策を依頼</h2><p><img src="/blog/azure-active-directory/integration-guidance-helps-partners-deliver-zero-trust-solutions/Yubico.png"></p>
-<p>2019 年、カナダのヌナブト州政府はスピア フィッシング攻撃を受け、同州の重要な IT リソースがダウンした状態となりました。この攻撃を受け、ID とアプリケーションの保護が同州の最優先課題となりました。</p>
-<p>Azure AD と YubiKey が共同してヌナブト州政府のセキュリティをアップグレードし、独自のニーズに合ったソリューションを提供することができました。同州政府は、フィッシングに強い認証ソリューションを導入したいと考えていました。また、政府機関ではさまざまな Windows ベースのシステムを使用していましたが、それらは遠隔地にあるため、アクセスする際のネットワークが安定していませんでした。これらの課題に対応するために、ネットワーク、電源、クライアント ソフトウェアを必要とせずに、多要素認証に使用できるハードウェア デバイスである YubiKeys を採用しました。詳しくは <a target="_blank" rel="noopener" href="https://www.yubico.com/resources/reference-customers/government-of-nunavut/">Yubico の記事</a> と以下の動画をご覧ください。</p>
-<p>【動画】 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=BmdlVrepPhg">The Government of Nunavut turns to phishing-resistant YubiKeys after ransomware attack</a></p>
-<h2 id="より詳細について"><a href="#より詳細について" class="headerlink" title="より詳細について"></a>より詳細について</h2><p>私たちは、パートナーの皆様がゼロ トラストの原則を用いて、重要なサイバーセキュリティ ソリューションをお客様に提供していることを非常に誇りに思っています。ゼロ トラストへの対応については、新しく発行された <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/security/zero-trust/integrate/overview">パートナー統合ガイダンス</a> をご覧ください。</p>
+<p>こんにちは、Jeff Sakowicz です。Microsoft Identity チームで、Application Platform Security の Principal Program Management Lead をしています。私たちのチームの目標は、安全で信頼性が高く、発展的なアプリのエコシステムを作っていくことです。この目標を達成する一環として、アプリがゼロ トラストのセキュリティ モデルをサポートできるようにすることがあげられます。</p>
+<p>前回に続き、今回は「なぜ開発者にとってゼロ トラストが重要なのか」についての二つ目の記事となります。<a href="https://jpazureid.github.io/blog/azure-active-directory/Achieving-ZeroTrust-readiness-in-your-apps1-Why-it-matters/">前回</a> は、<a target="_blank" rel="noopener" href="https://www.microsoft.com/ja-jp/security/business/zero-trust?rtc=1">ゼロ トラスト</a> の原則およびゼロ トラストが ID とアクセス管理にどのように適用されるかをご紹介しました。今回は、Microsoft の ID プラットフォームにおいて、「<strong>最小限の特権アクセスの原則</strong>を使用してアプリケーションを設計する方法」についてご説明します。</p>
+<h2 id="なぜ最小特権アクセスの使用にこだわる必要があるのでしょうか？"><a href="#なぜ最小特権アクセスの使用にこだわる必要があるのでしょうか？" class="headerlink" title="なぜ最小特権アクセスの使用にこだわる必要があるのでしょうか？"></a>なぜ最小特権アクセスの使用にこだわる必要があるのでしょうか？</h2><p>端的に言うと、アプリケーションの許可を制限することで、攻撃された場合に影響を受ける範囲を減らし、アプリを利用する顧客を増やすことができるからます。実際のところ、IT 管理者はアプリから要求される権限を確認する際やアプリに権限を付与するかどうかを決定する際に、以前より厳しく精査を行うようになっています。たくさんの権限を要求するアプリを作成した場合、アプリが承認される可能性が低くなり、時にはアプリの利用が完全に拒否される場合もあります。</p>
+<h2 id="過剰な特権とは何でしょうか？過剰な特権が与えられているアプリとはどんなものでしょうか？"><a href="#過剰な特権とは何でしょうか？過剰な特権が与えられているアプリとはどんなものでしょうか？" class="headerlink" title="過剰な特権とは何でしょうか？過剰な特権が与えられているアプリとはどんなものでしょうか？"></a>過剰な特権とは何でしょうか？過剰な特権が与えられているアプリとはどんなものでしょうか？</h2><p>ある主体が必要以上の特権を要求し、場合によってはそのアクセス許可が付与されることを、私たちは「過剰な特権」と呼んでいます。この記事では、Microsoft Graph API を呼び出すクライアント アプリのシナリオを例に、Microsoft ID プラットフォーム上で使用される OAuth 2.0 のアクセス許可において「過剰な権限が与えられているアプリ」に特に着目して説明します。この記事に記載されている原則は、他のアクセス許可のモデルや API にも適用可能なため、より詳細については今後の記事でも説明していく予定です。</p>
+<p>過剰な特権は、アプリが「<strong>未使用の</strong>」または「<strong>削減可能な</strong>」アクセス許可を要求し、そのアクセス許可を付与された場合に発生します。</p>
+<ol>
+<li>「<strong>未使用のアクセス許可</strong>」とは、目的の作業には全く必要のないアクセス許可を指します。例えば、カレンダー アプリが、”Files.ReadWrite.All” アクセス許可を取得しているにもかかわらず、Files API を利用していない場合は、<strong>未使用の</strong>アクセス許可が存在することになります。</li>
+<li>「<strong>削減可能なアクセス許可</strong>」とは、必要な作業を実行するためのアクセスを満たす、より低い特権を持つアクセス許可を指します。例えば、サインインしたユーザーの OneDrive からファイルを読み込む必要があるが、新しいファイルの作成や既存のファイルの変更は必要としないアプリを考えてみましょう。このアプリが “Files.ReadWrite.All” アクセス許可を要求し付与された場合は、アプリは削減可能なアクセス許可を持つことになります。このアプリは 、”Files.ReadWrite.All” ではなく、”Files.Read.All” を要求することが適切です。</li>
+</ol>
+<h2 id="過剰な特権が付与されているアプリに対応するうえでの最終的な目標は何でしょうか？"><a href="#過剰な特権が付与されているアプリに対応するうえでの最終的な目標は何でしょうか？" class="headerlink" title="過剰な特権が付与されているアプリに対応するうえでの最終的な目標は何でしょうか？"></a>過剰な特権が付与されているアプリに対応するうえでの最終的な目標は何でしょうか？</h2><p>MMicrosoft ID チームは、過剰な特権を付与されているアプリへの対応を進めるために、3 つの主要な目標を掲げています。</p>
+<ol>
+<li><strong>開発者</strong>が、過剰なアクセス許可を要求せず、スムーズに採用されるような信頼できるアプリを構築できるように支援します。不必要な権限を要求すると、アプリが利用される環境において、ユーザーおよび IT 部門、さらには組織で設定された <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/manage-apps/configure-user-consent?tabs=azure-portal">アプリの同意ポリシー</a> の間で不和が生じます。</li>
+<li><strong>IT 管理者やその他の意思決定者</strong>が過剰な特権を持つアプリを制限できるよう、組織内で必要な最小限のアクセス許可を特定する方法や、最小限のアクセス許可を要求および付与する方法について支援します。</li>
+<li>侵害の範囲を拡大したり、組織内での別マシンへのさらなる乗っ取を防止したりするような特権を<strong>攻撃者</strong>が取得できないように防止します。</li>
+</ol>
+<h2 id="アプリを確実に最小特権化するにはどうすれば良いのでしょうか？"><a href="#アプリを確実に最小特権化するにはどうすれば良いのでしょうか？" class="headerlink" title="アプリを確実に最小特権化するにはどうすれば良いのでしょうか？"></a>アプリを確実に最小特権化するにはどうすれば良いのでしょうか？</h2><p>ここでは、開発者と IT 管理者が、「アプリケーションの最小特権の原則を遵守すること」を考える際に、念頭に置くべき 3 つのベスト プラクティスをざっくりとご紹介します。</p>
+<ol>
+<li>未使用のアクセス許可や削減可能なアクセス許可を避け、過剰な特権を<strong>防止</strong>しましょう。アプリケーションが API の呼び出しに必要とするアクセス許可を確認し、お客様のシナリオを実現するために必要なものだけを要求しましょう。</li>
+<li>お手持ちのアプリに対して既に付与されたアクセス許可を定期的に<strong>監査</strong>し、アクセス許可を削減もしくは削除できないか確認しましょう。つまり、IT 管理者においてはテナント内のアプリに付与されたアクセス許可を監査し、開発者はアプリが要求しているアクセス許可を確認しましょう。</li>
+<li>アプリを<strong>アップデート</strong>して、未使用のアクセス許可や削減可能なアクセス許可を要求しないようにし、また以前付与されたアクセス許可の中でも不要になったものを取り消しましょう。</li>
+</ol>
+<p>マイクロソフトは、このプロセスを支援するツールを用意しています。例えば、<a target="_blank" rel="noopener" href="https://developer.microsoft.com/ja-jp/graph/graph-explorer">Graph Explorer</a> を使用することで、お客様のシナリオを実現するためにどのような Microsoft Graph API の呼び出しが必要か確認いただけます。その後、Microsoft Graph の<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/graph/permissions-reference">アクセス許可のリファレンス</a> を使用し、Microsoft Graph の最小限の特権から最大限の特権の中で、適切なアクセス許可を見つけることができます。</p>
+<p>具体的な手順については、こちらの資料をご参照ください: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/develop/secure-least-privileged-access">最小限の特権の原則でセキュリティを高める</a></p>
+<h2 id="ゼロ-トラストへ対応した開発を始める方法"><a href="#ゼロ-トラストへ対応した開発を始める方法" class="headerlink" title="ゼロ トラストへ対応した開発を始める方法"></a>ゼロ トラストへ対応した開発を始める方法</h2><p>さらに詳しく知りたい方は、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/security/zero-trust/">Zero Trust Guidance Center</a> に公開された開発者向けの新しいガイダンスをご覧ください。このガイダンスには、Zero Trust に対応したアプリケーションを開発するための <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/security/zero-trust/identity-developer">新しい開発および統合リソース</a> が含まれています。</p>
+<p>詳細については、こちらからダウンロードできる開発者向けホワイトペーパーをご覧ください: <a target="_blank" rel="noopener" href="https://aka.ms/ztdev">Zero Trust for the Microsoft Identity developer</a></p>
 
       
       
@@ -149,7 +152,7 @@
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
 
         
-        <a href="https://github.com/jpazureid/blog/edit/main/articles/azure-active-directory/integration-guidance-helps-partners-deliver-zero-trust-solutions.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpazureid/blog/edit/main/articles/azure-active-directory/achieving-zero-trust-readiness-in-your-apps-2-designing-for-least-privilege.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -157,19 +160,10 @@
     
 <nav id="article-nav">
   
-    <a href="../aadj-link-is-not-displayed/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          このデバイスを Azure Active Directory に参加させる のリンクが表示されない場合の確認点
-        
-      </div>
-    </a>
   
-  
-    <a href="../CloudKnox-acquisition-whats-available-now-and-whats-coming-soon/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../Achieving-Zero-Trust-readiness-in-your-apps-2-Designing-for-Least-Privilege/Achieving-Zero-Trust-readiness-in-your-apps-2-Designing-for-Least-Privilege/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">CloudKnox 社の買収について - 現在利用可能なものと近日公開予定のもの</div>
+      <div class="article-nav-title">アプリでゼロ トラスト対応を実現する 2 - 最小限の特権で設計する</div>
     </a>
   
 </nav>
@@ -188,7 +182,7 @@
       <ul>
         
           <li>
-            <a href="../achieving-zero-trust-readiness-in-your-apps-2-designing-for-least-privilege/">アプリでゼロ トラスト対応を実現する 2 - 最小限の特権で設計する</a>
+            <a href="">アプリでゼロ トラスト対応を実現する 2 - 最小限の特権で設計する</a>
           </li>
         
           <li>
