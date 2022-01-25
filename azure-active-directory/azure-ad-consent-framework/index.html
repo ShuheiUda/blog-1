@@ -20,8 +20,9 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/user-consent.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/which-consent.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/troubleshoot.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/user-consent-enable.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/user-consent-disabled.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/m365-integration-app.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/user-consennt-microsoft-user-default-low.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/user-assigned-app.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/blocked-user-consent-unverified.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/admin-consent-check.png">
@@ -32,7 +33,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/review-admin-consent.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/delete-enterprise-application.png">
 <meta property="article:published_time" content="2020-05-21T15:00:00.000Z">
-<meta property="article:modified_time" content="2022-01-25T00:50:50.304Z">
+<meta property="article:modified_time" content="2022-01-25T00:56:03.025Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="OAuth">
@@ -123,7 +124,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+361dbc73-4d3e-560d-a432-84a87db90f49%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%80%8C%E7%AE%A1%E7%90%86%E8%80%85%E3%81%AE%E6%89%BF%E8%AA%8D%E3%81%8C%E5%BF%85%E8%A6%81%E3%80%8D%E3%81%AE%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fazure-ad-consent-framework%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fazure-ad-consent-framework.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fazure-ad-consent-framework.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/" data-id="ckytek8ij00hn0or3dkcgeagq" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/" data-id="ckyteqzb800ht0nns1lxw7ajv" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -200,12 +201,16 @@
 <p>ただし、管理者による同意が求められる理由についてはいくつかあるのでご紹介します。まずは以下のフロー図をご確認ください。</p>
 <p><img src="/blog/azure-active-directory/azure-ad-consent-framework/troubleshoot.png" alt="トラブルシューティング"></p>
 <p>管理者の同意が求められる ①～④ のパターンについて、以下に説明します。</p>
-<h3 id="①テナントでユーザー同意が制限されている場合"><a href="#①テナントでユーザー同意が制限されている場合" class="headerlink" title="①テナントでユーザー同意が制限されている場合"></a>①テナントでユーザー同意が制限されている場合</h3><p>テナントでユーザー同意が制限されている場合、一般ユーザーによるアプリの同意を行うことは出来ません。この場合、アプリが管理者による同意が必要のないユーザー委任の権限のみを要求している場合でも、管理者による同意が必要となります。<br>ユーザーの同意が制限されている環境かどうかは、Azure ポータルの <a target="_blank" rel="noopener" href="https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/">エンタープライズ アプリケーションのユーザー設定</a> より確認できます。</p>
-<p><img src="/blog/azure-active-directory/azure-ad-consent-framework/user-consent-enable.png" alt="ユーザー同意が有効かどうか"></p>
-<p>[ユーザーは、アプリが自身の代わりに会社のデータにアクセスすることを許可できます] の設定が [はい] の場合、ユーザー同意が可能です。設定が [いいえ] の場合、ユーザーによる同意が制限されているため、アプリへの権限を付与するためには管理者の同意が必要です。</p>
-<p>上記設定は、以下の Microsoft 365 管理ポータルの、<a target="_blank" rel="noopener" href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Settings/Services/:/Settings/L1/IntegratedApps">統合アプリの設定</a> と同等です。</p>
+<h3 id="①テナントでユーザー同意が制限されている場合"><a href="#①テナントでユーザー同意が制限されている場合" class="headerlink" title="①テナントでユーザー同意が制限されている場合"></a>①テナントでユーザー同意が制限されている場合</h3><p>テナントでユーザー同意が制限されている場合、一般ユーザーによるアプリの同意を行うことは出来ません。この場合、アプリが管理者による同意が必要のないユーザー委任の権限のみを要求している場合でも、管理者による同意が必要となります。<br>ユーザーの同意が制限されている環境かどうかは、Azure ポータルの <a target="_blank" rel="noopener" href="https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConsentPoliciesMenuBlade/UserSettings">エンタープライズ アプリケーションの同意とアクセス許可</a> より確認できます。</p>
+<p><img src="/blog/azure-active-directory/azure-ad-consent-framework/user-consent-disabled.png" alt="ユーザー同意が有効かどうか"></p>
+<p>[アプリケーションに対するユーザーの同意] の設定が [アプリに対するユーザーの同意を許可する] の場合、ユーザー同意が可能です。設定が [ユーザーの同意を許可しない] の場合、ユーザーによる同意が制限されているため、アプリへの権限を付与するためには管理者の同意が必要です。</p>
+<p>上記 [アプリに対するユーザーの同意を許可する] と [ユーザーの同意を許可しない] の設定は、以下の Microsoft 365 管理ポータルの、<a target="_blank" rel="noopener" href="https://admin.microsoft.com/Adminportal/Home?source=applauncher#/Settings/Services/:/Settings/L1/IntegratedApps">統合アプリの設定</a> のチェックの有無と同等です。</p>
 <p><img src="/blog/azure-active-directory/azure-ad-consent-framework/m365-integration-app.png" alt="Microsoft 365 の統合アプリの設定"></p>
-<p>これらの設定が、[いいえ] または、チェックがオフの場合、一般ユーザーはアプリを利用するための同意画面を表示できません。アプリを利用するためには、後述の手順で<a href="#5-%E7%AE%A1%E7%90%86%E8%80%85%E3%81%AB%E3%82%88%E3%82%8B%E5%90%8C%E6%84%8F%E3%81%AE%E4%BB%98%E4%B8%8E%E6%89%8B%E9%A0%86">管理者による同意を行う</a>ことをご検討ください。</p>
+<p>一方、同意とアクセス許可で設定可能な [確認済みの発行元からのアプリに対して選択されたアクセス許可を与えることへのユーザーの同意を許可する (推奨)] はこれらの中間の選択肢です。</p>
+<p><img src="/blog/azure-active-directory/azure-ad-consent-framework/user-consennt-microsoft-user-default-low.png" alt="推奨の同意設定"></p>
+<p>この推奨設定では、一般ユーザーは<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/develop/publisher-verification-overview">発行者確認</a>が行われたアプリ、または自テナントに登録されたアプリのみに同意が可能となります。それに加え管理者が事前に <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/manage-apps/configure-permission-classifications?tabs=azure-portal">低影響 として分類したアクセス許可</a> にのみユーザーが同意可能となります。例えば一般的なアプリのサインインに必要な <code>openid</code>, <code>profile</code>, <code>email</code>, <code>offline_access</code> は許可し <code>Mail.Read</code> のように組織のデータにアクセスする権限は禁止するといった設定が可能です。</p>
+<p>推奨設定では発行者確認が行われていないサード パーティ製アプリや、発行者確認は行われているものの低影響として分類された権限以上のアクセス許可を求めるアプリに対しては、ユーザー同意が制限されます。</p>
+<p>[同意とアクセス許可] の設定によりユーザー同意が制限された場合、アプリを利用するためには、後述の手順で<a href="#5-%E7%AE%A1%E7%90%86%E8%80%85%E3%81%AB%E3%82%88%E3%82%8B%E5%90%8C%E6%84%8F%E3%81%AE%E4%BB%98%E4%B8%8E%E6%89%8B%E9%A0%86">管理者による同意を行う</a>ことをご検討ください。</p>
 <h3 id="②アプリが管理者の同意が必要な権限を要求している場合"><a href="#②アプリが管理者の同意が必要な権限を要求している場合" class="headerlink" title="②アプリが管理者の同意が必要な権限を要求している場合"></a>②アプリが管理者の同意が必要な権限を要求している場合</h3><p>一部の高い権限をもつユーザー委任の権限をアプリが求めている場合、あるいは、アプリケーション権限を要求している場合、管理者による同意が必要です。後述の手順で<a href="#5-%E7%AE%A1%E7%90%86%E8%80%85%E3%81%AB%E3%82%88%E3%82%8B%E5%90%8C%E6%84%8F%E3%81%AE%E4%BB%98%E4%B8%8E%E6%89%8B%E9%A0%86">管理者による同意を行う</a>ことをご検討ください。</p>
 <h3 id="③対象のアプリでユーザーの割り当てが必要と設定されている"><a href="#③対象のアプリでユーザーの割り当てが必要と設定されている" class="headerlink" title="③対象のアプリでユーザーの割り当てが必要と設定されている"></a>③対象のアプリでユーザーの割り当てが必要と設定されている</h3><p>あまり多くないパターンではありますが、対象のアプリケーションでユーザーの割り当てを有効にしている場合、ユーザーによるアプリの同意は行えません。この場合、管理者がユーザーに替わり、あらかじめアプリに同意を行う必要があります。</p>
 <p><img src="/blog/azure-active-directory/azure-ad-consent-framework/user-assigned-app.png" alt="ユーザーの割り当てが必要"></p>
