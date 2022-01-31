@@ -6,12 +6,12 @@
   
   <title>PIM の活用方法 | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Azure &amp; Identity サポート チームの福島です。 システムの管理者は、定常運用時における運用管理アカウントのアクセス権管理に悩まれていないでしょうか。 今回のブログでは、”最低限必要な権限” を ”最低限必要な人間” に ”最低限の期間” 付与することが出来る Previleged Identity Management (PIM) という機能についてご紹介します">
+  <meta name="description" content="こんにちは、Azure &amp; Identity サポート チームの福島です。 システムの管理者は、定常運用時における運用管理アカウントのアクセス権管理に悩まれていないでしょうか。 今回のブログでは、”最低限必要な権限” を ”最低限必要な人間” に ”最低限の期間” 付与することが出来る Privileged Identity Management (PIM) という機能についてご紹介します">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PIM の活用方法">
 <meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/pim-overview/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="こんにちは、Azure &amp; Identity サポート チームの福島です。 システムの管理者は、定常運用時における運用管理アカウントのアクセス権管理に悩まれていないでしょうか。 今回のブログでは、”最低限必要な権限” を ”最低限必要な人間” に ”最低限の期間” 付与することが出来る Previleged Identity Management (PIM) という機能についてご紹介します">
+<meta property="og:description" content="こんにちは、Azure &amp; Identity サポート チームの福島です。 システムの管理者は、定常運用時における運用管理アカウントのアクセス権管理に悩まれていないでしょうか。 今回のブログでは、”最低限必要な権限” を ”最低限必要な人間” に ”最低限の期間” 付与することが出来る Privileged Identity Management (PIM) という機能についてご紹介します">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/pim-overview/pic01.jpg">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/pim-overview/pic03.jpg">
@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/pim-overview/pic11.jpg">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/pim-overview/pic13.jpg">
 <meta property="article:published_time" content="2021-06-14T15:00:00.000Z">
-<meta property="article:modified_time" content="2022-01-28T12:08:43.895Z">
+<meta property="article:modified_time" content="2022-01-31T04:15:46.276Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="Security">
@@ -117,14 +117,14 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+9a30b569-0752-5bf0-b06b-500e8a0ffbb2%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BPIM+%E3%81%AE%E6%B4%BB%E7%94%A8%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fpim-overview%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fpim-overview.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fpim-overview.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/pim-overview/" data-id="ckyyd3kkt00iu0nmkcmjn02x6" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/pim-overview/" data-id="ckz26ivqe00iu0nmy19mf5e7j" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>こんにちは、Azure &amp; Identity サポート チームの福島です。</p>
 <p>システムの管理者は、定常運用時における運用管理アカウントのアクセス権管理に悩まれていないでしょうか。</p>
-<p>今回のブログでは、”最低限必要な権限” を ”最低限必要な人間” に ”最低限の期間” 付与することが出来る Previleged Identity Management (PIM) という機能についてご紹介します。</p>
+<p>今回のブログでは、”最低限必要な権限” を ”最低限必要な人間” に ”最低限の期間” 付与することが出来る Privileged Identity Management (PIM) という機能についてご紹介します。</p>
 <span id="more"></span>
 
 <p>例えば、自社のシステムが Azure 上でリリースされた後も下記のようなトラブルが発生した時には運用管理アカウントで Azure ポータルにサインインしてシステム変更作業を行う必要があると思います。</p>
@@ -146,7 +146,7 @@
 </ul>
 <p>上記の問題のうち、特に後半 2 つについては「セキュリティ」的な懸案事項になるかと思います。<br>万が一、運用管理アカウントに強力なアクセス権が付与されていた状態で運用管理アカウントの資格情報が漏洩し、悪意ある攻撃者によって企業の Azure テナントに不正に侵入されてしまった場合、攻撃者は運用管理アカウントに付与されたアクセス権 (ロール) を悪用して可能な限りの不正行為、資産の奪取を行うことが想定されます。</p>
 <p>このようなリスク (攻撃者によるアカウントの乗っ取りが発生した時に、保持するアクセス権に応じてセキュリティ被害が拡大してしまうリスク) を最小限にするべく、アクセス権の管理は冒頭に記載の通り「最小権限の原則」に則り、”最低限必要な権限” を ”最低限必要な人間” に ”最低限の期間” 付与することが望ましいといえます。</p>
-<h1 id="PIM-を使った-Just-in-Time-のアクセス権"><a href="#PIM-を使った-Just-in-Time-のアクセス権" class="headerlink" title="PIM を使った Just in Time のアクセス権"></a>PIM を使った Just in Time のアクセス権</h1><p>Azure では、上述した「最小権限の原則」に則り「セキュリティ」リスクを最小化する機能として Previleged Identity Management (PIM) が提供されています。</p>
+<h1 id="PIM-を使った-Just-in-Time-のアクセス権"><a href="#PIM-を使った-Just-in-Time-のアクセス権" class="headerlink" title="PIM を使った Just in Time のアクセス権"></a>PIM を使った Just in Time のアクセス権</h1><p>Azure では、上述した「最小権限の原則」に則り「セキュリティ」リスクを最小化する機能として Privileged Identity Management (PIM) が提供されています。</p>
 <p>PIM を利用した場合、システム管理者は運用管理アカウントに対して<code>「対象割り当て」</code>と<code>「アクティブ割り当て」</code>という 2 つのロールアサインを行うことが可能です。</p>
 <p><code>「アクティブ割り当て」</code>は、PIM を利用しない場合と同様に特定のロールを割り当て時点で有効状態として割り当てることを指します。<br>一方で<code>「対象割り当て」</code>を行った場合、運用管理アカウントはそのままでは割り当てられたロールの権限を保有することは出来ません。<br>実際に割り当てられたロールのアクセス権を保有したい場合は、ロールの<code>アクティブ化</code>処理を行う必要があります。<br>また、<code>アクティブ化</code>処理を行う際には特定アカウントの<code>承認</code>を必須とすることも可能です。<br>加えて一度アクティブ化されたロールは既定の場合 8 時間のみ有効で、8 時間が経過した後は自動的にアクティブ化が解除されます。</p>
 <p><img src="/blog/azure-active-directory/pim-overview/pic03.jpg"></p>
