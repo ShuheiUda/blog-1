@@ -6,15 +6,15 @@
   
   <title>Azure AD の ExpressRoute サポート | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2018&#x2F;07&#x2F;19&#x2F;azuread-expressroute&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、 Azure ID チームの三浦です。 2018 年 5 月の Azure AD">
+  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2018&#x2F;07&#x2F;19&#x2F;azuread-expressroute&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 Note2022 年 5 月 28 日更新:  当初本記事では Azure AD の Exp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Azure AD の ExpressRoute サポート">
 <meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/expressroute-support/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2018&#x2F;07&#x2F;19&#x2F;azuread-expressroute&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、 Azure ID チームの三浦です。 2018 年 5 月の Azure AD">
+<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2018&#x2F;07&#x2F;19&#x2F;azuread-expressroute&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 Note2022 年 5 月 28 日更新:  当初本記事では Azure AD の Exp">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2018-07-18T15:00:00.000Z">
-<meta property="article:modified_time" content="2022-05-23T23:47:47.444Z">
+<meta property="article:modified_time" content="2022-05-27T21:48:19.752Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="ExpressRoute">
@@ -103,12 +103,13 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+290aa3fb-843b-5fc2-82cd-01501ce575ae%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BAzure+AD+%E3%81%AE+ExpressRoute+%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fexpressroute-support%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fexpressroute-support.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fexpressroute-support.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/expressroute-support/" data-id="cl3jdpiz9005i0oqn33g1c7s5" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/expressroute-support/" data-id="cl3oz7bhp005i0ns203ble7ec" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Technet Blog の更新停止に伴い <a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2018/07/19/azuread-expressroute/">https://blogs.technet.microsoft.com/jpazureid/2018/07/19/azuread-expressroute/</a> の内容を移行したものです。</p><p>元の記事の最新の更新情報については、本内容をご参照ください。</p></div>
+<div class="alert is-info"><p class="alert-title">Note</p><p>2022 年 5 月 28 日更新:  当初本記事では Azure AD の ExpressRoute のサポート方法について、“その他の Office 365 Online サービス (12076:5100)” という BGP コミュニティを使えば Azure AD に閉域網で接続できると記載しておりましたが、現在は ”Azure Active Directory (12076:5060)” というタグで充足します。このため、Azure AD に閉域網で接続をご要望の場合は、代わりに AzureActiveDirectory のタグをご利用ください。</p></div>
 <p>こんにちは、 Azure ID チームの三浦です。</p>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/fundamentals/whats-new#may-2018">2018 年 5 月の Azure AD に対する更新情報</a> に記載の  ExpressRoute 利用環境における Azure AD への認証トラフィックの変更について、その変更の内容、変更の影響を受ける場合の対応策についてご案内します。</p>
 <h2 id="変更の内容"><a href="#変更の内容" class="headerlink" title="変更の内容"></a>変更の内容</h2><p>Azure AD の認証トラフィックを処理するエンドポイント (IP アドレス) について、これまで ExpressRoute で Public ピアリング、 Microsoft ピアリングのいずれにおいてもルート情報がアドバタイズされていました。<br>言い換えますと ExpressRoute で Public ピアリングや Microsoft ピアリングを有効にして利用している環境では、 Azure AD に対する認証トラフィックが ExpressRoute を経由していました。</p>
