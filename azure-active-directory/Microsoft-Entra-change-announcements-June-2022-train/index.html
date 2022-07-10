@@ -4,19 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>Extranet Lockout について | Japan Azure Identity Support Blog</title>
+  <title>Microsoft Entra の変更管理のアナウンス (2022 年 6 月分) | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2018&#x2F;10&#x2F;15&#x2F;extranetlockout%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、 Azure Id">
+  <meta name="description" content="こんにちは、Azure Identity サポート チームの 竜 です。 本記事は、2022 年 06 月 30 日に米国の Azure Active Directory Identity Blog で公開された Microsoft Entra change announcements - June 2022 train  を意訳したものになります。  皆さん、こんにちは。 2022 年 3 月に">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Extranet Lockout について">
-<meta property="og:url" content="https://jpazureid.github.io/blog/active-directory-federation-service/about-extranet-lockout/index.html">
+<meta property="og:title" content="Microsoft Entra の変更管理のアナウンス (2022 年 6 月分)">
+<meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/Microsoft-Entra-change-announcements-June-2022-train/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2018&#x2F;10&#x2F;15&#x2F;extranetlockout%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、 Azure Id">
+<meta property="og:description" content="こんにちは、Azure Identity サポート チームの 竜 です。 本記事は、2022 年 06 月 30 日に米国の Azure Active Directory Identity Blog で公開された Microsoft Entra change announcements - June 2022 train  を意訳したものになります。  皆さん、こんにちは。 2022 年 3 月に">
 <meta property="og:locale" content="ja_JP">
-<meta property="article:published_time" content="2018-10-14T15:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-10T00:30:30.337Z">
+<meta property="article:published_time" content="2022-07-10T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-10T00:30:30.537Z">
 <meta property="article:author" content="Azure Identity Support Japan">
-<meta property="article:tag" content="AD FS">
+<meta property="article:tag" content="Azure AD">
+<meta property="article:tag" content="US Identity Blog">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Azure Identity Support Blog" type="application/atom+xml">
@@ -79,7 +80,7 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-active-directory-federation-service/about-extranet-lockout" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-azure-active-directory/Microsoft-Entra-change-announcements-June-2022-train" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -88,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Extranet Lockout について
+      Microsoft Entra の変更管理のアナウンス (2022 年 6 月分)
     </h1>
   
 
@@ -96,123 +97,55 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2018-10-14T15:00:00.000Z" itemprop="datePublished">2018-10-15</time>
+  <time datetime="2022-07-10T00:00:00.000Z" itemprop="datePublished">2022-07-10</time>
 </a>
         
         
-        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+4ffff2e4-14de-5372-b25d-edcce22f5e4f%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BExtranet+Lockout+%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Factive-directory-federation-service%2Fabout-extranet-lockout%2F%29%0A*+Content+Source%3A+%5Barticles%2Factive-directory-federation-service%2Fabout-extranet-lockout.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Factive-directory-federation-service%2Fabout-extranet-lockout.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+39ee4c3e-4aae-5852-8905-65a593afb193%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BMicrosoft+Entra+%E3%81%AE%E5%A4%89%E6%9B%B4%E7%AE%A1%E7%90%86%E3%81%AE%E3%82%A2%E3%83%8A%E3%82%A6%E3%83%B3%E3%82%B9+%282022+%E5%B9%B4+6+%E6%9C%88%E5%88%86%29%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2FMicrosoft-Entra-change-announcements-June-2022-train%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2FMicrosoft-Entra-change-announcements-June-2022-train.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2FMicrosoft-Entra-change-announcements-June-2022-train.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/active-directory-federation-service/about-extranet-lockout/" data-id="cl5ekxgxl00010po1c4ytby44" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/Microsoft-Entra-change-announcements-June-2022-train/" data-id="cl5ekxgyc00180po1gcegfgyn" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Technet Blog の更新停止に伴い <a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2018/10/15/extranetlockout%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">https://blogs.technet.microsoft.com/jpazureid/2018/10/15/extranetlockout%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</a> の内容を移行したものです。</p><p>元の記事の最新の更新情報については、本内容をご参照ください。</p></div>
-<p>こんにちは、 Azure Identity の平形です。<br>本ブログを参照されている方の中でも、今現在以下のような現象にお悩みの方がいらっしゃたりしませんでしょうか。</p>
+        <p>こんにちは、Azure Identity サポート チームの 竜 です。</p>
+<p>本記事は、2022 年 06 月 30 日に米国の Azure Active Directory Identity Blog で公開された <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-june-2022-train/ba-p/2967455">Microsoft Entra change announcements - June 2022 train
+</a> を意訳したものになります。</p>
+<hr>
+<p>皆さん、こんにちは。</p>
+<p>2022 年 3 月に、お客様がより展開の計画を立てやすくするよう、簡素化された変更管理プロセスを発表しました。今月 (6 月) の初めに、RSA カンファレンスにて、Microsoft の ID およびアクセス機能のすべてを包含する新しい製品群として Microsoft Entra を発表しました。本日、変更管理プロセスを拡張し、Microsoft Entra のすべてでこの新しいプロセスが適用されるようになることをお伝えいたします。また、機能の変更および既存の動作に影響を与える変更について、 6 月分の状況についてもお知らせします。</p>
+<p>これらの変更は、四半期ごとに、ブログ、リリース ノート、そして電子メールにてお客様にお伝えしていきます。また、お客様が、Entra ポータル内でライフ サイクルの変更 (廃止予定、廃止、および既存の動作に影響を与える変更) により簡単に取り組めるよう、継続して取り組んでいます。以下に、「年 2 回の製品の廃止」および「年 4 回の機能変更および既存の動作に影響を与える変更」の連絡予定について情報をまとめたものを記載します。</p>
+<table>
+<thead>
+<tr>
+<th><strong>カテゴリ</strong></th>
+<th><strong>定義</strong></th>
+<th><strong>連絡の予定</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>製品の廃止の連絡</td>
+<td>機能、性能、または製品を特定の期間後に廃止することを指します。これは、一般的に、新たなお客様に対してサービスや機能の提供を停止し、廃止した機能や性能を強化するための技術的面での投資を削減することを伴います。最終的には、すべてのお客様に対してサービスや機能の提供を停止し、EOL (end-of-life) を意味します。</td>
+<td>年に 2 回 (3 月、9 月)</td>
+</tr>
+<tr>
+<td>製品の機能変更および既存の動作に影響を与える変更のお知らせ</td>
+<td><strong>既存の動作に影響を与える変更</strong>: 継続的な運用のためにお客様が何らかの操作や変更を行わない場合、既存のユーザーおよびパートナー体験に影響が生じると想定される変更です。<br><strong>機能の変更</strong>: 既存の ID の機能に対する変更であり、お客様側での作業は必要はありませんが、ユーザー体験に変化が生じます。多くは、UI/UX (ユーザー インターフェイスおよびユーザー体験) への変更です。<br><br>これらの変更は一般的に頻繁に発生するため、より頻繁に弊社からの通知が必要となります。</td>
+<td>年に 4 回 (3 月、6 月、9 月、11 月)</td>
+</tr>
+</tbody></table>
+<p>以下に、2022 年 6 月分として発表された機能変更の一覧をご紹介します。  </p>
+<h2 id="アプリの構成におけるアクセス許可の最大数"><a href="#アプリの構成におけるアクセス許可の最大数" class="headerlink" title="アプリの構成におけるアクセス許可の最大数"></a>アプリの構成におけるアクセス許可の最大数</h2><p>マイクロソフトでは、直近でアプリ登録にて構成できるアクセス許可の最大数について、弊社が定めた制限が適用されるよう変更しました。この制限を超えたアプリはアクセス許可に対する同意を行うことができず、動作しない状態となります。2022 年 10 月 31日より、”requiredResourceAccess” 属性にすでに 400 以上アクセス許可を構成されているアプリは、この制限値以上のアクセス許可を追加することができなくなる予定です。現在アプリにすでに構成されているアクセス許可は維持されますが、新たにアクセス許可を追加するためには、合計数が弊社にて定められた制限値以下となるよう、アプリの所有者にて既存のアクセス許可を削除する必要があります。この対応を行うことで、お客様がアクセス許可に同意できずアプリが利用できない状態になることを回避可能となります。詳細については、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/graph/permissions-reference#limits-on-requested-permissions-per-app">アプリごとの要求されたアクセス許可の制限</a> および <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/develop/supported-accounts-validation">サポートされているアカウントの種類別の検証の相違点</a> をご参照ください。   </p>
+<h2 id="Directory-AccessAsUser-All-における管理者の同意について"><a href="#Directory-AccessAsUser-All-における管理者の同意について" class="headerlink" title="Directory.AccessAsUser.All における管理者の同意について"></a>Directory.AccessAsUser.All における管理者の同意について</h2><p>2022 年 8 月 31 日より、すべてのサービスにおいて、”Directory.AccessAsUser.All” に対して、既定で管理者の同意を要求するようになります。Azure AD Graph (graph.windows.net) および Microsoft Graph (graph.microsoft.com) のいずれにおいてもアクセス許可が要求された場合は既定で管理者の同意が必要になります。以前は、特定のシナリオでは、既定で本アクセス許可に対して管理者の同意は不要でした。この変更は、新たな同意の要求にのみ影響し、セキュリティを向上させるとともに、”Directory.AccessAsUser.All” の挙動を現在のドキュメントの動作に合わせるものです。詳細については、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes">アクセス許可スコープ</a> をご参照ください。  </p>
+<h2 id="グループ-メール"><a href="#グループ-メール" class="headerlink" title="グループ メール"></a>グループ メール</h2><p>グループ関連のメール送信が、より新しく、向上したサービスに切り替わります。以下のシナリオにおけるグループ関連のメールは従来のままですが、新しいエイリアス (<a href="mailto:&#109;&#x73;&#x67;&#x72;&#x6f;&#x75;&#112;&#x73;&#x74;&#101;&#x61;&#109;&#64;&#109;&#105;&#x63;&#114;&#111;&#115;&#x6f;&#102;&#x74;&#x2e;&#x63;&#x6f;&#109;">&#109;&#x73;&#x67;&#x72;&#x6f;&#x75;&#112;&#x73;&#x74;&#101;&#x61;&#109;&#64;&#109;&#105;&#x63;&#114;&#111;&#115;&#x6f;&#102;&#x74;&#x2e;&#x63;&#x6f;&#109;</a>) から送信されるようになります:</p>
 <ul>
-<li>AD FS 環境でオンプレミスの AD アカウントが頻繁にロックアウトされてしまう</li>
-<li>ロックアウトの原因が AD FS サーバーからの認証</li>
+<li>Microsoft 365 グループの有効期限が切れる時</li>
+<li>ユーザーが Microsoft 365 グループ またはセキュリティ グループへの参加を要求する時</li>
+<li>グループの所有者が、Microsoft 365 グループ またはセキュリティ グループへの参加リクエストに応答する時</li>
 </ul>
-<p>アカウント ロックアウトの頻度が非常に高く、様々なアカウントで発生しているのであればパスワード スプレー攻撃によって引き起こされている可能性があります。<br>また、ロックアウトにつながるログオン失敗が AD FS 経由でされている場合には、インターネットから WAP (Web Application Proxy) に対してパスワード スプレー攻撃を試行していることが疑われます。</p>
-<p>今回は AD FS 環境における外部からのパスワード スプレー攻撃に対処する Extranet Lockout 機能についての紹介と設定方法をお伝えします。</p>
-<h3 id="そもそもパスワード-スプレー攻撃とは"><a href="#そもそもパスワード-スプレー攻撃とは" class="headerlink" title="そもそもパスワード スプレー攻撃とは"></a>そもそもパスワード スプレー攻撃とは</h3><p>パスワード スプレー攻撃とは、複数の異なるアカウントに対して多くの人が一般的に設定するようなパスワードでのログオンを試行する攻撃手法です。</p>
-<p>詳細につきましては先日ブログを公開しておりますので参照ください。</p>
-<p>Azure AD と AD FS のベスト プラクティス: パスワード スプレー攻撃の防御</p>
-<p><a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2018/03/19/password-spray/">https://blogs.technet.microsoft.com/jpazureid/2018/03/19/password-spray/</a></p>
-<p>私たちが良く確認するパターンでは、 Office 365 を経由して AD FS に対してパスワード スプレー攻撃をしかけるものがあります。</p>
-<p>このような経路での攻撃の特徴として、 IMAP や SMTP 等アクティブ認証を利用しますのでご利用環境の AD FS 上で記録される IP アドレスは Exchange Online で使用する IP アドレスレンジからの認証試行のように見えます。</p>
-<h2 id="Extranet-Lockout-とは"><a href="#Extranet-Lockout-とは" class="headerlink" title="Extranet Lockout とは"></a>Extranet Lockout とは</h2><p>WAP 経由での認証は、認証要求は AD FS に転送され、その要求に含まれるユーザー名、パスワードを利用してオンプレミスの AD に対して Kerberos での認証を行います。このときにパスワードが異なると認証に失敗し、オンプレミス AD のアカウント ロックアウト カウンターがインクリメントされます。これが繰り返し試行されることで、アカウント ロックアウトが発生し、 WAP 経由ではない認証要求についてもブロックされるようになります。</p>
-<p>Extranet Lockout では、社内のアカウント ロックアウトカウンターとは別にロックアウトの閾値を設けることで WAP 経由の外部からの認証要求のみをブロックし、オンプレミス AD のロックアウトを防ぐ機能です。WAP 経由でオンプレミス AD に対して Kerberos 認証を行う前に AD のパスワード間違え回数 (badpwdcount) 回数をチェックします。チェックの結果、 AD FS で設定した Extranet Lockout の閾値と同じか、それ以上の場合には AD FS は AD に対して認証要求を送ることなく認証を失敗させます。</p>
-<p>その結果、 ロックアウトを WAP 経由で発生させることを防ぎます。</p>
-<p>多くのお客様でもこちらの設定を案内し、効果があったことを確認しております。</p>
-<h3 id="Extranet-Lockout-構成時に考慮すべき点"><a href="#Extranet-Lockout-構成時に考慮すべき点" class="headerlink" title="Extranet Lockout 構成時に考慮すべき点"></a>Extranet Lockout 構成時に考慮すべき点</h3><p>Extranet Lockout の動作概要は上記のとおりですが、実際に構成する際に考慮すべきポイントをお伝えします。</p>
-<ol>
-<li>AD FS と PDC エミュレーターの役割を持つ DC 間の通信</li>
-<li>オンプレミス AD のアカウント ロックアウトの閾値</li>
-<li>AD FS の OS (Windows Server 2012 R2 以降必須)</li>
-</ol>
-<h2 id="1-AD-FS-と-PDC-エミュレーターの役割を持つ-DC-間の通信"><a href="#1-AD-FS-と-PDC-エミュレーターの役割を持つ-DC-間の通信" class="headerlink" title="1. AD FS と PDC エミュレーターの役割を持つ DC 間の通信"></a>1. AD FS と PDC エミュレーターの役割を持つ DC 間の通信</h2><p>Extranet Lockout では WAP 経由の認証要求が発生した際に AD FS が PDC エミュレーターと通信を行い、ユーザー アカウントの badpwdcount の値をチェックします。</p>
-<p>そのため、 AD FS と PDC エミュレーター間での通信が行えるよう構成する必要があります。 ※</p>
-<h2 id="2-オンプレミスのアカウント-ロックアウトの閾値"><a href="#2-オンプレミスのアカウント-ロックアウトの閾値" class="headerlink" title="2. オンプレミスのアカウント ロックアウトの閾値"></a>2. オンプレミスのアカウント ロックアウトの閾値</h2><p>Extranet Lockout で指定する閾値はオンプレミスのアカウント ロックアウトの値を基に検討する必要があります。<br>この閾値の設定を誤ると、Extranet Lockout が発生する前に AD 側のアカウント ロックアウトが発生し、意味がなくなってしまいます。<br>大まかには以下のように設定します。</p>
-<p>Extranet Lockout の発生閾値 (ExtranetLockoutThreshold) ・・・ オンプレミスのアカウント ロックアウトの閾値未満とします。</p>
-<p>Extranet Lockout の発生時間 (ExtranetObservationWindow) ・・・ オンプレミスのロックアウト カウンターのリセット時間より大きくします。</p>
-<h2 id="3-AD-FS-の-OS-Windows-Server-2012-R2-以降必須"><a href="#3-AD-FS-の-OS-Windows-Server-2012-R2-以降必須" class="headerlink" title="3. AD FS の OS (Windows Server 2012 R2 以降必須)"></a>3. AD FS の OS (Windows Server 2012 R2 以降必須)</h2><p>Extranet Lockout 機能は Windows Server 2012 R2 以上の AD FS にて利用可能です。</p>
-<p>※ Windows Server 2016 からは ExtranetLockoutRequirePDC というオプションが増えました。</p>
-<p>値を false とすることで、 PDC と通信が出来ない場合は別のドメイン コントローラーと通信を行ってロックアウトの判定を行うようになります。</p>
-<p>参考情報</p>
-<p>Configure AD FS Extranet Lockout Protection</p>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection">https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection</a></p>
-<h2 id="Extranet-Lockout-設定方法"><a href="#Extranet-Lockout-設定方法" class="headerlink" title="Extranet Lockout 設定方法"></a>Extranet Lockout 設定方法</h2><p>AD FS プライマリ サーバー上で PowerShell を起動し、下記コマンドを実行します。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Set-AdfsProperties -EnableExtranetLockout $true -ExtranetLockoutThreshold &lt;回数&gt; -ExtranetObservationWindow (new-timespan -Minutes &lt;時間&gt;)</span><br></pre></td></tr></table></figure>
-
-<p>コマンド実行後、即座に適用されます。</p>
-<p>特に再起動は不要です。</p>
-<p>// 設定例</p>
-<p>オンプレミス側のアカウント ロックアウト回数が 10 回、アカウント ロックアウト リセット カウンターが 15 分の場合。</p>
-<p>ExtranetLockoutThreshold はアカウント ロック回数の 10 回未満に、 ExtranetObservationWindow はリセット カウンターの 15 分より大きい値にします。</p>
-<p>この場合は例えば以下のように設定します。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Set-AdfsProperties -EnableExtranetLockout $true -ExtranetLockoutThreshold 5 -ExtranetObservationWindow (new-timespan -Minutes 16)</span><br></pre></td></tr></table></figure>
-
-<h3 id="参考情報-認証失敗ログの見方"><a href="#参考情報-認証失敗ログの見方" class="headerlink" title="参考情報 : 認証失敗ログの見方"></a>参考情報 : 認証失敗ログの見方</h3><p>AD FS の監査ログを有効化することで、 AD FS への認証がどこからの要求であるかを判断可能です。</p>
-<p>// AD FS 上で記録されるパスワード間違え時のセキュリティ イベント ログ</p>
-<blockquote>
-<p>ログの名前:         Security</p>
-<p>ソース:           Microsoft-Windows-Security-Auditing</p>
-<p>日付:           2018/09/XX XX:XX:XX</p>
-<p>イベント ID:       4625</p>
-<p>タスクのカテゴリ:     ログオン</p>
-<p>レベル:           情報</p>
-<p>キーワード:         失敗の監査</p>
-<p>ユーザー:         N/A</p>
-<p>コンピューター:       ADFS01.contoso.com</p>
-<p>アカウントがログオンに失敗しました。</p>
-<p>サブジェクト:</p>
-<p>セキュリティ ID:                CONTOSO\gmsa-adfs01$</p>
-<p>アカウント名:                gmsa-adfs01$</p>
-<p>アカウント ドメイン:                CONTOSO</p>
-<p>ログオン ID:                0x64D79</p>
-<p>ログオン タイプ:                        3</p>
-<p>ログオンを失敗したアカウント:</p>
-<p>セキュリティ ID:                NULL SID</p>
-<p>アカウント名:                <a href="mailto:&#x75;&#x73;&#101;&#x72;&#48;&#49;&#x40;&#x63;&#x6f;&#110;&#x74;&#x6f;&#115;&#x6f;&#46;&#99;&#x6f;&#109;">&#x75;&#x73;&#101;&#x72;&#48;&#49;&#x40;&#x63;&#x6f;&#110;&#x74;&#x6f;&#115;&#x6f;&#46;&#99;&#x6f;&#109;</a></p>
-<p>アカウント ドメイン:</p>
-<p>エラー情報:</p>
-<p>失敗の原因:                ユーザー名を認識できないか、またはパスワードが間違っています。</p>
-<p>状態:                        0xC000006D</p>
-<p>サブ ステータス:                0xC000006A</p>
-<p>プロセス情報:</p>
-<p>呼び出し側プロセス ID:        0x7a8</p>
-<p>呼び出し側プロセス名:        C:\Windows\ADFS\Microsoft.IdentityServer.ServiceHost.exe</p>
-<p>ネットワーク情報:</p>
-<p>ワークステーション名:        AZ-ADFS01</p>
-<p>ソース ネットワーク アドレス:        -</p>
-<p>ソース ポート:                -</p>
-</blockquote>
-<p>// AD FS 上で監査ログを有効化した状態でアクティブ認証を実施し、パスワード間違えが発生した時に記録されるイベント ログ</p>
-<blockquote>
-<p>ログの名前:         Security</p>
-<p>ソース:           AD FS Auditing</p>
-<p>日付:           2018/09/XX XX:XX:XX</p>
-<p>イベント ID:       411</p>
-<p>タスクのカテゴリ:     (3)</p>
-<p>レベル:           情報</p>
-<p>キーワード:         クラシック,失敗の監査</p>
-<p>ユーザー:         CONTOSO\gmsa-adfs01$</p>
-<p>コンピューター:       ADFS01.contoso.com</p>
-<p>トークンの検証に失敗しました。詳細については内部例外を参照してください。</p>
-<p>追加データ</p>
-<p>Activity ID: 00000000-0000-0000-0000-000000000000</p>
-<p>トークンの種類:</p>
-<p><a target="_blank" rel="noopener" href="http://schemas.microsoft.com/ws/2006/05/identitymodel/tokens/UserName">http://schemas.microsoft.com/ws/2006/05/identitymodel/tokens/UserName</a></p>
-<p>クライアント IP:</p>
-<p>20.188.200.100,40.101.146.181 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; Exchange Online を経由すると、 Exchange Online の IP アドレスとアクセス元&gt; の IP アドレスの 2 つが記録されます。</p>
-<p>エラー メッセージ:</p>
-<p><a href="mailto:&#117;&#115;&#101;&#114;&#x30;&#49;&#64;&#99;&#x6f;&#110;&#116;&#x6f;&#x73;&#111;&#x2e;&#x63;&#111;&#109;">&#117;&#115;&#101;&#114;&#x30;&#49;&#64;&#99;&#x6f;&#110;&#116;&#x6f;&#x73;&#111;&#x2e;&#x63;&#111;&#109;</a></p>
-<p>例外情報:</p>
-<p>System.IdentityModel.Tokens.SecurityTokenValidationException: <a href="mailto:&#x75;&#x73;&#101;&#114;&#x30;&#x31;&#64;&#99;&#x6f;&#x6e;&#116;&#x6f;&#x73;&#111;&#46;&#99;&#111;&#x6d;">&#x75;&#x73;&#101;&#114;&#x30;&#x31;&#64;&#99;&#x6f;&#x6e;&#116;&#x6f;&#x73;&#111;&#46;&#99;&#111;&#x6d;</a></p>
-<p>場所 Microsoft.IdentityServer.Service.Tokens.MSISWindowsUserNameSecurityTokenHandler.ValidateToken(SecurityToken  token)</p>
-</blockquote>
-<p>上記内容が少しでもお客様の参考となりますと幸いです。<br>製品動作に関する正式な見解や回答については、お客様環境などを十分に把握したうえでサポート部門より提供させていただきますので、ぜひ弊社サポート サービスをご利用ください。</p>
+<p>この変更により、信頼性が向上し、より速いグループ メールの配信と高いスケーラビリティが実現します。  </p>
+<h2 id="既定の同意設定"><a href="#既定の同意設定" class="headerlink" title="既定の同意設定"></a>既定の同意設定</h2><p>2022 年 9 月 30 日より、すべての新規テナントに対して、新たな既定の同意設定として「マイクロソフトの最新の推奨設定」が強制されるようになります。エンド ユーザーは、マイクロソフトが定めた低影響のアクセス許可を超えてアクセス許可を要求するマルチテナント アプリに対して、発行元が検証済みでない場合は、同意を付与することができなくなります。この変更により、悪意のあるアプリが、ユーザーを騙して組織のデータへのアクセスを許可させようとするリスクが軽減されます。</p>
+<p>いつものように、お客様のフィードバックや提案をお寄せください。Azure Active Directory Identity Blog のコメント欄や <a target="_blank" rel="noopener" href="https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789">Azure AD フィードバックフォーラム</a> でご意見をお聞かせください。また、質問、進行中の問題、機能のリクエストは、Microsoft Q&amp;A で #AzureADChangeManagementJune2022Train のタグを付けてお送りください。</p>
 
       
       
@@ -226,10 +159,10 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/AD-FS/" rel="tag">AD FS</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
 
         
-        <a href="https://github.com/jpazureid/blog/edit/main/articles/active-directory-federation-service/about-extranet-lockout.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        <a href="https://github.com/jpazureid/blog/edit/main/articles/azure-active-directory/Microsoft-Entra-change-announcements-June-2022-train.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
         
     </footer>
   </div>
@@ -237,19 +170,10 @@
     
 <nav id="article-nav">
   
-    <a href="../adfs-cba-ts/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          証明書認証のトラブルシューティング
-        
-      </div>
-    </a>
   
-  
-    <a href="../../azure-active-directory/mfa-reset/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../managing-governing-and-securing-identities-for-apps-and-services/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">多要素認証 (MFA) のリセット手順</div>
+      <div class="article-nav-title">アプリとサービス向けの ID の管理、ガバナンス、保護</div>
     </a>
   
 </nav>
@@ -268,23 +192,23 @@
       <ul>
         
           <li>
-            <a href="../../azure-active-directory/Microsoft-Entra-change-announcements-June-2022-train/">Microsoft Entra の変更管理のアナウンス (2022 年 6 月分)</a>
+            <a href="">Microsoft Entra の変更管理のアナウンス (2022 年 6 月分)</a>
           </li>
         
           <li>
-            <a href="../../azure-active-directory/managing-governing-and-securing-identities-for-apps-and-services/">アプリとサービス向けの ID の管理、ガバナンス、保護</a>
+            <a href="../managing-governing-and-securing-identities-for-apps-and-services/">アプリとサービス向けの ID の管理、ガバナンス、保護</a>
           </li>
         
           <li>
-            <a href="../../azure-active-directory/access-management-with-access-package/">アクセス パッケージを利用した一括でのアクセス権の管理</a>
+            <a href="../access-management-with-access-package/">アクセス パッケージを利用した一括でのアクセス権の管理</a>
           </li>
         
           <li>
-            <a href="../../azure-active-directory/create-nested-groups-with-azure-ad-dynamic-groups/">Azure AD 動的グループで入れ子 (ネスト) グループを作成する</a>
+            <a href="../create-nested-groups-with-azure-ad-dynamic-groups/">Azure AD 動的グループで入れ子 (ネスト) グループを作成する</a>
           </li>
         
           <li>
-            <a href="../../azure-active-directory/publisher-domain/">パブリッシャー ドメイン (発行元ドメイン) と発行者確認</a>
+            <a href="../publisher-domain/">パブリッシャー ドメイン (発行元ドメイン) と発行者確認</a>
           </li>
         
       </ul>
