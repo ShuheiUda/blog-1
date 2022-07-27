@@ -14,7 +14,7 @@
 <meta property="og:description" content="こんにちは、 Azure Identity サポート チームの小出です。 現在 (2022 年 7 月現在) Azure AD の認証サービスにおける TLS 1.0 &#x2F;1.1 の無効化の処理を進めています。TLS 1.0&#x2F;1.1 による接続ができなくなることは、以前より Microsoft 365 のメッセージセンター、 Azure ポータルの Azure Active Directory ブレ">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2022-07-28T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-27T11:36:14.669Z">
+<meta property="article:modified_time" content="2022-07-27T12:10:43.391Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="PowerShell">
@@ -104,7 +104,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+5efc32ca-e661-5cbe-846d-8285bdcd2cae%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BAzure+AD+%E3%81%B8%E3%81%AE%E8%AA%8D%E8%A8%BC%E3%81%8C%E5%A4%B1%E6%95%97%E3%81%99%E3%82%8B+%28%E3%82%A8%E3%83%A9%E3%83%BC+%E3%82%B3%E3%83%BC%E3%83%89+AADSTS1002016%29+%E9%9A%9B%E3%81%AE%E5%AF%BE%E5%87%A6%E7%AD%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fhowto-deal-with-aadsts1002016%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fhowto-deal-with-aadsts1002016.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fhowto-deal-with-aadsts1002016.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/howto-deal-with-aadsts1002016/" data-id="cl63j74k8006s0nn02cvlcp1k" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/howto-deal-with-aadsts1002016/" data-id="cl63kfio3006s0np6dia82guf" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -136,13 +136,14 @@
 <p>なお、 PowerShell を実行時に事前に以下のコマンドを実行すれば、明示的に TLS 1.2 を利用して接続ができますので、この方法でも構いません。</p>
   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12</span><br></pre></td></tr></table></figure>
 
-<h3 id="TLS-1-0-1-1-による-Azure-AD-への認証要求があるかの確認方法"><a href="#TLS-1-0-1-1-による-Azure-AD-への認証要求があるかの確認方法" class="headerlink" title="TLS 1.0/1.1 による Azure AD への認証要求があるかの確認方法"></a>TLS 1.0/1.1 による Azure AD への認証要求があるかの確認方法</h3><p>対処策の設定ををしても問題が解消しない場合には、 Azure AD への認証までの経路にあるプロキシ サーバーが TLS1.2 を利用していない、ご利用のシステムのバックエンドで TLS 1.0/1.1 を利用している可能性があります。TLS 1.0/1.1 を利用した認証要求が Azure AD に来ているかはサインインログで判断ができます。</p>
+<h3 id="TLS-1-0-1-1-を利用した-Azure-AD-への認証要求を確認する方法"><a href="#TLS-1-0-1-1-を利用した-Azure-AD-への認証要求を確認する方法" class="headerlink" title="TLS 1.0/1.1 を利用した Azure AD への認証要求を確認する方法"></a>TLS 1.0/1.1 を利用した Azure AD への認証要求を確認する方法</h3><p>対処策の設定ををしても問題が解消しない場合には、 Azure AD への認証までの経路にあるプロキシ サーバーが TLS1.2 を利用していない、ご利用のシステムのバックエンドで TLS 1.0/1.1 を利用している可能性があります。TLS 1.0/1.1 を利用した認証要求が Azure AD に来ているかはサインインログで判断ができます。</p>
 <ol>
 <li>Azure portal (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com</a>) に全体管理者でサインインし、 [Azure Active Directory] を開きます。</li>
 <li>[サインイン ログ] を選択します。</li>
-<li>認証に失敗するアカウントのサインイン ログ エントリを選択します。</li>
+<li>“ユーザーのサインイン (対話型)” を選択して、認証に失敗するアカウントのサインイン ログ エントリを選択します。</li>
 <li>[追加の詳細情報] タブを選択します (このタブが表示されない場合は、最初に右隅の省略記号 (…) を選択して、タブの完全なリストを表示します)。</li>
-<li>Legacy TLS (TLS 1.0, 1.1, or 3DES) という表示が含まれる場合は、TLS 1.0/1.1 を使用してサインインが行われています。 TLS 1.2 を使用している場合には何も表示されません。</li>
+<li>レガシ TLS (TLS 1.0, 1.1, 3DES) True という表示が含まれる場合は、TLS 1.0/1.1 を使用してサインインが行われています。 TLS 1.2 を使用している場合には何も表示されません。</li>
+<li>同様に “ユーザーのサインイン (非対話型)” を選択して、同様に確認を実施します。PowerShell を利用して失敗しているケースでは (非対話型) のほうに “レガシ TLS (TLS 1.0, 1.1, 3DES)” で接続していることを示す情報が表示されます。</li>
 </ol>
 
       
