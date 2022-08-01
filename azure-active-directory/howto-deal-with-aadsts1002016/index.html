@@ -14,7 +14,7 @@
 <meta property="og:description" content="こんにちは、 Azure Identity サポート チームの小出です。 現在 (2022 年 7 月現在) Azure AD の認証サービスにおける TLS 1.0 &#x2F;1.1 の無効化の処理を進めています。TLS 1.0&#x2F;1.1 による接続ができなくなることは、以前より Microsoft 365 のメッセージセンター、 Azure ポータルの Azure Active Directory ブレ">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2022-07-28T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-31T01:30:05.295Z">
+<meta property="article:modified_time" content="2022-08-01T06:15:44.674Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="PowerShell">
@@ -104,7 +104,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+5efc32ca-e661-5cbe-846d-8285bdcd2cae%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BAzure+AD+%E3%81%B8%E3%81%AE%E8%AA%8D%E8%A8%BC%E3%81%8C%E5%A4%B1%E6%95%97%E3%81%99%E3%82%8B+%28%E3%82%A8%E3%83%A9%E3%83%BC+%E3%82%B3%E3%83%BC%E3%83%89+AADSTS1002016%29+%E9%9A%9B%E3%81%AE%E5%AF%BE%E5%87%A6%E7%AD%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fhowto-deal-with-aadsts1002016%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fhowto-deal-with-aadsts1002016.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fhowto-deal-with-aadsts1002016.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/howto-deal-with-aadsts1002016/" data-id="cl68nb0gu006s0nsffv9803hm" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/howto-deal-with-aadsts1002016/" data-id="cl6acy7by00mb0ooz1smyhjqq" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -113,9 +113,11 @@
 <p>現在 (2022 年 7 月現在) Azure AD の認証サービスにおける TLS 1.0 /1.1 の無効化の処理を進めています。TLS 1.0/1.1 による接続ができなくなることは、以前より Microsoft 365 のメッセージセンター、 Azure ポータルの Azure Active Directory ブレードでアナウンスをしており、 2022 年 1 月 31 日までに対策を実施するよう通知をしておりました。無効化の処理は段階的におこなわれており、 TLS1.0 /1.1 が利用されているために Azure AD の認証サービスが接続を受け付けない場合には Azure AD は AADSTS1002016 のエラーを返します。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AADSTS1002016: You are using TLS version 1.0, 1.1 and/or 3DES cipher which are deprecated to improve the security posture of Azure AD. Your TenantID is: XXXXXXXXX. Please refer to https://go.microsoft.com/fwlink/?linkid=2161187 and conduct needed actions to remediate the issue. For further questions, please contact your administrator.</span><br></pre></td></tr></table></figure>
 
-<p>ここ最近、突然 Azure AD の認証ができなくなった、ただ何度かリトライすると接続できることもあるというケースでは、この措置に伴い生じている可能性があります。(段階的に展開しているため、リトライで TLS 1.0 /1.1 無効化の措置が未適用のサーバーに接続した場合、エラーとならず接続できるということが発生します)</p>
-<p>特にサポート窓口では PowerShell を利用した自動化処理で問題が発生するようになったというお問い合わせを多く受けていますが、それ以外でも発生する可能性があります。また、処理が複数のシステムを介して行われている場合には、AADSTS1002016 のエラーが見えないものもありますし、 PowerShell でも実行するコマンドによっては、AADSTS1002016 という情報は含まれずに、例えば Connect-MSolService では次のようなエラーが返されます。<br>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Connect-MsolService : Authentication Error: Unexpected authentication failure.</span><br></pre></td></tr></table></figure></p>
+<p>ここ最近、突然 Azure AD の認証ができなくなった、ただ何度かリトライすると接続できることもあるというケースでは、この措置に伴い生じている可能性があります (段階的に展開しているため、リトライで TLS 1.0 /1.1 無効化の措置が未適用のサーバーに接続した場合、エラーとならず接続できます)。</p>
+<p>サポート窓口では特に PowerShell を利用した自動化処理で問題が発生するようになったというお問い合わせを多く受けていますが、それ以外でも発生する可能性があります。処理が複数のシステムを介して行われている場合には、AADSTS1002016 のエラーが見えないものもありますし、 PowerShell でも実行するコマンドによっては、AADSTS1002016 という情報は含まれずに、例えば Connect-MSolService では次のようなエラーが返されます。<br>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Connect-MsolService : Authentication Error: Unexpected authentication failure.</span><br></pre></td></tr></table></figure></p>
+<p>他には Web アプリケーションでこの措置の影響を受けて問題が発生している場合に次のようなエラーの発生が確認できています。<br>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">IDX20803: Unable to create to obtain configuration from: &#x27;https://login.microsoftonline.com/&#123;Tenant-ID&#125;/.well-known/openid-configuration&#x27;</span><br></pre></td></tr></table></figure></p>
 <p>PowerShell で TLS 1.2 が利用できる状態かは PowerShell を起動し、次のコマンドの実行により確認ができます。<br>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[System.Net.ServicePointManager]::SecurityProtocol</span><br></pre></td></tr></table></figure><br>実行した結果、TLS12 が含まれている、あるいは SystemDefault となっている場合には PowerShell としては TLS 1.2 を利用できる状態と判断できます (OS でも利用できるように構成されていることが前提です)。実行結果として Ssl3, Tls のみなど TLS12 が含まれない場合には TLS 1.2 は利用されない状態のため、後述します 「PowerShell (.NET Framework) で TLS 1.2 が利用されるように設定する方法」 にしたがってレジストリ設定を実施ください。</p>
+<p>IDX20803 が記録されているパターンなどでは問題が発生している Web アプリケーションが TLS 1.2 を利用するようになっているか確認を実施ください。</p>
 <h2 id="技術資料"><a href="#技術資料" class="headerlink" title="技術資料"></a>技術資料</h2><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/troubleshoot/azure/active-directory/enable-support-tls-environment?tabs=azure-monitor">Azure AD TLS 1.1 および 1.0 の非推奨の環境で TLS 1.2 のサポートを有効にする</a></p>
 <p><a target="_blank" rel="noopener" href="https://jpdsi.github.io/blog/internet-explorer-microsoft-edge/dotnet-framework-tls12/">.NET Framework で TLS 1.1 および TLS 1.2 を有効化する方法 - まとめ -</a></p>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/dotnet/framework/migration-guide/versions-and-dependencies">.NET Framework のバージョンおよび依存関係</a></p>
