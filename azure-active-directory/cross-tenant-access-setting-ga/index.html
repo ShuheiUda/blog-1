@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/cross-tenant-access-setting-ga/cross-tenant-access-setting-ga3.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/cross-tenant-access-setting-ga/cross-tenant-access-setting-ga4.png">
 <meta property="article:published_time" content="2022-08-09T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-09T04:07:24.805Z">
+<meta property="article:modified_time" content="2022-08-10T07:55:00.437Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="US Identity Blog">
@@ -108,7 +108,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+b7d2a45d-22ea-5694-a475-8074e9c8f137%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%82%BB%E3%82%AD%E3%83%A5%E3%82%A2%E3%81%AA%E3%82%B3%E3%83%A9%E3%83%9C%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%82%AF%E3%83%AD%E3%82%B9+%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88+%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E8%A8%AD%E5%AE%9A%E3%81%8C%E4%B8%80%E8%88%AC%E5%85%AC%E9%96%8B%E3%81%95%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fcross-tenant-access-setting-ga%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fcross-tenant-access-setting-ga.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fcross-tenant-access-setting-ga.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/cross-tenant-access-setting-ga/" data-id="cl6lnvzpo00500pp4bhr0deno" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/cross-tenant-access-setting-ga/" data-id="cl6nbgjro00500nmmcfbla5pk" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -117,38 +117,38 @@
 <p>本記事は、 2022 年 7 月 21 日に米国の Azure Active Directory Identity Blog で公開された <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/cross-tenant-access-settings-for-secure-collaboration-now/ba-p/3575844">Cross-tenant access settings for secure collaboration now generally available!</a> を意訳したものになります。ご不明点などございましたら、サポート チームまでお問い合わせください。</p>
 <hr>
 <p>みなさん、こんにちは。 </p>
-<p>外部コラボレーションのためのクロス テナント アクセス設定が、一般利用可能になったことをお伝えしたいと思います。セキュアなコラボレーション・ポリシーを実現するためにチームが行った作業を誇りに思うと同時に、<a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/collaborate-more-securely-with-new-cross-tenant-access-settings/ba-p/2147077">パブリック プレビュー</a>を実施した際、お客様から得た知見を共有できることを嬉しく思っています。</p>
-<p>お客様からお聞きした採用事例やメインのシナリオについて、ここからはシニア プロダクト マネージャーの Josh Douglas を迎えして、話を聞きたいと思います。</p>
+<p>外部コラボレーションのためのクロス テナント アクセス設定が、一般利用可能になったことをお伝えしたいと思います。セキュアなコラボレーション ポリシーを実現するためにチームが行った作業を誇りに思うと同時に、<a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/collaborate-more-securely-with-new-cross-tenant-access-settings/ba-p/2147077">パブリック プレビュー</a> を実施した際に、お客様から得た知見を共有できることを嬉しく思います。</p>
+<p>お客様からお聞きした採用事例やメインのシナリオについて、ここからはシニア プロダクト マネージャーの Josh Douglas を迎えて、話を聞きたいと思います。</p>
 <hr>
-<p>Robin、ありがとう! クロス テナント アクセス設定と一般提供までの道のりについて、皆さんに詳しくお話できることをうれしく思います。パブリック プレビューでは、多くのお客様がクロス テナント アクセス設定を採用し、以前は不可能だったシナリオや要件に対応されています。このことを説明するために、まずは統計情報を紹介します。</p>
+<p>Robin、ありがとう! クロス テナント アクセス設定と一般提供までの道のりについて、皆さんに詳しくお話できることをうれしく思います。パブリック プレビューでは、多くのお客様がクロス テナント アクセス設定を採用し、以前は不可能だったシナリオや要件に対応されています。このことを説明するために、まずは以下の情報を紹介します。</p>
 <ul>
 <li>5,000 以上のテナントが、他の組織のために MFA の信頼を設定しました。</li>
 <li>2,000 以上のテナントが、準拠済みもしくは Azure AD 参加デバイスの信頼関係を構成しました。</li>
 </ul>
 <p>これらの統計は、この機能によって、従来は不可能だった組織外のコラボレーションのセキュリティ確保が可能になるという、皆様からの素晴らしいフィードバックに沿うものです。</p>
-<h2 id="セキュアなコラボレーションを実現しながら外部ユーザーとスムーズに連携する"><a href="#セキュアなコラボレーションを実現しながら外部ユーザーとスムーズに連携する" class="headerlink" title="セキュアなコラボレーションを実現しながら外部ユーザーとスムーズに連携する"></a>セキュアなコラボレーションを実現しながら外部ユーザーとスムーズに連携する</h2><p>外部ユーザーの MFA 登録を管理することで、追加作業が発生し、サポート コストが増加するという声が聞かれます。さらにユーザーは、コラボレーションする異なる組織間で、時には複数回、登録と MFA を実行しなければならず、フラストレーションを感じています。受信方向のクロス テナント アクセス設定では、外部の Azure AD 組織からの MFA のセキュリティ クレームを信頼し、条件付きアクセス ポリシーで要求された場合に、外部ユーザーがホーム テナントで MFA を実行するようにするお客様が多くなっています。これにより、ユーザーは別のテナントのリソースにアクセスする際に 2 回目の MFA を実行する必要がなくなり、ユーザーにとっての負担が大幅に軽減されます。これにより、組織で要求されるセキュリティ体制を維持しながら、外部ユーザーの MFA 登録を管理する必要がなくなり、サポート コストを削減することができます。また、組織で発生する MFA コストも削減できます。</p>
-<p>また、外部ユーザーがアプリやリソースにアクセスするデバイスの種類を気にしているというお話もありました。条件付きアクセス ポリシーを適用して、外部ユーザーがクレーム デバイスまたはハイブリッド Azure AD 参加ドメインでリソースにアクセスすることを要求することが、受信方向のクロス テナント アクセス設定で可能になりました。外部 AD 組織からのデバイス クレームを信頼することで、外部ユーザーが管理されたデバイスでアプリやリソースにアクセスしていることがわかり、データをさらに保護することができます。 </p>
+<h2 id="セキュアなコラボレーションを実現しながら外部ユーザーとスムーズに連携する"><a href="#セキュアなコラボレーションを実現しながら外部ユーザーとスムーズに連携する" class="headerlink" title="セキュアなコラボレーションを実現しながら外部ユーザーとスムーズに連携する"></a>セキュアなコラボレーションを実現しながら外部ユーザーとスムーズに連携する</h2><p>外部ユーザーの MFA 登録を管理することで、追加作業が発生し、サポート コストが増加するという声が聞かれます。さらにユーザーは、コラボレーションする異なる組織間で、時には複数回、登録と MFA を実行しなければならず負担を感じていました。受信方向のクロス テナント アクセス設定では、外部の Azure AD 組織からの MFA のセキュリティ クレームを信頼し、条件付きアクセス ポリシーで MFA が要求された場合に、外部ユーザーがホーム テナントで MFA を実行するようにするお客様が多くなっています。これにより、ユーザーは別のテナントのリソースにアクセスする際に 2 回目の MFA を実行する必要がなくなり、ユーザーにとっての負担が大幅に軽減されます。これにより、組織で要求されるセキュリティ体制を維持しながら、外部ユーザーの MFA 登録を管理する必要がなくなり、サポート コストを削減することができます。また、組織で発生する MFA コストも削減できます。</p>
+<p>さらに、外部ユーザーがアプリやリソースにアクセスするデバイスの種類を懸念しているお客様もいらっしゃいました。条件付きアクセス ポリシーを適用して、外部ユーザーが準拠済みデバイスまたはハイブリッド Azure AD 参加ドメインでリソースにアクセスすることを要求することが、受信方向のクロス テナント アクセス設定で可能になりました。外部 AD 組織からのデバイス クレームを信頼することで、管理されたデバイスで外部ユーザーがアプリやリソースにアクセスしていることがわかり、データをさらに保護することができます。 </p>
 <p>詳細は <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/external-identities/authentication-conditional-access">External Identities の認証と条件付きアクセス</a> をご覧ください。</p>
-<p><img src="/blog/azure-active-directory/cross-tenant-access-setting-ga/cross-tenant-access-setting-ga1.png" alt="特定の外部組織から、多要素認証、コンプライアンス、ハイブリッドAzure ADに参加したデバイスを信頼することができます。"></p>
-<h2 id="ユーザーが承認した外部組織とのみコラボレートするようにする"><a href="#ユーザーが承認した外部組織とのみコラボレートするようにする" class="headerlink" title="ユーザーが承認した外部組織とのみコラボレートするようにする"></a>ユーザーが承認した外部組織とのみコラボレートするようにする</h2><p>アプリやリソースを外部からの不正アクセスから保護することが重要であるのと同様に、ユーザーが承認した組織としかコラボレーションしていないことを確認することも重要な場合があります。例えば、規制の強い業界に属し、データの流出について神経質になっている組織が考えられます。教育機関では、学生が学校のアカウントを使用して、許可されていない外部組織と Teams 上でチャットしている可能性もあります。このようなシナリオでは、ユーザーが未承認の外部テナントにアクセスするのをブロックする、送信方向のクロス テナント アクセス設定を導入することができます。教育業界のあるお客様は、ポリシーのテストと導入に 5 分もかからなかったそうです。これによりシンプルなセキュリティが実現できます。</p>
+<p><img src="/blog/azure-active-directory/cross-tenant-access-setting-ga/cross-tenant-access-setting-ga1.png" alt="特定の外部組織から、多要素認証、コンプライアンス、ハイブリッドAzure ADに参加したデバイスを信頼する。"></p>
+<h2 id="ユーザーが承認した外部組織とのみコラボレートするようにする"><a href="#ユーザーが承認した外部組織とのみコラボレートするようにする" class="headerlink" title="ユーザーが承認した外部組織とのみコラボレートするようにする"></a>ユーザーが承認した外部組織とのみコラボレートするようにする</h2><p>アプリやリソースを外部からの不正アクセスから保護することが重要であるのと同様に、ユーザーが承認した組織としかコラボレーションしていないことを確認することも重要な場合があります。例えば、規制の強い業界に属し、データの流出について非常に敏感になっている組織があげられます。教育機関では、学生が学校のアカウントを使用して、許可されていない外部組織と Teams 上でチャットしている可能性もあります。このようなシナリオでは、ユーザーが未承認の外部テナントにアクセスするのをブロックする、送信方向のクロス テナント アクセス設定を導入することができます。教育業界のあるお客様は、ポリシーのテストと導入に 5 分もかからなかったそうです。これによりシンプルなセキュリティが実現できます。</p>
 <p>詳細は <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/external-identities/cross-tenant-access-settings-b2b-collaboration#modify-outbound-access-settings">送信アクセス設定を変更する</a> ご覧ください。</p>
 <p><img src="/blog/azure-active-directory/cross-tenant-access-setting-ga/cross-tenant-access-setting-ga2.png" alt="ユーザーのグループをターゲットにして、特定の組織への送信アクセスをブロックする。"></p>
 <p><img src="/blog/azure-active-directory/cross-tenant-access-setting-ga/cross-tenant-access-setting-ga3.png" alt="同じグループのユーザーが、送信アクセス時に、どのアプリケーションにもアクセスできないようにブロックする。"></p>
 <h2 id="Teams-の共有チャンネルでシームレスなコラボレーションを実現"><a href="#Teams-の共有チャンネルでシームレスなコラボレーションを実現" class="headerlink" title="Teams の共有チャンネルでシームレスなコラボレーションを実現"></a>Teams の共有チャンネルでシームレスなコラボレーションを実現</h2><p>Teams や SharePoint 上で、外部ユーザーとのコラボレーションを主に行っている場合、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/MicrosoftTeams/shared-channels">Teams 共有チャネル</a> にて、複数の組織のユーザーと同時にチャットやファイル共有、コラボレーションを行うことができるシームレスなコラボレーションが可能です。上記で説明した受信および送信方向のクロス テナント アクセス ポリシーは、Teams 共有チャネルの <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/external-identities/b2b-direct-connect-overview">B2B 直接接続</a> ユーザーにも適用されます。 </p>
-<p><img src="/blog/azure-active-directory/cross-tenant-access-setting-ga/cross-tenant-access-setting-ga4.png" alt="共有チャネルは、ユーザーがテナントを切り替えることなく、シームレスなコラボレーションを実現します。"></p>
+<p><img src="/blog/azure-active-directory/cross-tenant-access-setting-ga/cross-tenant-access-setting-ga4.png" alt="共有チャネルは、ユーザーがテナントを切り替えることなく、シームレスなコラボレーションを実現する。"></p>
 <h2 id="お客様の声"><a href="#お客様の声" class="headerlink" title="お客様の声"></a>お客様の声</h2><p>パブリック プレビュー期間中、多くのお客様が上記の機能を試され、次のような感想を述べられています。 </p>
 <blockquote>
 <p>“クロス テナント アクセス設定は、外部組織とのコラボレーションを確保するために必要なコントロールを提供し、自社の保有財産を超えた「ゼロ トラスト」の道のりをサポートしてくれます。”<br>– 保険業界のお客様からの声</p>
 </blockquote>
 <blockquote>
-<p>“Azure AD B2B により、当社のビジネスとパートナーや顧客との連携、サービスや製品へのアクセスを提供する方法が変革されました。クロス テナント アクセス設定は、より詳細で相互に合意可能なレベルの制御を実装する機能を提供することで、ビジネスが次のレベルへと押し上げられました。これは多くのお客様からの重要な要求であり、両者が妥協することなく、データ保護要件を満たすために必要な制御を実施することが可能になります。”<br>– プロフェッショナルサービス業界のお客様からの声</p>
+<p>“Azure AD B2B により、当社のビジネスとパートナーや顧客との連携、サービスや製品へのアクセスを提供する方法が変革されました。クロス テナント アクセス設定は、より詳細で相互に合意可能なレベルの制御を実装する機能を提供することで、ビジネスを次のレベルへと押し上げました。これは多くのお客様からの重要な要望であり、両者が妥協することなく、データ保護要件を満たすために必要な制御を実施することが可能になります。”<br>– プロフェッショナルサービス業界のお客様からの声</p>
 </blockquote>
 <blockquote>
-<p>“これらの機能により、セキュリティ管理が強化されるとともに、管理対象エンドポイントから外部テナントへの強制ログインが可能になるため、クロス テナント アクセスに非常に期待しています。クロス テナント アクセスは、リスクを大幅に削減し、セキュリティを向上させ、外部テナントへのアクセスやコラボレーションのニーズに関して、ビジネスをより良くサポートするのに役立ちます。セキュリティ部門、ビジネス、そして重要なことですが、監査役や規制当局も満足しています。”<br>– 金融サービス業界のお客様 </p>
+<p>“これらの機能により、セキュリティ管理が強化されるとともに、管理されたエンドポイント デバイスから外部テナントへのログインを強制できるようになるため、クロス テナント アクセスに非常に期待しています。クロス テナント アクセスは、リスクを大幅に削減し、セキュリティを向上させ、外部テナントへのアクセスやコラボレーションのニーズに関して、ビジネスをより良くサポートするのに役立っています。セキュリティ部門、ビジネス、そして重要なことですが、監査役や規制当局もこの機能に満足しています。”<br>– 金融サービス業界のお客様 </p>
 </blockquote>
-<h2 id="これはほんの始まりに過ぎません…"><a href="#これはほんの始まりに過ぎません…" class="headerlink" title="これはほんの始まりに過ぎません…"></a>これはほんの始まりに過ぎません…</h2><p>みなさまもぜひクロス テナント アクセス設定をお使いいただければと思います。この設定を始める前に、外部組織とのコラボレーションを評価し、必要なコラボレーションを不注意で阻害することがないように、この <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/reports-monitoring/workbook-cross-tenant-access-activity">ワークブック</a> を用意しました。受信・送信方向のコラボレーションをすべて理解するのに役立つよう、シンプルに構成されています。</p>
-<p>この製品をどのように使用しているか、または今後どのようにすればより良くなるかについてのフィードバックをお待ちしています。Azure フォーラムや Twitter の @AzureAD タグでフィードバックを共有してください。 </p>
-<p>Robin と Josh<br>Twitter: RobinGo_MS, @joshkdouglas</p>
+<h2 id="これはほんの始まりに過ぎません…"><a href="#これはほんの始まりに過ぎません…" class="headerlink" title="これはほんの始まりに過ぎません…"></a>これはほんの始まりに過ぎません…</h2><p>みなさまもぜひクロス テナント アクセス設定をお使いいただければと思います。この設定を始める前に、外部組織とのコラボレーションを評価し、必要なコラボレーションを不注意で阻害することがないように、この <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/reports-monitoring/workbook-cross-tenant-access-activity">ワークブック</a> を活用ください。受信および送信方向のコラボレーション状況を把握できるよう、シンプルに構成されています。</p>
+<p>この製品をどのように使用しているか、または今後どのようにすればより良くなるかについてのフィードバックをお待ちしています。Azure フォーラムや Twitter の @AzureAD タグでフィードバックを共有ください。 </p>
+<p>Robin &amp; Josh<br>Twitter: RobinGo_MS, @joshkdouglas</p>
 
       
       
