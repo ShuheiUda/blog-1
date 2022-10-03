@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/external-collaboration-setting-b2b-access/external-collaboration-setting-b2b-access9.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/external-collaboration-setting-b2b-access/external-collaboration-setting-b2b-access10.png">
 <meta property="article:published_time" content="2022-08-01T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-02T19:04:53.824Z">
+<meta property="article:modified_time" content="2022-10-03T02:26:34.675Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="B2B">
@@ -114,7 +114,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+7381a0e7-ca45-5fd4-be8b-9105cc032f89%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E5%A4%96%E9%83%A8%E3%82%B3%E3%83%A9%E3%83%9C%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E8%A8%AD%E5%AE%9A+%28%E3%82%B2%E3%82%B9%E3%83%88+%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E5%88%B6%E9%99%90%29+%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fexternal-collaboration-setting-b2b-access%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fexternal-collaboration-setting-b2b-access.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fexternal-collaboration-setting-b2b-access.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/external-collaboration-setting-b2b-access/" data-id="cl8rpq8gi00690nm662iy17iu" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/external-collaboration-setting-b2b-access/" data-id="cl8s5i5lb00690mpuahf5e5ne" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -124,10 +124,10 @@
 <p>Azure ポータルには、招待されたゲスト ユーザーがどのような情報にアクセスできるか・できないかを制御する設定項目があります。<br>具体的には、下記画面の [ゲスト ユーザーのアクセス制限] の 3 つの選択肢で、ゲストがアクセスできる範囲を指定できます。<br><img src="/blog/azure-active-directory/external-collaboration-setting-b2b-access/external-collaboration-setting-b2b-access1.png"></p>
 <p>この設定については、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/external-identities/external-collaboration-settings-configure">外部コラボレーションの設定を構成する</a> にて詳細を確認することができますが、各選択肢について、具体的にどのような違いがあるのか分からない・詳細を教えてほしいというお問い合わせを多くいただいております。</p>
 <p>そのため今回は、それぞれの選択肢を指定した際、ゲスト ユーザー側から見ると、どのような変化があるかを、画面ショット付きでご案内します。</p>
-<p>詳細は<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/fundamentals/users-default-permissions">公開情報</a>に記載の通り、ゲスト ユーザーとメンバー ユーザーでは、既定で持っているアクセス権が異なりますが、この設定に変更すると、ゲスト ユーザーは、テナントにいる「管理者ロールを持たないメンバー ユーザー」と同じアクセス権を持つようになります。</p>
+<h2 id="ゲスト-ユーザーは、メンバーと同じアクセス権を持ちます-制限が最も少ない-を選択した場合"><a href="#ゲスト-ユーザーは、メンバーと同じアクセス権を持ちます-制限が最も少ない-を選択した場合" class="headerlink" title="[ゲスト ユーザーは、メンバーと同じアクセス権を持ちます (制限が最も少ない)] を選択した場合"></a>[ゲスト ユーザーは、メンバーと同じアクセス権を持ちます (制限が最も少ない)] を選択した場合</h2><p>詳細は<a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/fundamentals/users-default-permissions">公開情報</a>に記載の通り、ゲスト ユーザーとメンバー ユーザーでは、既定で持っているアクセス権が異なりますが、この設定に変更すると、ゲスト ユーザーは、テナントにいる「管理者ロールを持たないメンバー ユーザー」と同じアクセス権を持つようになります。</p>
 <p>具体的には、ゲスト ユーザーはたとえば下記画面のように、[ロールと管理者]、[管理単位]、[ライセンス]、[Azure AD Connect] などの情報を確認することができます。</p>
 <p>※[ユーザー]、[グループ] で確認できる情報については、「管理者ロールを持たないメンバー ユーザー」と同じアクセス権で確認できる情報と同じです。詳細な記載は省略しますが、ユーザー一覧・グループ一覧を確認できます。<br><img src="/blog/azure-active-directory/external-collaboration-setting-b2b-access/external-collaboration-setting-b2b-access2.png"></p>
-<h1 id="ゲスト-ユーザーは、ディレクトリ-オブジェクトのプロパティとメンバーシップへのアクセスが制限されます-を選択した場合"><a href="#ゲスト-ユーザーは、ディレクトリ-オブジェクトのプロパティとメンバーシップへのアクセスが制限されます-を選択した場合" class="headerlink" title="[ゲスト ユーザーは、ディレクトリ オブジェクトのプロパティとメンバーシップへのアクセスが制限されます] を選択した場合"></a>[ゲスト ユーザーは、ディレクトリ オブジェクトのプロパティとメンバーシップへのアクセスが制限されます] を選択した場合</h1><p>既定の設定です。ゲスト ユーザーは、メンバー ユーザーと同じアクセス権を持たず、一部閲覧できない項目があります。</p>
+<h2 id="ゲスト-ユーザーは、ディレクトリ-オブジェクトのプロパティとメンバーシップへのアクセスが制限されます-を選択した場合"><a href="#ゲスト-ユーザーは、ディレクトリ-オブジェクトのプロパティとメンバーシップへのアクセスが制限されます-を選択した場合" class="headerlink" title="[ゲスト ユーザーは、ディレクトリ オブジェクトのプロパティとメンバーシップへのアクセスが制限されます] を選択した場合"></a>[ゲスト ユーザーは、ディレクトリ オブジェクトのプロパティとメンバーシップへのアクセスが制限されます] を選択した場合</h2><p>既定の設定です。ゲスト ユーザーは、メンバー ユーザーと同じアクセス権を持たず、一部閲覧できない項目があります。</p>
 <p>たとえば、メンバー ユーザーと異なり、[ユーザー] の画面にて、ユーザー一覧が表示されません。以下のようにメッセージが表示されます。<br><img src="/blog/azure-active-directory/external-collaboration-setting-b2b-access/external-collaboration-setting-b2b-access3.png"></p>
 <p>ただし、任意のユーザーの ObjectID を入力することができれば、ほかのユーザーの詳細を確認することができます。<br><img src="/blog/azure-active-directory/external-collaboration-setting-b2b-access/external-collaboration-setting-b2b-access4.png"></p>
 <p>グループにつきましては、ユーザー一覧のように検索ボックスは表示されず、以下のように “この操作を完了するのに十分な特権がありません。” とのエラー メッセージが表示されます。<br><img src="/blog/azure-active-directory/external-collaboration-setting-b2b-access/external-collaboration-setting-b2b-access5.png"></p>
@@ -136,7 +136,7 @@
 <p>URL 例（GroupID/ の後ろに、グループの ObjectID を指定します。）<br><a target="_blank" rel="noopener" href="https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/Overview/groupId/4041df9f-a919-4e9c-b9de-9cdbb1cacc19">https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupDetailsMenuBlade/Overview/groupId/4041df9f-a919-4e9c-b9de-9cdbb1cacc19</a></p>
 <p><img src="/blog/azure-active-directory/external-collaboration-setting-b2b-access/external-collaboration-setting-b2b-access6.png"></p>
 <p>その他、[ロールと管理者] から、誰がどの管理者ロールを持っているか確認したり、テナントに紐づいているライセンス一覧を確認したりすることはできません。<br><img src="/blog/azure-active-directory/external-collaboration-setting-b2b-access/external-collaboration-setting-b2b-access7.png"></p>
-<h1 id="ゲスト-ユーザーのアクセスは、各自のディレクトリ-オブジェクトのプロパティとメンバーシップに制限されます-最も制限が多い-を選択した場合"><a href="#ゲスト-ユーザーのアクセスは、各自のディレクトリ-オブジェクトのプロパティとメンバーシップに制限されます-最も制限が多い-を選択した場合" class="headerlink" title="[ゲスト ユーザーのアクセスは、各自のディレクトリ オブジェクトのプロパティとメンバーシップに制限されます (最も制限が多い)] を選択した場合"></a>[ゲスト ユーザーのアクセスは、各自のディレクトリ オブジェクトのプロパティとメンバーシップに制限されます (最も制限が多い)] を選択した場合</h1><p>ゲスト ユーザーは、自身のプロパティにアクセスすることができます。自分の名前や UPN を確認することが可能です。</p>
+<h2 id="ゲスト-ユーザーのアクセスは、各自のディレクトリ-オブジェクトのプロパティとメンバーシップに制限されます-最も制限が多い-を選択した場合"><a href="#ゲスト-ユーザーのアクセスは、各自のディレクトリ-オブジェクトのプロパティとメンバーシップに制限されます-最も制限が多い-を選択した場合" class="headerlink" title="[ゲスト ユーザーのアクセスは、各自のディレクトリ オブジェクトのプロパティとメンバーシップに制限されます (最も制限が多い)] を選択した場合"></a>[ゲスト ユーザーのアクセスは、各自のディレクトリ オブジェクトのプロパティとメンバーシップに制限されます (最も制限が多い)] を選択した場合</h2><p>ゲスト ユーザーは、自身のプロパティにアクセスすることができます。自分の名前や UPN を確認することが可能です。</p>
 <p>しかしながら、その他のユーザーをユーザー一覧から検索したり、グループの詳細画面にアクセスしたりすることもできなくなります。（ほかのユーザーの ObjectID を入力しても検索できません。）<br><img src="/blog/azure-active-directory/external-collaboration-setting-b2b-access/external-collaboration-setting-b2b-access8.png"></p>
 <p>ゲスト自身が、何らかのグループに所属しているかどうかは閲覧できますが、具体的にどのグループに所属しているのか、名前は表示されません。<br>（ObjectID のみ表示されますが、ObjectID をもとにグループを検索することもできません。）</p>
 <p>下記画面でグループをクリックすると、”アクセス権がありません” の画面が表示されます。<br><img src="/blog/azure-active-directory/external-collaboration-setting-b2b-access/external-collaboration-setting-b2b-access9.png"></p>
@@ -200,6 +200,10 @@
       <ul>
         
           <li>
+            <a href="../azuread-module-retirement1/">MSOnline / AzureAD PowerShell から Graph PowerShell SDK への移行について 1_概要</a>
+          </li>
+        
+          <li>
             <a href="../Microsoft-Entra-change-announcements-September-2022-train/">Microsoft Entra の変更管理のアナウンス (2022 年 9 月の状況)</a>
           </li>
         
@@ -209,10 +213,6 @@
         
           <li>
             <a href="../azuread-module-retirement3/">MSOnline / AzureAD PowerShell から Graph PowerShell SDK への移行について 3_インストール・接続編</a>
-          </li>
-        
-          <li>
-            <a href="../azuread-module-retirement1/">MSOnline / AzureAD PowerShell から Graph PowerShell SDK への移行について 1_概要</a>
           </li>
         
           <li>
