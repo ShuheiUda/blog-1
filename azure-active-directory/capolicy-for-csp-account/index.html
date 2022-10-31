@@ -6,12 +6,12 @@
   
   <title>CSP プログラムにおけるパートナーセンターから顧客テナントにアクセスする際の条件付きアクセス ポリシーについて | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、Azure &amp; Identity サポート チームの栗井です。本記事では、クラウド ソリューション プロバイダー プログラム パートナー (以下 CSP パートナー) 様から多くいただくご相談について、情報をおまとめいたしました。 よくある事例 : パートナー センターから顧客のテナントにアクセスすることができません。CSP パートナー テナントに所属するアカウントは、代理管理">
+  <meta name="description" content="こんにちは、Azure &amp; Identity サポート チームの栗井です。本記事では、クラウド ソリューション プロバイダー プログラム パートナー (以下 CSP パートナー) 様から多くいただくご相談について、情報をおまとめいたしました。 Note追記 :  2022 年 10 月にプレビュー機能として公開された「外部ユーザーの種類 (仮称)」をご利用いただくことで、これまでは不可能だ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSP プログラムにおけるパートナーセンターから顧客テナントにアクセスする際の条件付きアクセス ポリシーについて">
 <meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/capolicy-for-csp-account/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="こんにちは、Azure &amp; Identity サポート チームの栗井です。本記事では、クラウド ソリューション プロバイダー プログラム パートナー (以下 CSP パートナー) 様から多くいただくご相談について、情報をおまとめいたしました。 よくある事例 : パートナー センターから顧客のテナントにアクセスすることができません。CSP パートナー テナントに所属するアカウントは、代理管理">
+<meta property="og:description" content="こんにちは、Azure &amp; Identity サポート チームの栗井です。本記事では、クラウド ソリューション プロバイダー プログラム パートナー (以下 CSP パートナー) 様から多くいただくご相談について、情報をおまとめいたしました。 Note追記 :  2022 年 10 月にプレビュー機能として公開された「外部ユーザーの種類 (仮称)」をご利用いただくことで、これまでは不可能だ">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/capolicy-for-csp-account/blocked.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/capolicy-for-csp-account/notfound.png">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/capolicy-for-csp-account/compliant-or-haadj.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/capolicy-for-csp-account/notcompliant.png">
 <meta property="article:published_time" content="2022-07-24T15:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-29T00:53:57.802Z">
+<meta property="article:modified_time" content="2022-10-31T13:05:36.591Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="Conditional Access">
@@ -112,12 +112,14 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+bb9dfd7e-65f1-51a4-a75d-1f9d4d396a55%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BCSP+%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%81%8B%E3%82%89%E9%A1%A7%E5%AE%A2%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%E9%9A%9B%E3%81%AE%E6%9D%A1%E4%BB%B6%E4%BB%98%E3%81%8D%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9+%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fcapolicy-for-csp-account%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fcapolicy-for-csp-account.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fcapolicy-for-csp-account.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/capolicy-for-csp-account/" data-id="cl9t7n7kv004h0mmqgbpqh0jm" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/capolicy-for-csp-account/" data-id="cl9wsnv5z00ms0mki8cir9z2z" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>こんにちは、Azure &amp; Identity サポート チームの栗井です。<br>本記事では、クラウド ソリューション プロバイダー プログラム パートナー (以下 CSP パートナー) 様から多くいただくご相談について、情報をおまとめいたしました。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>追記 : </p>
+<p>2022 年 10 月にプレビュー機能として公開された「外部ユーザーの種類 (仮称)」をご利用いただくことで、これまでは不可能だった「CSP アカウント “のみ” をポリシーの対象外にする”」という操作が可能になりました。詳細については新ブログ記事の <a href="https://jpazureid.github.io/blog/azure-active-directory/new-capolicy-for-csp-account/">CSP プログラムにおけるパートナーセンターから顧客テナントにアクセスする際の条件付きアクセス ポリシーについて - 「外部ユーザーの種類の指定」による解決方法</a> を是非ご参照ください。</p></div>
 <h2 id="よくある事例-パートナー-センターから顧客のテナントにアクセスすることができません。"><a href="#よくある事例-パートナー-センターから顧客のテナントにアクセスすることができません。" class="headerlink" title="よくある事例 : パートナー センターから顧客のテナントにアクセスすることができません。"></a>よくある事例 : パートナー センターから顧客のテナントにアクセスすることができません。</h2><p>CSP パートナー テナントに所属するアカウントは、代理管理者権限を持つ場合、パートナー センター (<a target="_blank" rel="noopener" href="https://partner.microsoft.com/">https://partner.microsoft.com</a>) 経由で、リセラー関係を結ぶ顧客のテナントに対しての特権アクセス (グローバル管理者相当) が可能です。</p>
 <div class="alert is-info"><p class="alert-title">Note</p><p>本記事内では、顧客テナントに対して代理管理者権限を持つ、CSP パートナー テナントのアカウントを、「CSP アカウント」と記載します。</p></div>
 <p>さて、この「CSP アカウントによる顧客テナントへのアクセス」について、CSP パートナーの方から、下記のようなご相談をよく受けます。</p>
@@ -140,7 +142,9 @@
 <li>お問い合わせ内容 (再掲) : ある時を境に、パートナーセンターを経由した顧客テナントへのアクセスが、ブロックされるようになった。この事象は特定の顧客 (1 社) のみで発生しており、他の顧客テナントへのアクセスは問題なく可能です。</li>
 <li>原因 : 顧客のテナントで、下記のポリシーが有効化されたこと (ポリシー内容の一部が異なる場合にも発生する可能性があります)。<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">[名前] : &quot;社内 IP のみアクセス許可&quot;</span><br><span class="line"></span><br><span class="line">[割り当て] </span><br><span class="line"></span><br><span class="line">  [ユーザーとグループ] : すべてのユーザー</span><br><span class="line"></span><br><span class="line">  [クラウド アプリまたは操作] : すべてのクラウド アプリ</span><br><span class="line"></span><br><span class="line">[条件] </span><br><span class="line"></span><br><span class="line">  [場所] : すべての場所 (対象外 : 社内ネットワークのグローバル IP アドレス)</span><br><span class="line"></span><br><span class="line">[アクセス制御] </span><br><span class="line"></span><br><span class="line">  [許可] : アクセスのブロック</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="CSP-アカウントへの条件付きアクセス-ポリシーの適用を回避する方法"><a href="#CSP-アカウントへの条件付きアクセス-ポリシーの適用を回避する方法" class="headerlink" title="CSP アカウントへの条件付きアクセス ポリシーの適用を回避する方法"></a>CSP アカウントへの条件付きアクセス ポリシーの適用を回避する方法</h2><h3 id="前提-ユーザーとグループ-gt-対象外-の項目で-CSP-アカウントを指定して回避することはできません"><a href="#前提-ユーザーとグループ-gt-対象外-の項目で-CSP-アカウントを指定して回避することはできません" class="headerlink" title="前提 : [ユーザーとグループ] &gt; [対象外] の項目で CSP アカウントを指定して回避することはできません"></a>前提 : [ユーザーとグループ] &gt; [対象外] の項目で CSP アカウントを指定して回避することはできません</h3><p>条件付きアクセス ポリシーでは、割り当て対象ユーザーの設定画面において [対象外] の項目があります。通常であれば、特定のユーザーをポリシーの割り当て対象から除外したい場合は、[対象外] の項目で該当のユーザーを指定する方法が適切です。</p>
+<h2 id="CSP-アカウントへの条件付きアクセス-ポリシーの適用を回避する方法"><a href="#CSP-アカウントへの条件付きアクセス-ポリシーの適用を回避する方法" class="headerlink" title="CSP アカウントへの条件付きアクセス ポリシーの適用を回避する方法"></a>CSP アカウントへの条件付きアクセス ポリシーの適用を回避する方法</h2><div class="alert is-info"><p class="alert-title">Note</p><p>再掲 : </p>
+<p>2022 年 10 月にプレビュー機能として公開された「外部ユーザーの種類 (仮称)」をご利用いただくことで、これまでは不可能だった「CSP アカウント “のみ” をポリシーの対象外にする”」という操作が可能になりました。詳細については新ブログ記事の <a href="https://jpazureid.github.io/blog/azure-active-directory/new-capolicy-for-csp-account/">CSP プログラムにおけるパートナーセンターから顧客テナントにアクセスする際の条件付きアクセス ポリシーについて - 「外部ユーザーの種類の指定」による解決方法</a> を是非ご参照ください。</p></div>
+<h3 id="前提-ユーザーとグループ-gt-対象外-の項目で-CSP-アカウントを指定して回避することはできません"><a href="#前提-ユーザーとグループ-gt-対象外-の項目で-CSP-アカウントを指定して回避することはできません" class="headerlink" title="前提 : [ユーザーとグループ] &gt; [対象外] の項目で CSP アカウントを指定して回避することはできません"></a>前提 : [ユーザーとグループ] &gt; [対象外] の項目で CSP アカウントを指定して回避することはできません</h3><p>条件付きアクセス ポリシーでは、割り当て対象ユーザーの設定画面において [対象外] の項目があります。通常であれば、特定のユーザーをポリシーの割り当て対象から除外したい場合は、[対象外] の項目で該当のユーザーを指定する方法が適切です。</p>
 <p>しかし、CSP アカウントの場合は、この方法を利用できません。前述の通り、CSP アカウントは顧客のテナント上にユーザー オブジェクトが存在しない、特別なアカウントです。 そのため、[対象外] の項目で選択することができません。</p>
 <p>したがって、割り当て対象ユーザーの設定では、CSP アカウントを明示的にポリシーの適用対象外に指定することはできません。以下で 3 通りの回避策を紹介します。</p>
 <ol>
