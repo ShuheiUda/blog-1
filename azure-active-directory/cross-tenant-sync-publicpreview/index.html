@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/cross-tenant-sync-publicpreview/cts3.jpg">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/cross-tenant-sync-publicpreview/cts4.jpg">
 <meta property="article:published_time" content="2023-02-05T15:00:00.000Z">
-<meta property="article:modified_time" content="2023-02-08T05:59:42.563Z">
+<meta property="article:modified_time" content="2023-02-08T21:50:53.000Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="B2B">
 <meta property="article:tag" content="Azure AD B2B">
@@ -109,14 +109,15 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+9a6ef19e-64b4-5838-9aaf-f271f960de68%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%83%9E%E3%83%AB%E3%83%81%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E3%81%AE+Azure+AD+%E7%B5%84%E7%B9%94%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%AC%E3%82%B9%E3%81%AA%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3+%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%8A%E3%82%88%E3%81%B3%E3%83%A9%E3%82%A4%E3%83%95+%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E7%AE%A1%E7%90%86%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fcross-tenant-sync-publicpreview%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fcross-tenant-sync-publicpreview.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fcross-tenant-sync-publicpreview.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/cross-tenant-sync-publicpreview/" data-id="cldv9hb8l005r0nmt34p21hw6" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/cross-tenant-sync-publicpreview/" data-id="cldw7gj01005r0on765sc00qh" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は、2023 年 1 月 31 日に米国の Microsoft Entra (Azure AD) Blog で公開された <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/seamless-application-access-and-lifecycle-management-for-multi/ba-p/3728752">Seamless Application Access and Lifecycle Management for Multi-tenant Azure AD Organizations</a> を意訳したものになります。</p><p>ご不明点等ございましたらサポート チームまでお問い合わせください。</p></div>
-<p>こんにちは。<br>今日は、<strong>テナント間同期</strong>が<strong>パブリック プレビュー</strong>になったことをお知らせします。 </p>
-<p>組織によっては、最近、新しい会社を買収したり、他の会社と合併したり、新しく設立された事業単位に基づき再編成されたりということがあるかと思います。組織が発展するにつれて、IT 部門は変化するニーズに対応するために適応が求められます。これには、既存の Azure Active Directory（Azure AD）テナントとの統合や、新しいテナントの作成も含まれるはずです。ID 基盤の管理方法にかかわらず、エンドユーザーがテナント間でリソースへのアクセスやコラボレーションをシームレスに体験できることがいかに重要であるかを弊社では認識しています。<br>テナント間同期の機能により、マルチテナント環境においてシームレスなアクセスおよびコラボレーション体験を提供することができます。</p>
+        <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は、2023 年 1 月 31 日に米国の Microsoft Entra (Azure AD) Blog で公開された <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/seamless-application-access-and-lifecycle-management-for-multi/ba-p/3728752">Seamless Application Access and Lifecycle Management for Multi-tenant Azure AD Organizations</a> を意訳したものになります。ご不明点等ございましたらサポート チームまでお問い合わせください。</p></div>
+<p>こんにちは。</p>
+<p>今日は、<strong>テナント間同期</strong> が <strong>パブリック プレビュー</strong> になったことをお知らせします。 </p>
+<p>組織によっては、最近、新しい会社を買収したり、他の会社と合併したり、新しく設立された事業単位に基づき再編成されたりということがあるかと思います。組織が発展するにつれて、IT 部門は変化するニーズに対応するために適応が求められます。これには、既存の Azure Active Directory（Azure AD）テナントとの統合や、新しいテナントの作成も含まれるはずです。ID 基盤の管理方法にかかわらず、エンドユーザーがテナント間でリソースへのアクセスやコラボレーションをシームレスに体験できることがいかに重要であるかを弊社では認識しています。テナント間同期の機能により、マルチテナント環境においてシームレスなアクセスおよびコラボレーション体験を提供することができます。</p>
 <p>現在では、カスタム スクリプトやオンプレミスのソリューションを使用してテナントをつなぎ合わせ、テナント間でシームレスなユーザー体験を提供しているかもしれません。あるお客様からは、組織内でコラボレーションを行う場合、次のようなことを望んでいるとお聞きしました。</p>
 <ol>
 <li><p>アプリケーションを組織内の異なるテナントでホストしている場合でも、ユーザーがアプリケーションにシームレスにアクセスできるようにしたい。</p>
@@ -126,36 +127,30 @@
 <li><p>カスタム スクリプトや自社開発ソリューションを使用せずに、テナント間で自動的にアカウントの同期を維持し、ユーザーが組織を離れた場合は、自動的にアカウントの削除をしたい。</p>
 </li>
 </ol>
-<p>このようなシナリオを、Azure AD に組み込まれた機能で実現できるようになりました。テナント間同期を有効にすることで、組織内のテナント間でユーザー アカウントの作成を自動化できます。同期プロセスによって作成されたユーザーは、プライマリ テナントと同じように認証でき、各アプリケーションには、必要に応じて条件付きアクセス ポリシーを割り当てることもできます。これにより、組織全体のユーザーは、Microsoft アプリケーションや ServiceNow、Adobe などの Microsoft 以外のアプリケーション、その他何百もの SaaS アプリケーションなど、それらがホストされているテナントに関係なくアプリケーションにアクセスできるようになりました。 </p>
-<p>この同期プロセスは、堅牢な Azure AD B2B 機能を活用し、条件付きアクセス、クロステナント アクセス設定、エンタイトルメント管理などの Azure AD のセキュリティおよびガバナンス機能と完全に統合されており、裏側でユーザーに対して透過的に実行されます。</p>
+<p>このようなシナリオを、Azure AD に組み込まれた機能で実現できるようになりました。テナント間同期を有効にすることで、組織内のテナント間でユーザー アカウントの作成を自動化できます。同期プロセスによって作成されたユーザーは、プライマリ テナントと同じように認証でき、各アプリケーションには、必要に応じて条件付きアクセス ポリシーを割り当てることもできます。これにより、組織全体のユーザーは、Microsoft アプリケーションや <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/active-directory/saas-apps/servicenow-provisioning-tutorial">ServiceNow</a>、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/active-directory/saas-apps/adobe-identity-management-provisioning-tutorial">Adobe</a> などの Microsoft 以外のアプリケーション、その他何百もの SaaS アプリケーションなど、それらがホストされているテナントに関係なくアプリケーションにアクセスできるようになりました。 </p>
+<p>この同期プロセスは、堅牢な <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/active-directory/external-identities/what-is-b2b">Azure AD B2B</a> 機能を活用し、条件付きアクセス、クロステナント アクセス設定、エンタイトルメント管理などの Azure AD のセキュリティおよびガバナンス機能と完全に統合されており、裏側でユーザーに対して透過的に実行されます。</p>
 <h2 id="簡単な-3-ステップでテナント間同期を開始する"><a href="#簡単な-3-ステップでテナント間同期を開始する" class="headerlink" title="簡単な 3 ステップでテナント間同期を開始する"></a>簡単な 3 ステップでテナント間同期を開始する</h2><p>組織内でのテナントをまたがるアプリケーションへのアクセスをユーザーに提供するために、テナント間同期をどのように使用しているか、Contoso 社の例を挙げて説明します。</p>
-<p>Contoso 社は、米国に拠点を置く製造業の会社です。最近、グローバル展開を図るため、ヨーロッパとアジアの企業を買収しました。それぞれの会社は、既存の Azure AD テナントを持っています。<br>Contoso US のユーザーは、新しく買収した Contoso EMEA とContoso APAC のテナントと統合されたアプリケーションにアクセスする必要があります。そのため、Contoso の IT 管理者は、コラボレーションを促進するために、テナント間の B2B ユーザーの作成を自動化するカスタム スクリプトを手作業で作成していました。しかし、残念ながら、このスクリプトはエラーが発生しやすく、Contoso の担当者一人だけがその仕組みを知っていました。<br>Contoso の IT 管理者は、テナント間同期の機能を知り、午後には同期を有効にし、カスタム スクリプトを廃止することができました。</p>
-<p>以下は、その方法です。</p>
+<p>Contoso 社は、米国に拠点を置く製造業の会社です。最近、グローバル展開を図るため、ヨーロッパとアジアの企業を買収しました。それぞれの会社は、既存の Azure AD テナントを持っています。<br>Contoso US のユーザーは、新しく買収した Contoso EMEA とContoso APAC のテナントと統合されたアプリケーションにアクセスする必要があります。そのため、Contoso の IT 管理者は、コラボレーションを促進するために、テナント間の B2B ユーザーの作成を自動化するカスタム スクリプトを手作業で作成していました。しかし、残念ながら、このスクリプトはエラーが発生しやすく、Contoso の担当者一人だけがその仕組みを知っていました。</p>
+<p>Contoso の IT 管理者は、テナント間同期の機能を知り、午後には同期を有効にし、カスタム スクリプトを廃止することができました。以下は、その方法です。</p>
 <p><img src="/blog/azure-active-directory/cross-tenant-sync-publicpreview/cts1.jpg"></p>
-<h3 id="ステップ1-ターゲットテナントにおけるテナント間同期の有効化"><a href="#ステップ1-ターゲットテナントにおけるテナント間同期の有効化" class="headerlink" title="ステップ1 - ターゲットテナントにおけるテナント間同期の有効化"></a>ステップ1 - ターゲットテナントにおけるテナント間同期の有効化</h3><p>Contoso APAC と Contoso EMEA の管理者は、すでにクロステナントのアクセス ポリシーを作成し、Contoso US のテナントからの多要素認証 (MFA) を信頼しています。管理者は、クロステナント アクセス ポリシーの画面に移動し、チェックボックスをクリックするだけで、テナント間同期を有効にすることができます。チェックボックスをクリックするだけで、ターゲット テナントの管理者は完了です。 </p>
+<h3 id="ステップ-1-ターゲットテナントにおけるテナント間同期の有効化"><a href="#ステップ-1-ターゲットテナントにおけるテナント間同期の有効化" class="headerlink" title="ステップ 1 - ターゲットテナントにおけるテナント間同期の有効化"></a>ステップ 1 - ターゲットテナントにおけるテナント間同期の有効化</h3><p>Contoso APAC と Contoso EMEA の管理者は、すでにクロステナントのアクセス ポリシーを作成し、Contoso US のテナントからの多要素認証 (MFA) を信頼しています。管理者は、クロステナント アクセス ポリシーの画面に移動し、チェックボックスをクリックするだけで、テナント間同期を有効にすることができます。チェックボックスをクリックするだけで、ターゲット テナントの管理者は完了です。 </p>
 <p>これまでカスタム スクリプトで行っていたアプリの認証情報やシークレットのローテーション管理は、もう必要ありません。</p>
 <p><img src="/blog/azure-active-directory/cross-tenant-sync-publicpreview/cts2.jpg"></p>
 <p><img src="/blog/azure-active-directory/cross-tenant-sync-publicpreview/cts3.jpg"></p>
-<h3 id="ステップ2-ソーステナントでテナント間同期を有効化する"><a href="#ステップ2-ソーステナントでテナント間同期を有効化する" class="headerlink" title="ステップ2 - ソーステナントでテナント間同期を有効化する"></a>ステップ2 - ソーステナントでテナント間同期を有効化する</h3><p>Contoso US の管理者は、テナント間同期を有効にし、以下を指定します。 </p>
+<h3 id="ステップ-2-ソーステナントでテナント間同期を有効化する"><a href="#ステップ-2-ソーステナントでテナント間同期を有効化する" class="headerlink" title="ステップ 2 - ソーステナントでテナント間同期を有効化する"></a>ステップ 2 - ソーステナントでテナント間同期を有効化する</h3><p>Contoso US の管理者は、テナント間同期を有効にし、以下を指定します。 </p>
 <ul>
 <li>同期するユーザー (グループ メンバーシップに基づく)。</li>
 <li>同期する属性 (名前、部署、ディレクトリの拡張属性など)。</li>
 <li>表示名の末尾にドメインを追加するなど、必要な変換を行う。</li>
 </ul>
 <p>新規ユーザーは、テナント間で自動的にプロビジョニングされ、必要なアプリケーションにアクセスできるようになり、新しいテナントのリソースに初めてアクセスする際に同意のプロンプトが表示されることはありません。古いスクリプトで作成された既存の B2B ユーザーは、上記で指定されたルールに従って更新されます。 </p>
-<h3 id="ステップ3-テナント間同期を監視する"><a href="#ステップ3-テナント間同期を監視する" class="headerlink" title="ステップ3 - テナント間同期を監視する"></a>ステップ3 - テナント間同期を監視する</h3><p>Contoso US の管理者は、プロビジョニング ログを使用して、組織内のテナント間で作成されたすべてのユーザーを監視できます。さらに Azure Monitor を使用してデータを視覚化するためのカスタム ダッシュボードを作成することも可能です。以下のダッシュボードでは、Contoso US の管理者は、Contoso US テナントのユーザー Nestor がアクセス可能なすべてのテナントを確認できます。Nestorは、2 つのテナント (Contoso EMEA と Contoso APAC) と、彼が以前にプロビジョニングされたいくつかのアプリケーション (ServiceNow と Zscaler Two) へのアクセス権を持っています。Contoso の管理者は、テナント間同期が機能していることを確認できたので、カスタム スクリプトを廃止することができます。</p>
+<h3 id="ステップ-3-テナント間同期を監視する"><a href="#ステップ-3-テナント間同期を監視する" class="headerlink" title="ステップ 3 - テナント間同期を監視する"></a>ステップ 3 - テナント間同期を監視する</h3><p>Contoso US の管理者は、<a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/active-directory/reports-monitoring/concept-provisioning-logs">プロビジョニング ログ</a> を使用して、組織内のテナント間で作成されたすべてのユーザーを監視できます。さらに <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/active-directory/app-provisioning/application-provisioning-log-analytics">Azure Monitor</a> を使用してデータを視覚化するためのカスタム ダッシュボードを作成することも可能です。以下のダッシュボードでは、Contoso US の管理者は、Contoso US テナントのユーザー Nestor がアクセス可能なすべてのテナントを確認できます。Nestorは、2 つのテナント (Contoso EMEA と Contoso APAC) と、彼が以前にプロビジョニングされたいくつかのアプリケーション (ServiceNow と Zscaler Two) へのアクセス権を持っています。Contoso の管理者は、テナント間同期が機能していることを確認できたので、カスタム スクリプトを廃止することができます。</p>
 <p><img src="/blog/azure-active-directory/cross-tenant-sync-publicpreview/cts4.jpg">  </p>
 <h2 id="お客様の声"><a href="#お客様の声" class="headerlink" title="お客様の声"></a>お客様の声</h2><p>DB Systel は、ドイツ国鉄の IT 子会社であり、デジタル パートナーとして、DB AG の全企業のデジタル化を推進しています。同社は、最高の IT 標準と革新的なトピックに基づいて、最適なソリューションとコンサルティング サービスを開発しています。これを実現するために、DB Systel は鉄道と IT に関する豊富な専門知識を活用しています。</p>
 <p><strong>“テナント間同期により、当社のさまざまなテナントを接続し、すべてのマイクロソフト製品で従業員がよりシームレスに対話できるようになりました。また、オンプレミスでの専用アカウントが不要なため、運用コストの削減やテナントのセキュリティの向上にもつながります。弊社は、Azure AD のマルチテナント コラボレーション機能に全面的に信頼を寄せています。”</strong></p>
-<p>組織内のテナント間でユーザー アカウントの作成を自動化することで、組織を改善するための他の方法の検討に時間を費やせることになります。パブリック プレビュー版では、テナント間の同期をさらに向上させるためのフィードバックをお待ちしています。<br>ぜひ今すぐテナント間同期をお試しください。これらの新機能に関するご意見は、Azure フォーラムまたは Twitter で @AzureAD のタグを付けてお寄せください。  </p>
+<p>組織内のテナント間でユーザー アカウントの作成を自動化することで、組織を改善するための他の方法の検討に時間を費やせることになります。パブリック プレビュー版では、テナント間の同期をさらに向上させるためのフィードバックをお待ちしています。</p>
+<p>ぜひ今すぐテナント間同期をお試しください。これらの新機能に関するご意見は、<a target="_blank" rel="noopener" href="https://aka.ms/AzureADFeedback">Azure フォーラム</a> または Twitter で <a target="_blank" rel="noopener" href="https://twitter.com/azuread">@AzureAD</a> のタグを付けてお寄せください。  </p>
 <p>Joseph Dadzie, Partner Director of Product Management<br>Linkedin: @joedadzie<br>Twitter: @joe_dadzie</p>
-<p>Learn more about Microsoft identity: </p>
-<ul>
-<li>Related Articles: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/active-directory/multi-tenant-organizations/cross-tenant-synchronization-overview">Cross-tenant synchronization</a></li>
-<li>Return to the <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity">Azure Active Directory Identity blog home</a></li>
-<li>Join the conversation on <a target="_blank" rel="noopener" href="https://twitter.com/azuread/status/1278418103903363074">Twitter</a> and <a target="_blank" rel="noopener" href="https://www.linkedin.com/showcase/microsoft-security/">Linkedin</a></li>
-<li>Share product suggestions on the <a target="_blank" rel="noopener" href="https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789">Azure Feedback Forum</a></li>
-</ul>
 
       
       
