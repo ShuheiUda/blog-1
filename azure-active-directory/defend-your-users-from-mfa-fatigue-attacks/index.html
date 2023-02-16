@@ -17,8 +17,8 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/defend-your-users-from-mfa-fatigue-attacks/number-matching.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/defend-your-users-from-mfa-fatigue-attacks/mfarequest.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/defend-your-users-from-mfa-fatigue-attacks/cannotseethenumber.png">
-<meta property="article:published_time" content="2022-10-18T15:00:00.000Z">
-<meta property="article:modified_time" content="2023-02-16T01:29:49.840Z">
+<meta property="article:published_time" content="2023-02-15T15:00:00.000Z">
+<meta property="article:modified_time" content="2023-02-16T03:33:00.841Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="US Identity Blog">
@@ -102,13 +102,13 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2022-10-18T15:00:00.000Z" itemprop="datePublished">2022-10-19</time>
+  <time datetime="2023-02-15T15:00:00.000Z" itemprop="datePublished">2023-02-16</time>
 </a>
         
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+b4234ca8-4571-5a4d-b83e-3c09243abee0%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BMicrosoft+Authenticator+%E3%81%AE+MFA+%E7%96%B2%E5%8A%B4%E6%94%BB%E6%92%83%E5%AF%BE%E7%AD%96+-+%E6%95%B0%E5%80%A4%E3%81%AE%E4%B8%80%E8%87%B4%E3%81%AB%E3%82%88%E3%82%8B+MFA+%E3%81%8C+%E6%9C%89%E5%8A%B9%E5%8C%96%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fdefend-your-users-from-mfa-fatigue-attacks%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fdefend-your-users-from-mfa-fatigue-attacks.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fdefend-your-users-from-mfa-fatigue-attacks.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/defend-your-users-from-mfa-fatigue-attacks/" data-id="cle6fd44u00on0nke4drkdqd1" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/defend-your-users-from-mfa-fatigue-attacks/" data-id="cle6jrhk900on0omv99kg3jsg" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -117,7 +117,7 @@
 <p>Microsoft Identity Security のディレクター Alex Weinert によって、昨今脅威が指摘されている MFA 疲労攻撃と、対策としての Microsoft Authenticator の強化機能についての下記ブログ記事が公開されました。</p>
 <p><a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/defend-your-users-from-mfa-fatigue-attacks/ba-p/2365677">Defend your users from MFA fatigue attacks - Microsoft Tech Community</a></p>
 <p>上記記事に記載の一部内容と、私共日本側のサポート チーム宛にお客様からお問い合わせいただく内容等をふまえ、本記事を執筆しました。</p>
-<div class="alert is-info"><p class="alert-title">Note</p><p>下記でご紹介する機能のうち「プッシュ通知に番号の一致が必要」の機能は、2023 年の 5 月 8 日以降、すべてのユーザーに自動で有効化することを予定しています。</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/active-directory/authentication/how-to-mfa-number-match">公開情報: 多要素認証 (MFA) 通知で数値の一致を使用する方法 - 認証方法ポリシー</a></p></div>
+<div class="alert is-info"><p class="alert-title">Note</p><p>下記でご紹介する機能のうち「プッシュ通知に番号の一致が必要」の機能は、2023 年の 5 月 8 日以降、すべてのユーザーに自動で有効化することを予定しています。(元々 2023 年 2 月 27 日以降を予定していましたが、2023 年 2 月 16 日段階で延期されました)</p><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/active-directory/authentication/how-to-mfa-number-match">公開情報: 多要素認証 (MFA) 通知で数値の一致を使用する方法 - 認証方法ポリシー</a></p></div>
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>昨今は多くのお客様の環境において、パスワード “のみ” による認証は十分にセキュアではないという認識が高まり、多要素認証 (MFA) などの導入による認証の強化が行われています。この動向に伴って、<strong>MFA の疲労攻撃 (別名、MFA スパム)</strong> の報告が増えています。</p>
 <p><img src="/blog/azure-active-directory/defend-your-users-from-mfa-fatigue-attacks/Karen_Walker_1-1664319621345.png"></p>
 <p>MFA 疲労攻撃とは、攻撃者が繰り返し何度も MFA 要求を発生させ、その要求を受け取ったユーザーが誤って MFA 要求を承認することを狙った手口です。</p>
@@ -246,19 +246,10 @@
     
 <nav id="article-nav">
   
-    <a href="../preview-for-verified-coupons-with-entra-verified-id/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          Entra Verified ID による Verified Coupons ( 認証クーポン ) のプレビュー
-        
-      </div>
-    </a>
   
-  
-    <a href="../Announcing-a-New-Azure-AD-part-of-Microsoft-Entra-region-in-Japan/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../combatting-risky-sign-ins/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Azure AD (Microsoft Entra) の新しいリージョンの発表 - 日本</div>
+      <div class="article-nav-title">Azure Active Directory における危険なサインインへの対策</div>
     </a>
   
 </nav>
@@ -277,6 +268,10 @@
       <ul>
         
           <li>
+            <a href="">Microsoft Authenticator の MFA 疲労攻撃対策 - 数値の一致による MFA が 有効化されます</a>
+          </li>
+        
+          <li>
             <a href="../combatting-risky-sign-ins/">Azure Active Directory における危険なサインインへの対策</a>
           </li>
         
@@ -290,10 +285,6 @@
         
           <li>
             <a href="../ipv6-coming-to-azuread/">Azure AD に IPv6 が導入されます</a>
-          </li>
-        
-          <li>
-            <a href="../GuestUser-Inventory/">ゲスト ユーザーの棚卸をする方法</a>
           </li>
         
       </ul>
