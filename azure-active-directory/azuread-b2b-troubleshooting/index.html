@@ -6,23 +6,24 @@
   
   <title>招待したユーザーが利用できない | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2017&#x2F;11&#x2F;27&#x2F;azuread-b2b-troubleshooting&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、Azure &amp; Identity サポート チームの坂井で">
+  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2017&#x2F;11&#x2F;27&#x2F;azuread-b2b-troubleshooting&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 2017-11-27: 本記事の初版を投稿2023-03-28: 画面ショット">
 <meta property="og:type" content="article">
 <meta property="og:title" content="招待したユーザーが利用できない">
 <meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2017&#x2F;11&#x2F;27&#x2F;azuread-b2b-troubleshooting&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、Azure &amp; Identity サポート チームの坂井で">
+<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2017&#x2F;11&#x2F;27&#x2F;azuread-b2b-troubleshooting&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 2017-11-27: 本記事の初版を投稿2023-03-28: 画面ショット">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/resend.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/sampleEmail.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/invitationURL.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/accesspanel.png">
-<meta property="article:published_time" content="2017-11-26T15:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-25T22:51:05.171Z">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/new1.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/new2.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/new3.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/new4.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/new5.png">
+<meta property="article:published_time" content="2023-03-26T01:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-26T00:01:48.776Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD B2B">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/resend.png">
+<meta name="twitter:image" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/new1.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Azure Identity Support Blog" type="application/atom+xml">
   
@@ -101,50 +102,51 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2017-11-26T15:00:00.000Z" itemprop="datePublished">2017-11-27</time>
+  <time datetime="2023-03-26T01:00:00.000Z" itemprop="datePublished">2023-03-26</time>
 </a>
         
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+c24de696-a201-5c21-bb33-1270df722c26%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E6%8B%9B%E5%BE%85%E3%81%97%E3%81%9F%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%8C%E5%88%A9%E7%94%A8%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fazuread-b2b-troubleshooting%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fazuread-b2b-troubleshooting.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fazuread-b2b-troubleshooting.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/" data-id="clfokfarh00490oo91cgbbvwz" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/azuread-b2b-troubleshooting/" data-id="clfomy8s700490nkz9zhtcdk1" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Technet Blog の更新停止に伴い <a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2017/11/27/azuread-b2b-troubleshooting/">https://blogs.technet.microsoft.com/jpazureid/2017/11/27/azuread-b2b-troubleshooting/</a> の内容を移行したものです。</p><p>元の記事の最新の更新情報については、本内容をご参照ください。</p></div>
-<p>こんにちは、Azure &amp; Identity サポート チームの坂井です。</p>
-<p>今回は Azure AD に招待したはずのユーザーが利用できない際の確認ポイントについて説明します。</p>
-<p>Azure AD へのユーザー招待は、明示的に Azure Active Directory の管理画面からゲストユーザーを追加した場合だけでなく、 Azure のサブスクリプションに対して 「所有者」 や 「仮想マシン共同作成者」 の役割を追加したときにも、その追加したユーザーが Azure AD にすでに追加済みでなければ、この役割を追加したタイミングでユーザーの招待も行われます。</p>
-<p>ユーザーの招待処理が完了していないと、役割を割り当てたが、サブスクリプションの利用ができないというような状況になります。<br>そのような状況の場合は、まずはじめに Azure ポータルにて招待状況を確認しましょう。</p>
-<h2 id="詳細"><a href="#詳細" class="headerlink" title="詳細"></a>詳細</h2><p>招待先のディレクトリの管理者権限を持つユーザーで下記を確認します。</p>
-<p>[Azure Active Directory] – [ユーザーとグループ] – [すべてのユーザー] から該当のユーザーを選択します。</p>
-<p>「ソース」 (赤枠) の項目が「ユーザーが招待されました」の場合は、招待メールは送信されているものの、該当のユーザーが招待を受け付けたという操作を完了していない状態を示します。<br>招待を受けたユーザーは送信されたメールに含まれる [はじめに] のリンクをクリックしてウィザードを完了させる必要があります。</p>
-<p>なお、招待メールが届いていない場合、緑枠部分の「招待の再送信」から再送も可能です。</p>
-<p><img src="/blog/azure-active-directory/azuread-b2b-troubleshooting/resend.png"></p>
-<p>招待メールは下記のようなメールです。</p>
-<p>アドレス： <a href="mailto:&#x69;&#x6e;&#118;&#x69;&#x74;&#x65;&#115;&#x40;&#x6d;&#105;&#x63;&#114;&#111;&#115;&#111;&#102;&#x74;&#46;&#x63;&#x6f;&#109;">&#x69;&#x6e;&#118;&#x69;&#x74;&#x65;&#115;&#x40;&#x6d;&#105;&#x63;&#114;&#111;&#115;&#111;&#102;&#x74;&#46;&#x63;&#x6f;&#109;</a><br>件名　　： &lt;テナント名&gt; 組織に招待されました</p>
-<p><img src="/blog/azure-active-directory/azuread-b2b-troubleshooting/sampleEmail.png"></p>
-<p>もし、メールが利用できない場合や、メール ボックス作成前の場合は、「招待の再送信」後に表示される下記、「招待の URL ※」をコピーした後　その URL にブラウザーアクセスすることで招待作業を進めることができます。</p>
-<p>※招待メールの「はじめに」を押す場合と同等の操作になります。</p>
-<p><img src="/blog/azure-active-directory/azuread-b2b-troubleshooting/invitationURL.png"></p>
-<p>ソース部分が 「ユーザーが招待されました」 ではなく、「外部の Azure Active Directory」となっている場合は、ユーザーの招待は完了しています。</p>
-<p>「外部の Azure Active Directory」の状態で、期待したサブスクリプションの操作や Azure AD テナントの確認ができない問題の場合は、適切なアカウントや Azure AD を選択できていない可能性がありますので、一度こちらのリンクの内容をご確認ください。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>招待メールに含まれるリンクをクリックし、ウィザードを進めた結果、次のような「管理者にお問い合わせください」との画面が表示されることがありますが、こちらは問題なく招待が完了していますのでご安心ください。</p>
-<p><img src="/blog/azure-active-directory/azuread-b2b-troubleshooting/accesspanel.png"></p>
+        <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Technet Blog の更新停止に伴い <a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2017/11/27/azuread-b2b-troubleshooting/">https://blogs.technet.microsoft.com/jpazureid/2017/11/27/azuread-b2b-troubleshooting/</a> の内容を移行したものです。</p><p>元の記事の最新の更新情報については、本内容をご参照ください。</p>
+<p>2017-11-27: 本記事の初版を投稿</p><p>2023-03-28: 画面ショットや Azure ポータル上のメニューの変更に伴い最新の情報に更新</p></div>
+<p>こんにちは、Azure &amp; Identity サポート チームの 小出 です。</p>
+<p>本記事では Azure AD に招待したはずのユーザーが利用できない際の確認ポイントについて説明します。この記事はもともと 2017 年 11 月に公開されましたが、その後 Azure ポータルのメニューなどが変更されたため、内容を最新版に更新いたしました。</p>
+<p>Azure AD へのユーザー招待は、明示的に Azure Active Directory の管理画面からゲスト ユーザーを追加した場合だけでなく、その追加したユーザーが Azure AD にすでに追加済みでなければ、Azure のサブスクリプションに対して “所有者” や “仮想マシン共同作成者” の役割を追加したときにも行われます。</p>
+<p>ユーザーを招待した後には、招待されたユーザー側でその招待の受諾処理を行う必要があり、それが完了していないと、役割を割り当てたもののサブスクリプションの利用ができないというような状況になります。そのような状況の場合は、まずはじめに Azure ポータルにて招待状況を確認しましょう。</p>
+<h2 id="Azure-ポータルでの招待状況の確認方法"><a href="#Azure-ポータルでの招待状況の確認方法" class="headerlink" title="Azure ポータルでの招待状況の確認方法"></a>Azure ポータルでの招待状況の確認方法</h2><p>招待操作を行ったテナントの管理者権限を持つユーザーで Azure ポータルにサインインし、[Azure Active Directory] – [ユーザー] – [すべてのユーザー] から該当のゲスト ユーザーを選択します。</p>
+<p>[プロパティ] のタブで「外部ユーザーの状態」(赤枠) の項目が「保留中の承諾」の場合は、招待メールは送信されているものの、該当のユーザーが招待を受け付け操作を完了していない状態を示します。招待を受けたユーザーは送信された E メールに含まれる [招待の承諾] のリンクをクリックしてウィザードを完了させる必要があります。</p>
+<p>なお、招待 E メールが届いていない場合、緑枠部分の「B2B コラボレーション」の [管理（招待の再送信/状態のリセット）] から招待 E メールの再送も可能です。</p>
+<p><img src="/blog/azure-active-directory/azuread-b2b-troubleshooting/new1.png"></p>
+<p><img src="/blog/azure-active-directory/azuread-b2b-troubleshooting/new2.png"></p>
+<p>招待 E メールは下記のようなメールです。</p>
+<p>アドレス: <a href="mailto:&#105;&#110;&#x76;&#105;&#116;&#x65;&#x73;&#x40;&#109;&#x69;&#99;&#114;&#x6f;&#x73;&#x6f;&#x66;&#x74;&#46;&#99;&#111;&#109;">&#105;&#110;&#x76;&#105;&#116;&#x65;&#x73;&#x40;&#109;&#x69;&#99;&#114;&#x6f;&#x73;&#x6f;&#x66;&#x74;&#46;&#99;&#111;&#109;</a><br>件名: 組織内のアプリケーションにアクセスするための &lt;招待者&gt; さんからの招待</p>
+<p><img src="/blog/azure-active-directory/azuread-b2b-troubleshooting/new3.png"></p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>件名に招待者の名前がない場合、ProxyAddresses 属性に値が入っていないユーザーで招待操作を行ったことが考えられます。この場合、特定のユーザー名の代わりにテナント名が記載されます。</p></div>
+<p>もし、招待されたユーザーが E メールを利用できない場合や、E メール ボックスの作成前の場合は、招待の再送信後に表示される下記、「招待 URL ※」をコピーして、何らかの手段でその URL を招待されたユーザーにお渡しください。招待されたユーザーは、その URL にブラウザーからアクセスすることで招待の完了作業を進めることができます。</p>
+<p>※ URL にアクセスして招待の完了作業を進めても、招待 E メールの「招待の承諾」を押す場合と同等の操作になります。</p>
+<p><img src="/blog/azure-active-directory/azuread-b2b-troubleshooting/new4.png"></p>
+<p>招待された外部ユーザーの状態が 「保留中の承諾」 ではなく、「承諾済み」となっている場合は、ユーザーの招待は完了しています。</p>
+<p>「承諾済み」の状態で、期待したサブスクリプションの操作や Azure AD テナントの確認ができない場合は、適切なアカウントや Azure AD を選択できていない可能性がありますので、一度 <a href="https://jpazureid.github.io/blog/azure-active-directory/subscription-azuread/">サブスクリプションが見えない</a> の内容をご確認ください。</p>
+<p>なお、招待 E メールに含まれるリンクをクリックし、ウィザードを進めた結果、次のような「表示するアプリはありません。 このコレクションを非表示にする」との画面が表示されることがありますが、こちらは問題なく招待が完了していますのでご安心ください。</p>
+<p><img src="/blog/azure-active-directory/azuread-b2b-troubleshooting/new5.png"></p>
 <p>これは、特に割り当てられたアプリケーションがないことを意味しており、招待自体は正常に完了したことを示します。</p>
-<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>上記内容でもご要望の動作が完了しない場合は、ぜひ弊社サポートサービスをご利用ください。</p>
-<p>なお、その際は下記の情報を事前にご提供いただけると幸いです。</p>
+<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>上記内容でもご要望の動作が完了しない場合は、ぜひ弊社サポート サービスをご利用ください。その際は下記の情報を事前にご提供いただけると幸いです。</p>
 <ul>
-<li>招待先のディレクトリ (例： xxx.onmicrosoft.com)</li>
-<li>招待操作を行ったユーザー名 (例： <a href="mailto:&#120;&#x78;&#x78;&#64;&#x63;&#x6f;&#110;&#116;&#111;&#115;&#111;&#46;&#99;&#x6f;&#109;">&#120;&#x78;&#x78;&#64;&#x63;&#x6f;&#110;&#116;&#111;&#115;&#111;&#46;&#99;&#x6f;&#109;</a>)</li>
-<li>招待したいユーザーのメールアドレス (例： <a href="mailto:&#x78;&#120;&#120;&#x40;&#x74;&#101;&#115;&#116;&#46;&#99;&#111;&#46;&#106;&#112;">&#x78;&#120;&#120;&#x40;&#x74;&#101;&#115;&#116;&#46;&#99;&#111;&#46;&#106;&#112;</a>)</li>
-<li>問題となっている状況の詳細と問題なっている動作の画面ショット</li>
+<li>招待操作を行ったテナント名 (例: xxx.onmicrosoft.com)</li>
+<li>招待操作を行ったユーザー名 (例: <a href="mailto:&#x78;&#120;&#x78;&#64;&#99;&#111;&#x6e;&#116;&#x6f;&#115;&#111;&#x2e;&#99;&#111;&#x6d;">&#x78;&#120;&#x78;&#64;&#99;&#111;&#x6e;&#116;&#x6f;&#115;&#111;&#x2e;&#99;&#111;&#x6d;</a>)</li>
+<li>招待操作を行った時刻</li>
+<li>招待されるユーザーの E メールアドレス (例: <a href="mailto:&#x78;&#120;&#x78;&#x40;&#x66;&#97;&#98;&#114;&#105;&#107;&#97;&#x6d;&#46;&#x63;&#111;&#x6d;">&#x78;&#120;&#x78;&#x40;&#x66;&#97;&#98;&#114;&#105;&#107;&#97;&#x6d;&#46;&#x63;&#111;&#x6d;</a>)</li>
+<li>問題となっている状況の詳細と画面ショット</li>
 </ul>
-<p>例：招待メールの操作が完了しない<br>    招待後にディレクトリにアクセスできない</p>
-<p>また、招待メールを使用しないユーザーの追加や CSV を使用した一括招待の方法については、下記の情報を参照ください。<br>招待メールを使用しないユーザーの追加方法</p>
-<p><a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2017/11/27/azuread-b2b-add-user-without-invite">https://blogs.technet.microsoft.com/jpazureid/2017/11/27/azuread-b2b-add-user-without-invite</a></p>
-<p>Azure Active Directory B2B collaboration code and PowerShell samples<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-code-samples">https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-code-samples</a></p>
+<p>例としては、「招待 E メールが届かない」、「招待 E メールは届くが招待の操作が完了しない」、「招待は完了したが、その後に目的のリソースにアクセスできない」などが挙げられます。それぞれ、上記の情報を添えてお問い合わせを発行いただけますと幸いです。</p>
+<p>また、招待 E メールを使用しないユーザーの追加や CSV を使用した一括招待の方法については、<a href="https://jpazureid.github.io/blog/azure-active-directory/b2bfaq/">Azure における ゲスト ユーザー招待 (B2B) のよくある質問</a> を参照ください。招待 E メールを使用しないユーザーの追加方法についても同様にこの記事の「よくある質問」をご確認ください。</p>
+<p>Azure AD B2B で活用いただける PowerShell サンプルは <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/active-directory/external-identities/code-samples?tabs=http">Azure Active Directory B2B コラボレーション コードと PowerShell サンプル</a> にまとめられておりますので、併せてご参照ください。</p>
 <p>上記内容が少しでも皆様の参考となりますと幸いです。</p>
 
       
@@ -170,19 +172,10 @@
     
 <nav id="article-nav">
   
-    <a href="../powershell-module/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          Azure Active Directory の PowerShell モジュール
-        
-      </div>
-    </a>
   
-  
-    <a href="../registerd_device_managemant/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../identity-innovation-for-a-more-secure-nation/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">登録されたデバイスの管理方法</div>
+      <div class="article-nav-title">より安全な国家を実現するための ID の技術革新</div>
     </a>
   
 </nav>
@@ -201,6 +194,10 @@
       <ul>
         
           <li>
+            <a href="">招待したユーザーが利用できない</a>
+          </li>
+        
+          <li>
             <a href="../identity-innovation-for-a-more-secure-nation/">より安全な国家を実現するための ID の技術革新</a>
           </li>
         
@@ -214,10 +211,6 @@
         
           <li>
             <a href="../tenant-restriction/">テナント制限について</a>
-          </li>
-        
-          <li>
-            <a href="../automate-provisioning-and-governance-of-your-on-premises/">オンプレミス アプリケーションのガバナンスと自動プロビジョニング</a>
           </li>
         
       </ul>
