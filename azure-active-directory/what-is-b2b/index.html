@@ -6,20 +6,20 @@
   
   <title>Azure AD B2B とは | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2017&#x2F;12&#x2F;12&#x2F;about-azure-ad-b2b&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、Azure &amp; Identity サポート チームの坂井です。 今回は Az">
+  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い TechNet Blog の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 Note2017-12-12: 本記事の初版を投稿2023-04-01: 画面ショットや Azure ポータル上のメニューの変更に伴い内容を更新 こんにちは、Azure &amp; Identity サポート チームの三輪で">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Azure AD B2B とは">
 <meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2017&#x2F;12&#x2F;12&#x2F;about-azure-ad-b2b&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、Azure &amp; Identity サポート チームの坂井です。 今回は Az">
+<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い TechNet Blog の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 Note2017-12-12: 本記事の初版を投稿2023-04-01: 画面ショットや Azure ポータル上のメニューの変更に伴い内容を更新 こんにちは、Azure &amp; Identity サポート チームの三輪で">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/subscription-user.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/subscription-user-inaccessible.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/invite-user-to-tenant.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/screenshot-new-guest-user.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/screenshot-iam.png">
-<meta property="article:published_time" content="2017-12-11T15:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-01T18:59:03.529Z">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/screenshot-new-guest-user-new.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/screenshot-iam-new.png">
+<meta property="article:published_time" content="2023-03-31T15:00:00.000Z">
+<meta property="article:modified_time" content="2023-04-01T23:12:31.334Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="RBAC">
@@ -104,50 +104,46 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2017-12-11T15:00:00.000Z" itemprop="datePublished">2017-12-12</time>
+  <time datetime="2023-03-31T15:00:00.000Z" itemprop="datePublished">2023-04-01</time>
 </a>
         
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+b63867b2-b334-5433-a9f5-e29651015742%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BAzure+AD+B2B+%E3%81%A8%E3%81%AF%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fwhat-is-b2b%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fwhat-is-b2b.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fwhat-is-b2b.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/" data-id="clfyc7w8e00di0noidfuqfel2" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/" data-id="clfyl9wqo00di0noy1pdbcetd" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Technet Blog の更新停止に伴い <a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2017/12/12/about-azure-ad-b2b/">https://blogs.technet.microsoft.com/jpazureid/2017/12/12/about-azure-ad-b2b/</a> の内容を移行したものです。</p><p>元の記事の最新の更新情報については、本内容をご参照ください。</p></div>
-<p>こんにちは、Azure &amp; Identity サポート チームの坂井です。</p>
-<p>今回は Azure AD B2B (Business-To-Business) コラボレーション機能 (以下、Azure AD B2B) について紹介します。</p>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b">https://docs.microsoft.com/ja-jp/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b</a></p>
-<p>この機能については、上記のリンクでも紹介しています。Azure AD B2B と聞くと、もしかしたら小難しく聞こえるかもしれませんが、要は、他 Azure AD のユーザーを追加 (招待) する機能のことです。具体的には、Azure AD を利用する中で、次のような要望がでてくることがあります。</p>
+        <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Technet Blog の更新停止に伴い <a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2017/12/12/about-azure-ad-b2b/">TechNet Blog</a> の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。</p></div>
+<div class="alert is-info"><p class="alert-title">Note</p><p>2017-12-12: 本記事の初版を投稿</p><p>2023-04-01: 画面ショットや Azure ポータル上のメニューの変更に伴い内容を更新</p></div>
+<p>こんにちは、Azure &amp; Identity サポート チームの三輪です。</p>
+<p>今回は Azure AD B2B (Business-To-Business) コラボレーション機能 (以下、Azure AD B2B) について紹介します。この記事はもともと 2017 年 12 月に公開されましたが、その後 Azure ポータルのメニューなどが変更されたため、内容を最新版に更新いたしました</p>
+<p>Azure AD B2B の概要については、公開ドキュメントである <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b">B2B コラボレーションの概要</a> をまずご覧ください。</p>
+<p>Azure AD B2B と聞くと、もしかしたら小難しく聞こえるかもしれませんが、要は他の Azure AD テナント上のユーザーを自テナントに追加 (招待) する機能のことです。具体的には、Azure AD を利用する中で、次のような要望がでてくることがあります。</p>
 <ul>
-<li>会社間 (Azure AD 間) でリソースを共有したい</li>
-<li>別の Azure AD に紐づいているリソースを使用したい</li>
-<li>ひとりの管理者で、複数の Azure AD を管理したい</li>
-<li>など</li>
+<li>会社間 (Azure AD テナント間) で自社が公開しているリソースを共有したい</li>
+<li>別の Azure AD テナントに紐づいているリソースを使用したい</li>
+<li>ひとりの管理者で、複数の Azure AD テナントを管理したい 等</li>
 </ul>
-<p>このような連携が必要な時に、利用する機能が、今回ご紹介する Azure AD B2B になります。</p>
-<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p> Azure サブスクリプションは必ず 1 つの Azure AD に関連付けられています。<br>そのため、その関連付けられた Azure AD に所属しているユーザーのみがそのサブスクリプションに紐づくリソースを利用可能です。</p>
+<p>このような連携が必要な時に利用する機能が、今回紹介する Azure AD B2B になります。</p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>Azure サブスクリプションは必ず 1 つの Azure AD テナントに関連付けられています。通常、このサブスクリプションが紐づく Azure AD テナントに所属しているユーザーのみがそのサブスクリプション内のリソースを管理可能です。</p>
 <p><img src="/blog/azure-active-directory/what-is-b2b/subscription-user.png"></p>
-<p>では、複数の Azure AD がある場合はどのようになるでしょうか。<br>この場合、別の Azure AD へのアクセスや別の Azure AD に関連付けられているサブスクリプションにアクセスできません。</p>
+<p>では、複数の Azure AD テナントがある場合はどのようになるでしょうか。この場合、そのままでは別の Azure AD テナント B からテナント A へアクセスしたり、別の Azure AD テナント A に関連付けられているサブスクリプションに Azure AD テナント B のユーザーが管理操作をおこなったりすることはできません。</p>
 <p><img src="/blog/azure-active-directory/what-is-b2b/subscription-user-inaccessible.png"></p>
-<p>こんな時、Azure AD B2B を利用することで、別 Azure AD にユーザーを追加 (コピーのようなイメージ) することで、別の Azure AD に所属してリソースを利用することが可能です。</p>
+<p>こんな時、Azure AD B2B を利用することで、自身の Azure AD テナントに他テナントのユーザーを招待することで、ユーザー本体は別の Azure AD テナントに所属しながら、招待した側のテナントのリソースを利用することが可能となります。</p>
 <p><img src="/blog/azure-active-directory/what-is-b2b/invite-user-to-tenant.png"></p>
-<h2 id="詳細"><a href="#詳細" class="headerlink" title="詳細"></a>詳細</h2><p>別の Azure AD のユーザーを追加する方法で多く利用されるものを  2  つ紹介します。</p>
-<h3 id="1-ゲスト-ユーザーの追加"><a href="#1-ゲスト-ユーザーの追加" class="headerlink" title="1. ゲスト ユーザーの追加"></a>1. ゲスト ユーザーの追加</h3><p>明示的に別の Azure AD (または outlook.com や gmail.com などのマイクロソフト アカウント) を追加する操作です。Azure ポータルのメニューより [Azure Active Directory] – [ユーザーとグループ] – [すべてのユーザー] の順に進みます。下記、[新しいゲスト ユーザー] から別の Azure AD のユーザーを追加できます。招待メールが送られ、そのメールよりウィザードを完了する必要があります。</p>
-<p><img src="/blog/azure-active-directory/what-is-b2b/screenshot-new-guest-user.png"></p>
-<h3 id="2-RBAC-アクセス制御-IAM-によるユーザーの追加"><a href="#2-RBAC-アクセス制御-IAM-によるユーザーの追加" class="headerlink" title="2. RBAC (アクセス制御 IAM) によるユーザーの追加"></a>2. RBAC (アクセス制御 IAM) によるユーザーの追加</h3><p>RBAC では、Azure サブスクリプションに紐づけられている Azure AD のユーザーに対してアクセス権を割り当てる必要があります。では、RBAC でアクセス権を割り当てるときに別の Azure AD のユーザーに対してアクセス権を割り当てるときには、先に 1 の作業を実施しておく必要があるのでしょうか？</p>
-<p>いいえ、もしユーザーが存在していない場合には、 1 のユーザー追加も合わせて行われます。<br>Azure ポータルの [サブスクリプション] – [サブスクリプション名] – [アクセス制御 (IAM)]の順に進みます。</p>
-<p>下記、[追加] から別の Azure AD のユーザーを追加することができます。招待メールが送られ、そのメールよりウィザードを完了する流れは同様になりますが、同時にサブスクリプションに対するロールを割り当てられます。</p>
-<p><img src="/blog/azure-active-directory/what-is-b2b/screenshot-iam.png"></p>
-<h2 id="よくあるお問い合わせ"><a href="#よくあるお問い合わせ" class="headerlink" title="よくあるお問い合わせ"></a>よくあるお問い合わせ</h2><p><span style="color:blue">Q</span>. B2B の機能以外で、Azure AD 間を連携することは可能ですか？</p>
-<p><span style="color:red">A</span>. いいえ、できません。複数の Azure AD 間で同期や複製を行うことはできません。B2B の機能は Azure AD 同士を連携するというよりは、 Azure AD と別 Azure AD のユーザーを連携する機能です。</p>
-<p><span style="color:blue">Q</span>. 別の Azure AD に登録されたアプリケーションを利用するのに、Azure AD B2B の機能を利用できますか？</p>
-<p><span style="color:red">A</span>. はい、B2B の機能で要件を満たせます。Azure AD B2B の機能で別の Azure AD のユーザーを追加することで、そのユーザーは Azure AD 上のアプリケーションを利用することが可能です。</p>
-<p><span style="color:blue">Q</span>. 旧ポータル (クラシックポータル) のように、個人アカウント (Microsoft アカウント) を明示的に指定して追加することはできますか？</p>
-<p><span style="color:red">A</span>. いいえ、できません。ただし、 ユーザーのドメイン名が live.com、 hotmail.com、 gmail.com のようなコンシューマー向けのフリーアドレスを利用している場合にはマイクロソフト アカウントが招待されます。<br>それ以外では 個人アカウントを招待するのではなく、企業アカウントの招待が行われます。<br>そのため、招待対象のアカウントが個人アカウントであっても Azure ポータルから追加を試みた場合には組織アカウントが招待されます。</p>
-<p>また、このときに組織アカウントとして該当のアカウントが存在していない場合には、組織アカウントのユーザー作成処理が試みられます。</p>
-<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>今回は、Azure AD B2B に関する概要について紹介しましたが、Azure AD B2B に関するトラブルや Azure AD B2B 完了後のトラブル、または招待メールを利用しない方法などの記事も必要に応じて参照ください。</p>
+<h2 id="詳細"><a href="#詳細" class="headerlink" title="詳細"></a>詳細</h2><p>別の Azure AD テナントのユーザーを自テナントに招待する方法で多く利用されるものを 2 つ紹介します。</p>
+<h3 id="1-ゲスト-ユーザーの直接的な招待"><a href="#1-ゲスト-ユーザーの直接的な招待" class="headerlink" title="1. ゲスト ユーザーの直接的な招待"></a>1. ゲスト ユーザーの直接的な招待</h3><p>明示的に別の Azure AD テナントのユーザー (または outlook.com や gmail.com など外部アカウント) を招待し追加する操作です。Azure ポータルのメニューより [Azure Active Directory] – [ユーザーとグループ] – [すべてのユーザー] – [新しいユーザー] の順に進みます。下記、[外部ユーザーの招待] からユーザーの E メール アドレス (もしくは Azure AD の UPN) を追加します。指定されたユーザーに招待 E メールが送られますので、E メールを受け取ったユーザーは、その E メールのリンクからウィザードを完了する必要があります。</p>
+<p><img src="/blog/azure-active-directory/what-is-b2b/screenshot-new-guest-user-new.png"></p>
+<h3 id="2-RBAC-アクセス制御-IAM-によるユーザーの招待"><a href="#2-RBAC-アクセス制御-IAM-によるユーザーの招待" class="headerlink" title="2. RBAC (アクセス制御 IAM) によるユーザーの招待"></a>2. RBAC (アクセス制御 IAM) によるユーザーの招待</h3><p>RBAC を用いて、Azure サブスクリプションに紐づけられている Azure AD テナント上のユーザーに対してアクセス許可を割り当てることができます。では、RBAC でアクセス権を割り当てるときに別の Azure AD テナントのユーザーを指定したい時には、先に 1 の作業を実施しておく必要があるのでしょうか？</p>
+<p>いいえ、もしアクセス許可を割り当てようとしているユーザーがそのテナントに存在していない場合には、RBAC の設定時に自動的に 1 のユーザー招待も併せて行われます。手順としては、Azure ポータルの [サブスクリプション] – [サブスクリプション名] – [アクセス制御 (IAM)] の順にお進みください。下記、[追加] から別の Azure AD テナントのユーザーを追加することができます。指定された E メール アドレスには、招待 E メールが送られ、その E メールよりウィザードを完了する流れは同様になりますが、同時にサブスクリプションに対するロールが割り当てられます。</p>
+<p><img src="/blog/azure-active-directory/what-is-b2b/screenshot-iam-new.png"></p>
+<h2 id="よくあるお問い合わせ"><a href="#よくあるお問い合わせ" class="headerlink" title="よくあるお問い合わせ"></a>よくあるお問い合わせ</h2><p><span style="color:blue">Q</span>. B2B の機能以外で Azure AD 間の連携を行うことは可能ですか？</p>
+<p><span style="color:red">A</span>. いいえ、テナント間での連携を行いたい場合は、Azure AD B2B を利用することが基本です。Azure AD のテナント間同機の仕組みでも、Azure AD B2B の仕組みが利用されています。Azure AD B2B の機能は Azure AD のテナント同士を連携するものではなく、 Azure AD テナントと別の Azure AD テナントのユーザーを連携する機能とお考えください。</p>
+<p><span style="color:blue">Q</span>. 別の Azure AD テナントに登録されたアプリケーションを利用するのに、Azure AD B2B の機能を利用できますか？</p>
+<p><span style="color:red">A</span>. はい、B2B の機能で要件を満たせます。Azure AD B2B の機能で別の Azure AD テナントのユーザーを自テナントに招待することで、その招待されたユーザーが 自テナント (自社の Azure AD テナント) 上のアプリケーションを利用することが可能となります。</p>
+<h2 id="おわりに"><a href="#おわりに" class="headerlink" title="おわりに"></a>おわりに</h2><p>今回は、Azure AD B2B に関する概要について紹介しました。Azure AD B2B に関するトラブルや Azure AD B2B 完了後のトラブル、または招待 E メールを利用しない方法などの記事も必要に応じて参照ください。また、それでも問題が解決しない場合は、弊社サポートまで遠慮なくお問い合わせください。</p>
 
       
       
@@ -172,19 +168,10 @@
     
 <nav id="article-nav">
   
-    <a href="../member-and-guest-user/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          Member ユーザーと Guest ユーザーについて
-        
-      </div>
-    </a>
   
-  
-    <a href="../powershell-module/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../azuread-b2b-troubleshooting/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Azure Active Directory の PowerShell モジュール</div>
+      <div class="article-nav-title">招待したユーザーが利用できない</div>
     </a>
   
 </nav>
@@ -203,6 +190,10 @@
       <ul>
         
           <li>
+            <a href="">Azure AD B2B とは</a>
+          </li>
+        
+          <li>
             <a href="../azuread-b2b-troubleshooting/">招待したユーザーが利用できない</a>
           </li>
         
@@ -216,10 +207,6 @@
         
           <li>
             <a href="../collaborate-securely-across-organizational-boundaries-and-microsoft-clouds/">組織の境界やマイクロソフトのクラウドを越えたセキュアなコラボレーション</a>
-          </li>
-        
-          <li>
-            <a href="../tenant-restriction/">テナント制限について</a>
           </li>
         
       </ul>
@@ -242,7 +229,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">アーカイブ</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">2022 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">2022 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">2021 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/05/">2021 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/03/">2021 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/02/">2021 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/01/">2021 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/12/">2020 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/10/">2020 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">2020 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">2020 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">2020 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">2020 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/05/">2020 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/04/">2020 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/03/">2020 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/02/">2020 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/01/">2020 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/12/">2019 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/11/">2019 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/10/">2019 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/09/">2019 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/07/">2019 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/05/">2019 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">2019 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/12/">2018 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/11/">2018 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/10/">2018 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/09/">2018 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/08/">2018 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/07/">2018 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/06/">2018 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/05/">2018 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/04/">2018 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/03/">2018 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/02/">2018 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/01/">2018 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/12/">2017 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/11/">2017 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/10/">2017 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/06/">2017 / 06</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">2023 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">2023 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">2023 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">2023 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/12/">2022 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/11/">2022 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">2022 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">2022 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">2022 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">2022 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">2022 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">2022 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">2022 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">2022 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">2022 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">2022 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">2021 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/11/">2021 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/10/">2021 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/07/">2021 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">2021 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/05/">2021 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/03/">2021 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/02/">2021 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/01/">2021 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/12/">2020 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/10/">2020 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">2020 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">2020 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">2020 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">2020 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/05/">2020 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/04/">2020 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/03/">2020 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/02/">2020 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/01/">2020 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/12/">2019 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/11/">2019 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/10/">2019 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/09/">2019 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/07/">2019 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/05/">2019 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">2019 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/12/">2018 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/11/">2018 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/10/">2018 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/09/">2018 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/08/">2018 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/07/">2018 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/06/">2018 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/05/">2018 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/04/">2018 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/03/">2018 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/02/">2018 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/01/">2018 / 01</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/12/">2017 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/11/">2017 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/10/">2017 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/06/">2017 / 06</a></li></ul>
     </div>
   </div>
 
