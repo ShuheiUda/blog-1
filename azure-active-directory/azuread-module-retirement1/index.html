@@ -6,15 +6,15 @@
   
   <title>MSOnline / AzureAD PowerShell から Graph PowerShell SDK への移行について 1_概要 | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは、 Azure ID チームの小出です。 今回は、MSOnline (以降 MSOL) および Azure AD PowerShell の廃止スケジュールについてご案内します。 以前より、下記の弊社ブログにて、本内容については案内を行っていますが、情報のアップデートにより、複数の記事に分かれてしまうなどわかりにくくなっている状況でした。 そこで今回は、現時点での最新情報と実施いただきたい">
+  <meta name="description" content="Note2022-10-03: 本記事の初版を投稿2023-04-13: MSOL&#x2F;AzureAD PowerShell の最新の廃止情報を反映 こんにちは、 Azure ID チームの小出です。 今回は、MSOnline (以降 MSOL) および Azure AD PowerShell の廃止スケジュールについてご案内します。 以前より、下記の弊社ブログにて、本内容については案内を行っています">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MSOnline &#x2F; AzureAD PowerShell から Graph PowerShell SDK への移行について 1_概要">
 <meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/azuread-module-retirement1/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="こんにちは、 Azure ID チームの小出です。 今回は、MSOnline (以降 MSOL) および Azure AD PowerShell の廃止スケジュールについてご案内します。 以前より、下記の弊社ブログにて、本内容については案内を行っていますが、情報のアップデートにより、複数の記事に分かれてしまうなどわかりにくくなっている状況でした。 そこで今回は、現時点での最新情報と実施いただきたい">
+<meta property="og:description" content="Note2022-10-03: 本記事の初版を投稿2023-04-13: MSOL&#x2F;AzureAD PowerShell の最新の廃止情報を反映 こんにちは、 Azure ID チームの小出です。 今回は、MSOnline (以降 MSOL) および Azure AD PowerShell の廃止スケジュールについてご案内します。 以前より、下記の弊社ブログにて、本内容については案内を行っています">
 <meta property="og:locale" content="ja_JP">
-<meta property="article:published_time" content="2022-10-03T00:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-06T17:50:20.716Z">
+<meta property="article:published_time" content="2023-04-13T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-04-12T14:25:27.188Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="PowerShell">
@@ -97,26 +97,27 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2022-10-03T00:00:00.000Z" itemprop="datePublished">2022-10-03</time>
+  <time datetime="2023-04-13T00:00:00.000Z" itemprop="datePublished">2023-04-13</time>
 </a>
         
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+598e1bb7-2ab9-5398-b83a-163f09571341%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BMSOnline+%2F+AzureAD+PowerShell+%E3%81%8B%E3%82%89+Graph+PowerShell+SDK+%E3%81%B8%E3%81%AE%E7%A7%BB%E8%A1%8C%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6+1_%E6%A6%82%E8%A6%81%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fazuread-module-retirement1%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fazuread-module-retirement1.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fazuread-module-retirement1.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/azuread-module-retirement1/" data-id="clg5eyt9g004e0nlg9hsddpnn" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/azuread-module-retirement1/" data-id="clgdsaeww004e0np4b8a8dtcu" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは、 Azure ID チームの小出です。</p>
+        <div class="alert is-info"><p class="alert-title">Note</p><p>2022-10-03: 本記事の初版を投稿</p><p>2023-04-13: MSOL/AzureAD PowerShell の最新の廃止情報を反映</p></div>
+<p>こんにちは、 Azure ID チームの小出です。</p>
 <p>今回は、MSOnline (以降 MSOL) および Azure AD PowerShell の廃止スケジュールについてご案内します。</p>
-<p>以前より、下記の弊社ブログにて、本内容については案内を行っていますが、情報のアップデートにより、複数の記事に分かれてしまうなどわかりにくくなっている状況でした。</p>
-<p>そこで今回は、現時点での最新情報と実施いただきたいこと、関連記事の URL などをまとめてご紹介します。</p>
-<h2 id="最新情報-2022-10-3-最終更新-についてのまとめ"><a href="#最新情報-2022-10-3-最終更新-についてのまとめ" class="headerlink" title="最新情報 (2022/10/3 最終更新) についてのまとめ"></a>最新情報 (2022/10/3 最終更新) についてのまとめ</h2><h3 id="MSOL-Azure-AD-PowerShell-のライセンス割り当て関連のコマンドについて"><a href="#MSOL-Azure-AD-PowerShell-のライセンス割り当て関連のコマンドについて" class="headerlink" title="MSOL / Azure AD PowerShell のライセンス割り当て関連のコマンドについて"></a>MSOL / Azure AD PowerShell のライセンス割り当て関連のコマンドについて</h3><p>ライセンス割り当てに関する MSOL / Azure AD PowerShell コマンド（Set-MsolUserLicense や Set-AzureADUserLicense など）は、 2023/3/31 に利用できなくなる見込みです。</p>
+<p>以前より、下記の弊社ブログにて、本内容については案内を行っていますが、情報のアップデートにより、複数の記事に分かれてしまうなどわかりにくくなっている状況でした。そこで今回は、現時点での最新情報と実施いただきたいこと、関連記事の URL などをまとめてご紹介します。</p>
+<h2 id="最新情報-2023-4-13-最終更新-のまとめ"><a href="#最新情報-2023-4-13-最終更新-のまとめ" class="headerlink" title="最新情報 (2023/4/13 最終更新) のまとめ"></a>最新情報 (2023/4/13 最終更新) のまとめ</h2><h3 id="MSOL-Azure-AD-PowerShell-のライセンス割り当て関連のコマンド"><a href="#MSOL-Azure-AD-PowerShell-のライセンス割り当て関連のコマンド" class="headerlink" title="MSOL / Azure AD PowerShell のライセンス割り当て関連のコマンド"></a>MSOL / Azure AD PowerShell のライセンス割り当て関連のコマンド</h3><p>ライセンス割り当てに関する MSOL / Azure AD PowerShell コマンド（Set-MsolUserLicense や Set-AzureADUserLicense など）は、2023/3/31 にすでに廃止されました。まだこのコマンドを利用しているお客様は、そうきゅに新しいコマンドに移行ください。これらのコマンドは今後予告なく動作しなくなります。</p>
+<p>新しいコマンドでのライセンス割り当て方法は、<a href="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph/">本ブログ記事</a> にてサンプルを用意しておりますので、併せてご確認ください。</p>
 <ul>
-<li>廃止日を 2022/6/30 や 2022/8/26 などと記載している情報もありますが、廃止日は 2023/3/31 に延期されました。</li>
-<li>現時点での予定では 2023/3/31 を過ぎると MSOL / Azure AD のライセンス割り当ての PowerShell コマンドは使用できなくなる見込みです。2023/4/1 以降も引き続き動作はする可能性はありますが、それ以降はいつ使えなくなってもおかしくない状況になる見込みです。</li>
-<li>2022/11/1 以降に新しく作成するテナントでは、MSOL / Azure AD PowerShell コマンドによるライセンス割り当て関連のコマンドが、テナント作成時点から正常に動作しない見込みです。</li>
+<li>廃止日を 2022/6/30 や 2022/8/26 などと記載している情報もありますが、ライセンス割り当てに関する MSOL / Azure AD PowerShell コマンドの廃止日は 2023/3/31 です。それ以降の延長はなく 2023/3/31 にすでに廃止されました。</li>
+<li>2023/3/31 を過ぎると MSOL / Azure AD のライセンス割り当ての PowerShell コマンドは予告なく使用できなくなる見込みです。2023/4/1 以降も引き続きテナントによっては動作はする可能性はあり、2023/4/13 現在、弊社検証環境では引き続き Set-MsolUserLicense コマンドでのライセンス付与は実施できています。しかし、いつ利用できなくなってもおかしくない状況です。</li>
+<li>2022/11/1 以降に新しく作成するテナントでは、MSOL / Azure AD PowerShell コマンドによるライセンス割り当て関連のコマンドが、テナント作成時点から正常に動作しません。</li>
 </ul>
 <p>対象となるコマンドの詳細は、<a href="https://jpazureid.github.io/blog/azure-active-directory/migrate-your-apps-to-access-the-license-managements/">こちらの記事</a>の下記該当箇所をご確認ください。</p>
 <table>
@@ -149,11 +150,16 @@
   </tbody>
 </table>
 
-
-<h3 id="MSOL-Azure-AD-PowerShell-のライセンス割り当て関連「以外」のコマンドについて"><a href="#MSOL-Azure-AD-PowerShell-のライセンス割り当て関連「以外」のコマンドについて" class="headerlink" title="MSOL / Azure AD PowerShell のライセンス割り当て関連「以外」のコマンドについて"></a>MSOL / Azure AD PowerShell のライセンス割り当て関連「以外」のコマンドについて</h3><p>ライセンス割り当てに関するコマンド以外（例: Connect-MsolService や Get-AzureADUser など）は、2023 年 6 月 30 日 に廃止となる予定です。(2022/10/3 更新）</p>
+<h3 id="MSOL-Azure-AD-PowerShell-のライセンス割り当て関連「以外」のコマンドについて"><a href="#MSOL-Azure-AD-PowerShell-のライセンス割り当て関連「以外」のコマンドについて" class="headerlink" title="MSOL / Azure AD PowerShell のライセンス割り当て関連「以外」のコマンドについて"></a>MSOL / Azure AD PowerShell のライセンス割り当て関連「以外」のコマンドについて</h3><p>ライセンス割り当てに関するコマンド以外（例: Connect-MsolService や Get-AzureADUser など）は、2023 年 6 月 30 日 に廃止となる予定です。MSOnline モジュール、AzureAD モジュールだけでなく、 AzureADPreview モジュールのコマンドも廃止されます。</p>
+<p>対象となるコマンドは、Connect-MsolService や Get-AzureADUser コマンドだけでなく、 MSOL や AzureAD がつくコマンドすべてです。各モジュールのコマンド一覧は、下記公開情報にて紹介しています。</p>
+<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/powershell/module/msonline/?view=azureadps-1.0#msonline">MSOnline モジュールのコマンド一覧</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true">Azure AD モジュールのコマンド一覧（一般提供版）</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true">Azure AD モジュールのコマンド一覧（プレビュー版）</a></p>
 <ul>
 <li>廃止予定日までは、これまでと同様にコマンドを利用可能です。</li>
-<li>廃止後は、動作の保証はされませんが、動作し続けるコマンド・動作しなくなるコマンドの双方がある見込みです。実際に動作しなくなる具体的なコマンドの情報などはありません。</li>
+<li>廃止後は、動作の保証はされません。マイクロソフトは任意のタイミングで、MSOL / Azure AD (Preview) PowerShell の動作を停止する権利を有します。</li>
+<li>ただし、マイクロソフトは使用状況を確認し、お客様が 3 つの PowerShell モジュールから移行するための猶予を提供した上で、これらモジュールの利用を停止させる予定です。</li>
+<li>従来の MSOL / AzureAD モジュールのコマンドでは実施できた操作が、Microsoft Graph API では実施できないものがあります。こうした操作を行う MSOL / Azure AD モジュールのコマンドも最終的には廃止されますが、Microosft Graph API への移行先がないものについては 2023/6/30 を過ぎてすぐにコマンドが利用できなくなることはありません。Microsoft Graph でこれら API の代替の機能が提供されない限り、API およびコマンドレットを停止させることはありません。</li>
+<li>新しいモジュールのコマンドや代替 API があるものについては、2023/6/30 を過ぎるとすぐに利用できなくなる可能性があるため、引き続き早めに移行ください。</li>
+<li>2023/6/30 を過ぎても引き続き利用できるコマンド一覧の情報、実際に動作しなくなる具体的なコマンド一覧の情報などはありません。</li>
 </ul>
 <h2 id="いまできること・確認すること"><a href="#いまできること・確認すること" class="headerlink" title="いまできること・確認すること"></a>いまできること・確認すること</h2><ol>
 <li>現在利用しているコマンド・スクリプトなどを確認する。<a href="https://jpazureid.github.io/blog/azure-active-directory/how-to-determine-depreacated-azuread-msol/">こちらの記事</a>をもとに、MSOL や Azure AD の PowerShell コマンドを利用していないか確認する</li>
@@ -161,11 +167,11 @@
 <li>既存のスクリプトの書き換え、コマンドの置き換えを実施し、新しいモジュールで動作するよう修正する</li>
 <li>利用中の MSOL や Azure AD コマンドの置き換えとなるものが見つからない、想定したように動作しない場合は、お問い合わせください</li>
 </ol>
-<h2 id="本廃止に関する弊社ブログ記事リンク"><a href="#本廃止に関する弊社ブログ記事リンク" class="headerlink" title="本廃止に関する弊社ブログ記事リンク"></a>本廃止に関する弊社ブログ記事リンク</h2><h3 id="アップデート情報（英語記事翻訳）"><a href="#アップデート情報（英語記事翻訳）" class="headerlink" title="アップデート情報（英語記事翻訳）"></a>アップデート情報（英語記事翻訳）</h3><p><a href="https://jpazureid.github.io/blog/azure-active-directory/migrate-your-apps-to-access-the-license-managements/">Azure AD Graph および MSOnline での従来のライセンスの割り当て方法が廃止され Microsoft Graph によるライセンス管理に変わります</a><br><a href="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-change-management-simplified/">Azure AD の変更管理を簡素化します</a><br><a href="https://jpazureid.github.io/blog/azure-active-directory/Microsoft-Entra-change-announcements-September-2022-train/#Azure-AD%E3%80%81Azure-AD-Preview%E3%80%81MSOnline-PowerShell-%E3%81%AE%E5%BB%83%E6%AD%A2%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Microsoft Entra の変更管理のアナウンス (2022 年 9 月の状況)</a></p>
+<h2 id="本廃止に関する弊社ブログ記事リンク"><a href="#本廃止に関する弊社ブログ記事リンク" class="headerlink" title="本廃止に関する弊社ブログ記事リンク"></a>本廃止に関する弊社ブログ記事リンク</h2><h3 id="アップデート情報-英語記事翻訳"><a href="#アップデート情報-英語記事翻訳" class="headerlink" title="アップデート情報 (英語記事翻訳)"></a>アップデート情報 (英語記事翻訳)</h3><p><a href="https://jpazureid.github.io/blog/azure-active-directory/migrate-your-apps-to-access-the-license-managements/">Azure AD Graph および MSOnline での従来のライセンスの割り当て方法が廃止され Microsoft Graph によるライセンス管理に変わります</a><br><a href="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-change-management-simplified/">Azure AD の変更管理を簡素化します</a><br><a href="https://jpazureid.github.io/blog/azure-active-directory/Microsoft-Entra-change-announcements-September-2022-train/#Azure-AD%E3%80%81Azure-AD-Preview%E3%80%81MSOnline-PowerShell-%E3%81%AE%E5%BB%83%E6%AD%A2%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Microsoft Entra の変更管理のアナウンス (2022 年 9 月の状況)</a><br><a href="https://jpazureid.github.io/blog/azure-active-directory/microsoft-entra-change-announcements-march-2023-train/">Microsoft Entra の変更のアナウンス (2023 年 3 月の状況)</a></p>
 <h3 id="既存モジュール使用状況について"><a href="#既存モジュール使用状況について" class="headerlink" title="既存モジュール使用状況について"></a>既存モジュール使用状況について</h3><p><a href="https://jpazureid.github.io/blog/azure-active-directory/how-to-determine-depreacated-azuread-msol/">Azure AD Graph / MSOnline PowerShell モジュール利用状況の調べ方</a></p>
 <h3 id="新しいモジュールへの移行導入"><a href="#新しいモジュールへの移行導入" class="headerlink" title="新しいモジュールへの移行導入"></a>新しいモジュールへの移行導入</h3><p><a href="https://jpazureid.github.io/blog/azure-active-directory/azuread-module-retirement2/">MSOnline / AzureAD PowerShell から Graph PowerShell SDK への移行について 2_移行導入編</a><br><a href="https://jpazureid.github.io/blog/azure-active-directory/azuread-module-retirement3/">MSOnline / AzureAD PowerShell から Graph PowerShell SDK への移行について 3_インストール・接続編</a></p>
-<h3 id="新しいモジュールの使用方法（ライセンスに関する操作について）"><a href="#新しいモジュールの使用方法（ライセンスに関する操作について）" class="headerlink" title="新しいモジュールの使用方法（ライセンスに関する操作について）"></a>新しいモジュールの使用方法（ライセンスに関する操作について）</h3><p><a href="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph/">Microsoft Graph PowerShell SDK を使用したライセンス管理操作の紹介</a></p>
-<h3 id="新しいモジュールの使用方法（ライセンス以外の操作について）"><a href="#新しいモジュールの使用方法（ライセンス以外の操作について）" class="headerlink" title="新しいモジュールの使用方法（ライセンス以外の操作について）"></a>新しいモジュールの使用方法（ライセンス以外の操作について）</h3><p>今後アップデート次第更新します。</p>
+<h3 id="新しいモジュールの使用方法-ライセンスに関する操作について"><a href="#新しいモジュールの使用方法-ライセンスに関する操作について" class="headerlink" title="新しいモジュールの使用方法 (ライセンスに関する操作について)"></a>新しいモジュールの使用方法 (ライセンスに関する操作について)</h3><p><a href="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph/">Microsoft Graph PowerShell SDK を使用したライセンス管理操作の紹介</a></p>
+<h3 id="新しいモジュールの使用方法-ライセンス以外の操作について"><a href="#新しいモジュールの使用方法-ライセンス以外の操作について" class="headerlink" title="新しいモジュールの使用方法 (ライセンス以外の操作について)"></a>新しいモジュールの使用方法 (ライセンス以外の操作について)</h3><p><a href="https://jpazureid.github.io/blog/azure-active-directory/azuread-module-retirement4/">MSOnline / AzureAD PowerShell から Graph PowerShell SDK への移行について 4_ユーザー管理</a><br><a href="https://jpazureid.github.io/blog/azure-active-directory/azuread-module-retirement5/">MSOnline / AzureAD PowerShell から Graph PowerShell SDK への移行について 5_グループ管理</a></p>
 
       
       
@@ -190,19 +196,10 @@
     
 <nav id="article-nav">
   
-    <a href="../Announcing-a-New-Azure-AD-part-of-Microsoft-Entra-region-in-Japan/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">次の記事</strong>
-      <div class="article-nav-title">
-        
-          Azure AD (Microsoft Entra) の新しいリージョンの発表 - 日本
-        
-      </div>
-    </a>
   
-  
-    <a href="../Microsoft-Entra-change-announcements-September-2022-train/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../add-modify-delete-directory/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Microsoft Entra の変更管理のアナウンス (2022 年 9 月の状況)</div>
+      <div class="article-nav-title">Azure AD テナントの追加・変更・削除</div>
     </a>
   
 </nav>
@@ -221,6 +218,10 @@
       <ul>
         
           <li>
+            <a href="">MSOnline / AzureAD PowerShell から Graph PowerShell SDK への移行について 1_概要</a>
+          </li>
+        
+          <li>
             <a href="../add-modify-delete-directory/">Azure AD テナントの追加・変更・削除</a>
           </li>
         
@@ -234,10 +235,6 @@
         
           <li>
             <a href="../update-B2B-user-address/">Azure AD B2B ゲスト ユーザーの連絡先情報の更新方法について</a>
-          </li>
-        
-          <li>
-            <a href="../microsoft-entra-updates-you-may-have-missed/">Microsoft Entra の最新情報</a>
           </li>
         
       </ul>
