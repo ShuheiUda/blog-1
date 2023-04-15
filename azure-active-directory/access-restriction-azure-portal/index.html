@@ -6,17 +6,19 @@
   
   <title>Azure ポータルへのアクセス制限 | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2017&#x2F;12&#x2F;29&#x2F;azuread-portal&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、Azure &amp; Identity サポート チームの坂井です。 今回は、一般ユーザー">
+  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2017&#x2F;12&#x2F;29&#x2F;azuread-portal&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 Note2017-12-29: 本記事の初版を投稿2023-04-16: MSOL コマンドのリタイアに">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Azure ポータルへのアクセス制限">
 <meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/access-restriction-azure-portal/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2017&#x2F;12&#x2F;29&#x2F;azuread-portal&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、Azure &amp; Identity サポート チームの坂井です。 今回は、一般ユーザー">
+<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2017&#x2F;12&#x2F;29&#x2F;azuread-portal&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 Note2017-12-29: 本記事の初版を投稿2023-04-16: MSOL コマンドのリタイアに">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/access-restriction-azure-portal/access-restricted.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/access-restriction-azure-portal/no-access.png">
-<meta property="article:published_time" content="2017-12-28T15:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-15T16:34:12.415Z">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/access-restriction-azure-portal/ps-1.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/access-restriction-azure-portal/ps-2.png">
+<meta property="article:published_time" content="2023-04-16T00:30:00.000Z">
+<meta property="article:modified_time" content="2023-04-15T23:00:14.062Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta name="twitter:card" content="summary">
@@ -99,82 +101,90 @@
       <div class="article-share">
         Last Update: 
         <a href="" class="article-date-single">
-  <time datetime="2017-12-28T15:00:00.000Z" itemprop="datePublished">2017-12-29</time>
+  <time datetime="2023-04-16T00:30:00.000Z" itemprop="datePublished">2023-04-16</time>
 </a>
         
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+4bac3ecd-6752-5fb2-901d-f745af8b6001%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BAzure+%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%AB%E3%81%B8%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E5%88%B6%E9%99%90%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Faccess-restriction-azure-portal%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Faccess-restriction-azure-portal.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Faccess-restriction-azure-portal.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/access-restriction-azure-portal/" data-id="clgi77ibq00290nmjet4y76dj" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/access-restriction-azure-portal/" data-id="clgikzxzp00290noc19s93r3j" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Technet Blog の更新停止に伴い <a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2017/12/29/azuread-portal/">https://blogs.technet.microsoft.com/jpazureid/2017/12/29/azuread-portal/</a> の内容を移行したものです。</p><p>元の記事の最新の更新情報については、本内容をご参照ください。</p></div>
-<p>こんにちは、Azure &amp; Identity サポート チームの坂井です。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>2017-12-29: 本記事の初版を投稿</p><p>2023-04-16: MSOL コマンドのリタイアに伴い内容を全体的に更新</p></div>
+<p>こんにちは、Azure &amp; Identity サポート チームの三輪です。</p>
 <p>今回は、一般ユーザーに対して Azure ポータルへのアクセスを制限する方法について紹介します。</p>
-<p>クラシック ポータル (旧ポータル) ではログインする際に Azure のサブスクリプションを保持していることが前提となっていました。一方 Azure ポータル (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com</a>) には、サブスクリプションの有無によらず、ログインすることが可能です。この動作変更により、より多くのユーザーが簡単に Azure に対してアクセスできるようになっています。</p>
-<p>Azure ポータルからは、そのログインしたユーザーが所属する Azure AD ディレクトリにアクセスすることができ、このとき Azure AD に対しての管理者権限を持たない一般ユーザーであっても、既定では Azure AD に登録されているユーザー一覧を参照できるようになっています。ご利用状況によっては、このことがセキュリティ上好ましくない場合もあると思います。</p>
-<h2 id="Azure-ポータルへのアクセスを制限する方法"><a href="#Azure-ポータルへのアクセスを制限する方法" class="headerlink" title="Azure ポータルへのアクセスを制限する方法"></a>Azure ポータルへのアクセスを制限する方法</h2><p>Azure ポータル自体へのアクセスを限られたユーザーのみに制限する方法については、条件付きアクセスの機能を利用する必要があります。条件付きアクセスの機能を利用するためには Azure AD Premium (P1 or P2) のライセンスが制御対象のユーザー分必要となります。</p>
-<p>なお、 後述します Azure AD へのアクセスを制限する方法 (ユーザーの一覧を見えなくする) であれば、ライセンスは不要です。</p>
-<p>&lt;手順&gt;</p>
+<p>Azure ポータル (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com</a>) には、サブスクリプションの有無によらずログインすることが可能です。この動作変更により、ユーザーが簡単に Azure に対してアクセスできるようになっています。</p>
+<p>Azure ポータルからは、そのログインしたユーザーが所属する Azure AD ディレクトリにアクセスすることができ、このとき Azure AD に対しての管理者権限を持たない一般ユーザーであっても、既定では Azure AD に登録されているユーザーの一覧を参照できるようになっています。これは <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/active-directory/fundamentals/users-default-permissions">ドキュメント</a> にも記載されていることで、一般ユーザーは他のユーザーの基本情報を見ることが可能であり、この動作自体は Azure AD で想定されるものです。</p>
+<p>Azure ポータルへ一般ユーザーがアクセスできたとしても、一般ユーザーの権限以上のことはできません。例えば、テナントやユーザーの構成を変更したり、詳細を確認することはできません。上述のとおり、他のユーザーの一覧 (基本情報) を確認することは既定で可能ですが、これは Office 365 を利用する中で他のユーザーを参照できるのと同等です。Azure AD は組織内のユーザーの認証とコラボレーションを促進するディレクトリ サービスであるため、他のユーザーが参照できることはその機能の一部であり問題ではありません。</p>
+<p>Azure ポータルへのアクセスを制限しても、ユーザーは Office 365 のサービス (Exchange や Teams) を利用して他のユーザーの情報を確認可能であることにご注意ください。また、Azure AD 以外の項目、例えば仮想マシンなどのリソースに対しては、サブスクリプションの権限を明示的に付与しない限りは、各ユーザーは参照することもできませんのでご安心ください。</p>
+<p>ただし、上記を踏まえてもお客様の運用形態によっては、Azure ポータル上やその他の方法で他のユーザーの一覧が見えてしまうことが運用上好ましくない場合もあると思います。今回は、このような一般ユーザーによる他のユーザーの参照や管理ツールへのアクセスをできる限り制限する方法についておまとめしました。</p>
+<h2 id="Azure-ポータルを含めた-Azure-の管理ツール全般へのアクセスを制限する方法"><a href="#Azure-ポータルを含めた-Azure-の管理ツール全般へのアクセスを制限する方法" class="headerlink" title="Azure ポータルを含めた Azure の管理ツール全般へのアクセスを制限する方法"></a>Azure ポータルを含めた Azure の管理ツール全般へのアクセスを制限する方法</h2><p>Azure ポータルやその他 Azure CLI など管理ツールへのアクセスを限られたユーザーのみに制限する方法としては、条件付きアクセスの機能を利用することがおすすめです。条件付きアクセスの機能を利用するためには Azure AD Premium (P1 or P2) のライセンスが制御対象のユーザー分必要となります。</p>
 <ol>
 <li><p>Azure ポータル (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com</a>) に管理者のアカウントでアクセスします。</p>
 </li>
-<li><p>セキュリティの [条件付きアクセス] – [ポリシー] の順にクリックします。</p>
+<li><p>[セキュリティ] から [条件付きアクセス] – [ポリシー] の順にクリックします。</p>
 </li>
-<li><p>上部 [＋新しいポリシー] をクリックします。</p>
+<li><p>上部 [+ 新しいポリシー] をクリックします。</p>
 </li>
 <li><p>[名前] にポリシーの名前を入力します。</p>
 </li>
 <li><p>ポリシーを割り当てるユーザーまたはグループを選択します。</p>
-<p> この時、全ての管理者に割り当てないようにしてください。全ての管理者がポリシーの制限を受け、Azure にアクセスすることができなくなり、設定解除もできなくなるというお問い合わせを過去に複数いただいております。</p>
+<p> この時、ポリシーを全ての管理者に割り当てないようご注意ください。全ての管理者がポリシーの制限を受け、Azure ポータルにアクセスすることができなくなります。結果として、設定解除もできなくなるというお問い合わせを過去に複数いただいております。</p>
 </li>
-<li><p>[クラウド アプリ] では 「アプリを選択」 にチェックを入れます。</p>
+<li><p>[クラウド アプリ] では 「アプリを選択」にチェックを入れます。</p>
 </li>
-<li><p>[選択] をクリックし、[Microsoft Azure Management] アプリケーションを検索し、選択します。</p>
+<li><p>[選択] では、[Microsoft Azure Management] アプリケーションを検索し、選択します。</p>
 <p>追加の条件を設定する場合は [条件] にてポリシーが適用される条件を選択します。条件を選択しない場合、すべてのアクセスが対象となります。</p>
 </li>
-<li><p>アクセス制御 の [許可] で「アクセスのブロック」を選択して、[選択] をクリックします。</p>
+<li><p>[アクセス制御] の [許可] で「アクセスのブロック」を選択して、[選択] をクリックします。</p>
 </li>
 <li><p>即時ポリシーを有効化する場合には、ポリシーの有効化で [オン] を選択し、[作成] をクリックします。</p>
 </li>
 </ol>
 <p>該当ユーザーで Azure ポータルへアクセスすると下記の画面が表示され、アクセスがブロックされます。</p>
 <p><img src="/blog/azure-active-directory/access-restriction-azure-portal/access-restricted.png"></p>
-<div class="alert is-important"><p class="alert-title">重要</p><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#microsoft-azure-management">Microsoft Azure Management</a> には複数のサービスが含まれており、ポータル以外にも Azure CLI などを利用したサブスクリプションへのアクセスがブロックされる点ご留意ください。</p></div>
-<h2 id="Azure-AD-へのアクセスを制限する方法"><a href="#Azure-AD-へのアクセスを制限する方法" class="headerlink" title="Azure AD へのアクセスを制限する方法"></a>Azure AD へのアクセスを制限する方法</h2><p>Azure AD の管理者（グローバル管理者または制限付き管理者）を与えられていないユーザーによる ポータル内 [Azure Active Directory] へのアクセスを制限する方法です。</p>
-<p>&lt;手順&gt;</p>
+<div class="alert is-important"><p class="alert-title">重要</p><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#microsoft-azure-management">Microsoft Azure Management</a> は複数のサービスが対象となっており、これへのアクセスをブロックすると、Azure ポータル以外にも Azure CLI などを利用したサブスクリプションへのアクセスがブロックされる点にご留意ください。</p></div>
+<h2 id="Azure-AD-管理ポータルへのアクセスを制限する方法"><a href="#Azure-AD-管理ポータルへのアクセスを制限する方法" class="headerlink" title="Azure AD 管理ポータルへのアクセスを制限する方法"></a>Azure AD 管理ポータルへのアクセスを制限する方法</h2><p>これは Azure AD の管理者 (グローバル管理者または制限付き管理者) を与えられていないユーザーによるポータル内 [Azure Active Directory] へのアクセスを制限する方法です。以下の手順で構成いただけます。本設定は、Azure ポータル上のアクセス制限になるため、設定完了後も PowerShell や Azure CLI を使用すれば、ユーザーの一覧は参照できます。</p>
 <ol>
-<li>グローバル管理者として Azure ポータル（<a target="_blank" rel="noopener" href="http://portal.azure.com)にサインインします./">http://portal.azure.com）にサインインします。</a></li>
-<li>左側のメニューから [Azure Active Directory] をクリックします。</li>
+<li>グローバル管理者として Azure ポータル (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com</a>) にサインインします。</li>
+<li>[Azure Active Directory] を開きます。</li>
 <li>表示されたメニューから [ユーザー設定] をクリックします。</li>
-<li>右側の下記の項目がございますので、[はい] を選択します。</li>
-<li>[管理ポータル] - [Azure AD 管理ポータルへのアクセスを制限する]<br>上にある [保存] をクリックします。</li>
+<li>右側にある [管理ポータル] - [Azure AD 管理ポータルへのアクセスを制限する] の項目で [はい] を選択します。</li>
+<li>上にある [保存] をクリックします。</li>
 </ol>
-<p>※ 上記 5. で [はい] を選択することで管理者以外の一般ユーザーは、Azure ポータル内での [Azure Active Directory] にアクセスしようとすると、下記の画面が表示されアクセス権がなくなります。</p>
+<p>※ 上記 4. で [はい] を選択することで管理者以外の一般ユーザーは、Azure ポータル内での [Azure Active Directory] にアクセスしようとすると、下記の画面が表示されアクセス権がなくなります。</p>
 <p><img src="/blog/azure-active-directory/access-restriction-azure-portal/no-access.png"></p>
-<p>上記設定は、Azure ポータル上のアクセス制限になるため、設定完了後も PowerShell を使用すれば、ユーザーの一覧は参照できます。その対処策となる設定についても下記にご案内させていただきます。</p>
-<p>&lt;手順&gt;</p>
-<p>この作業を実施するためには、Azure AD 用の PowerShell (Azure AD v1 の PowerShell) を利用する必要がありますが、 PowerShell を利用する際には Microsoft アカウントではなく、組織アカウントでのグローバル管理者が必要です (Azure AD の PowerShell についてはリンクも参照ください)。</p>
+<h2 id="Microsoft-Graph-API-でユーザーの一覧を取得できなくする方法"><a href="#Microsoft-Graph-API-でユーザーの一覧を取得できなくする方法" class="headerlink" title="Microsoft Graph API でユーザーの一覧を取得できなくする方法"></a>Microsoft Graph API でユーザーの一覧を取得できなくする方法</h2><p>上述のとおり、Azure AD では他のユーザーの一覧 (基本情報) を確認することが既定で可能であり、これは想定される動作です。ただし、学校など運用形態によっては、コマンドなどでユーザーが他のユーザーを一覧で取得できることが好ましくない状況もあると存じます。この場合、以下の設定を使用することで、他のユーザーの読み取りをある程度制限可能です。本設定をご利用の際は検証用のテナントで動作を確認したうえで、運用テナントでの利用を検討ください。</p>
+<p>この設定を有効にするためには、Azure AD 用の PowerShell を利用する必要があります。PowerShell を利用する際には組織アカウントのグローバル管理者が必要です (Azure AD の PowerShell については <a href="https://jpazureid.github.io/blog/azure-active-directory/azuread-module-retirement3/">リンク</a> も参照ください)。</p>
 <ol>
 <li><p>PowerShell を開き、下記のコマンドでグローバル管理者で Azure AD に接続します。</p>
- <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Connect-MsolService</span></span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Connect-MgGraph</span> <span class="literal">-Scopes</span> Policy.ReadWrite.Authorization</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下記コマンドで現在の設定を確認します。    </p>
+  <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">(<span class="built_in">Get-MgPolicyAuthorizationPolicy</span>).DefaultUserRolePermissions | <span class="built_in">fl</span></span><br></pre></td></tr></table></figure>
+<p> AllowedToReadOtherUsers が該当の設定になります。 True になっていることを確認します。</p>
+<p> <img src="/blog/azure-active-directory/access-restriction-azure-portal/ps-1.png"></p>
+</li>
 <li><p>下記コマンドで他のユーザーの情報を取得させないように設定します。</p>
- <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-MsolCompanySettings</span> <span class="literal">-UsersPermissionToReadOtherUsersEnabled</span> <span class="variable">$false</span></span><br></pre></td></tr></table></figure></li>
-<li><p>下記コマンドで他のユーザーの情報を取得させないように設定されたか確認します。</p>
- <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Get-MsolCompanyInformation</span> | <span class="built_in">fl</span> UsersPermissionToReadOtherUsersEnabled</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$params</span>=<span class="selector-tag">@</span>&#123;</span><br><span class="line">    defaultUserRolePermissions = <span class="selector-tag">@</span>&#123;</span><br><span class="line">    allowedToReadOtherUsers = <span class="variable">$false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">Update-MgPolicyAuthorizationPolicy</span> <span class="literal">-BodyParameter</span> <span class="variable">$params</span></span><br></pre></td></tr></table></figure></li>
+<li><p>再度、下記コマンドで他のユーザーの情報を取得させないように設定されたか確認します。</p>
+ <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">(<span class="built_in">Get-MgPolicyAuthorizationPolicy</span>).DefaultUserRolePermissions | <span class="built_in">fl</span></span><br></pre></td></tr></table></figure>
+<p> AllowedToReadOtherUsers が False に変更されたことを確認します。</p>
+<p> <img src="/blog/azure-active-directory/access-restriction-azure-portal/ps-2.png"></p>
+</li>
 </ol>
-<h2 id="補足-1"><a href="#補足-1" class="headerlink" title="補足 1"></a>補足 1</h2><p>外部から追加した Guest ユーザーについては既定で Azure AD へのアクセスが制限されています<br>(Guest と Member の違いについては、こちらの<a href="/blog/azure-active-directory/member-and-guest-user/">リンク</a>を参照ください)。</p>
-<p>Azure ポータルへのログインを条件付きアクセスを利用して制限していない場合でも、 Azure AD 以外の項目、例えば仮想マシンなどのリソースに対しては、サブスクリプションの権限を明示的に付与しない限りは、各ユーザーは参照することもできませんのでご安心ください。</p>
-<h2 id="補足-2"><a href="#補足-2" class="headerlink" title="補足 2"></a>補足 2</h2><p>Azure ポータルにユーザーがサインインすることで、自由に新規サブスクリプションを作成することが可能です。<br>一方で、ここで作成されるサブスクリプションはそのユーザーが新たに自身のクレジット カードを登録して利用するものです。<br>つまり、会社のサブスクリプションのリソースや課金観点において影響はありません。</p>
-<p>なお、Azure AD のグローバル管理者においては下記の設定で、自身が管理する Azure AD に紐づく全サブスクリプションを確認が可能です。</p>
-<p>&lt;手順&gt;</p>
+<h2 id="補足-ゲスト-ユーザーのアクセス権"><a href="#補足-ゲスト-ユーザーのアクセス権" class="headerlink" title="補足: ゲスト ユーザーのアクセス権"></a>補足: ゲスト ユーザーのアクセス権</h2><p>外部から追加したゲスト ユーザーについては既定で Azure AD へのアクセスが制限されています。ゲストとメンバー の違いについては、<a href="https://jpazureid.github.io/blog/azure-active-directory/member-and-guest-user/">こちら</a> を参照ください。</p>
+<h2 id="補足-Azure-サブスクリプションの作成権限の制御"><a href="#補足-Azure-サブスクリプションの作成権限の制御" class="headerlink" title="補足: Azure サブスクリプションの作成権限の制御"></a>補足: Azure サブスクリプションの作成権限の制御</h2><p>既定では Azure ポータルにユーザーがサインインすることで、自由に新規サブスクリプションを作成することが可能です。ここで作成されるサブスクリプションはそのユーザーが新たに自身のクレジット カードを登録して利用するものです。つまり、会社のサブスクリプションのリソースや課金観点において影響はありません。</p>
+<p>Azure AD のグローバル管理者においては下記の設定で、自身が管理する Azure AD に紐づく全サブスクリプションを確認可能です。</p>
 <ol>
-<li>グローバル管理者として Azure ポータル（<a target="_blank" rel="noopener" href="http://portal.azure.com)にサインインします./">http://portal.azure.com）にサインインします。</a></li>
+<li>グローバル管理者として Azure ポータル (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com</a>) にサインインします。</li>
 <li>左側のメニューから [Azure Active Directory] をクリックします。</li>
 <li>表示されたメニューから [プロパティ] をクリックします。</li>
-<li>[Azure リソースのアクセス管理] より、[すべての Azure サブスクリプションおよび管理グループへのアクセスを管理できます] を [はい] に設定します。<br>上にある [保存] をクリックします。</li>
+<li>[Azure リソースのアクセス管理] より、[すべての Azure サブスクリプションおよび管理グループへのアクセスを管理できます] を [はい] に設定します。</li>
+<li>上にある [保存] をクリックします。</li>
 </ol>
 <p>上記内容が少しでも皆様の参考となりますと幸いです。</p>
 
@@ -201,19 +211,19 @@
     
 <nav id="article-nav">
   
-    <a href="../../active-directory-federation-service/adfs-tls12/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../member-and-guest-user/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          Office 365 の TLS 1.0/1.1 無効化に伴う AD FS / WAP (AD FS Proxy) の対応
+          Azure AD のメンバー ユーザーとゲスト ユーザー
         
       </div>
     </a>
   
   
-    <a href="../../azure-active-directory-connect/azure-ad-connect-mc125948/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../haadj-re-registration/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">Azure AD Connect サービスアカウントに関するセキュリティ アドバイザリについて (MC125948)</div>
+      <div class="article-nav-title">ハイブリッド Azure AD 参加を再構成する</div>
     </a>
   
 </nav>
@@ -232,6 +242,14 @@
       <ul>
         
           <li>
+            <a href="../member-and-guest-user/">Azure AD のメンバー ユーザーとゲスト ユーザー</a>
+          </li>
+        
+          <li>
+            <a href="">Azure ポータルへのアクセス制限</a>
+          </li>
+        
+          <li>
             <a href="../haadj-re-registration/">ハイブリッド Azure AD 参加を再構成する</a>
           </li>
         
@@ -241,14 +259,6 @@
         
           <li>
             <a href="../customize-your-authentication-flows-with-custom-claims-providers/">カスタム クレーム プロバイダーで認証フローをカスタマイズ！</a>
-          </li>
-        
-          <li>
-            <a href="../azuread-module-retirement1/">MSOnline / AzureAD PowerShell から Graph PowerShell SDK への移行について 1_概要</a>
-          </li>
-        
-          <li>
-            <a href="../add-modify-delete-directory/">Azure AD テナントの追加・変更・削除</a>
           </li>
         
       </ul>
