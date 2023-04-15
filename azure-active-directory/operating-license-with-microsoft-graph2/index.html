@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph2/assigned-users.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph2/license-option.png">
 <meta property="article:published_time" content="2022-03-10T00:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-15T16:26:32.474Z">
+<meta property="article:modified_time" content="2023-04-15T16:30:34.970Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="Microsoft Graph">
@@ -108,7 +108,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+6bc1f3be-8567-5733-b7d3-6110e67cf043%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BMicrosoft+Graph+PowerShell+SDK+%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E7%AE%A1%E7%90%86%E6%93%8D%E4%BD%9C%E3%81%AE%E7%B4%B9%E4%BB%8B+%28%E4%B8%80%E6%8B%AC%E8%A8%AD%E5%AE%9A%E7%B7%A8%29%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Foperating-license-with-microsoft-graph2%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Foperating-license-with-microsoft-graph2.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Foperating-license-with-microsoft-graph2.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph2/" data-id="clgi6xmzo00pn0nr7fp9m9jjl" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph2/" data-id="clgi72ud000pn0nns5b0b7esw" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -149,8 +149,8 @@
 <p>他に設定したい項目がある場合には、以下より CSV ファイルおよび 後述の コマンドレットの &lt;その他属性&gt; に追記ください。</p>
 <ul>
 <li>ユーザー名: UserPrincipalName</li>
-<li>名: Surname</li>
-<li>姓: GivenName</li>
+<li>姓: Surname</li>
+<li>名: GivenName</li>
 <li>表示名: DisplayName</li>
 <li>役職: JobTitle</li>
 <li>部署: Department</li>
@@ -185,6 +185,9 @@
 <p>ブログ該当箇所: <a href="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph/#idx3">3. ライセンス情報の取得</a></p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$skuId</span> = <span class="string">&quot;&lt;ライセンスの skuId&gt;&quot;</span></span><br><span class="line"><span class="comment"># CSV ファイルの出力先を入力ください。</span></span><br><span class="line"><span class="variable">$path</span> = <span class="string">&quot;C:\temp\assignedUser.csv&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$users</span> = <span class="built_in">Get-MgUser</span> <span class="literal">-Filter</span> <span class="string">&quot;assignedLicenses/any(s:s/skuId eq <span class="variable">$skuId</span>)&quot;</span> </span><br><span class="line"><span class="variable">$users</span> |<span class="built_in">select</span> <span class="selector-tag">@</span>&#123;n=<span class="string">&quot;ObjectId&quot;</span>; e=&#123;<span class="variable">$_</span>.Id&#125;&#125;, <span class="selector-tag">@</span>&#123;n=<span class="string">&quot;UserPrincipalName&quot;</span>; e=&#123;<span class="variable">$_</span>.UserPrincipalName&#125;&#125;, <span class="selector-tag">@</span>&#123;n=<span class="string">&quot;DisplayName&quot;</span>; e=&#123;<span class="variable">$_</span>.DisplayName&#125;&#125; | <span class="built_in">Export-Csv</span> <span class="literal">-NoTypeInformation</span> <span class="literal">-Encoding</span> UTF8 <span class="literal">-Path</span> <span class="variable">$path</span></span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>[!Note]<br>全てのユーザーを取得するには、-All オプションを使用します。-All を指定しない場合は、100 ユーザーなど一部の結果のみが返されるためご留意ください。<br>なお、ユーザー数の非常に多い環境では -All オプションをつけると大量の結果が表示されます。時間がかかる場合もあるためこの点もご留意ください。</p>
+</blockquote>
 <h3 id="特定のライセンスに含まれるサービスが有効になっているユーザーだけを一覧で出力する"><a href="#特定のライセンスに含まれるサービスが有効になっているユーザーだけを一覧で出力する" class="headerlink" title="特定のライセンスに含まれるサービスが有効になっているユーザーだけを一覧で出力する"></a>特定のライセンスに含まれるサービスが有効になっているユーザーだけを一覧で出力する</h3><p>ユーザー属性の１つである <code>assignedPlans</code> プロパティを用いてフィルタリングすることで、テナント内で特定のサービス プランが付与されているユーザーを抽出することが可能です。事前に、下記ブログにて紹介しております <code>Get-MgSubscribedSku</code> コマンドにて、割り当てたいライセンスの中に含まれる各サービスの [ServicePlanId] をご確認ください。</p>
 <p>ブログ該当箇所: <a href="https://jpazureid.github.io/blog/azure-active-directory/operating-license-with-microsoft-graph/#idx3">3. ライセンス情報の取得</a></p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$servicePlanId</span> = <span class="string">&quot;&lt;サービスプラン Id&gt;&quot;</span></span><br><span class="line"><span class="comment"># CSV ファイルの出力先を入力ください。</span></span><br><span class="line"><span class="variable">$path</span> = <span class="string">&quot;C:\temp\assignedUser.csv&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$users</span> = <span class="built_in">Get-MgUser</span> <span class="literal">-Filter</span> <span class="string">&quot;assignedPlans/any(s:s/servicePlanId eq <span class="variable">$servicePlanId</span> and s/capabilityStatus eq &#x27;Enabled&#x27;)&quot;</span> <span class="literal">-CountVariable</span> CountVar <span class="literal">-ConsistencyLevel</span> eventual</span><br><span class="line"><span class="variable">$users</span> |<span class="built_in">select</span> <span class="selector-tag">@</span>&#123;n=<span class="string">&quot;ObjectId&quot;</span>; e=&#123;<span class="variable">$_</span>.Id&#125;&#125;, <span class="selector-tag">@</span>&#123;n=<span class="string">&quot;UserPrincipalName&quot;</span>; e=&#123;<span class="variable">$_</span>.UserPrincipalName&#125;&#125;, <span class="selector-tag">@</span>&#123;n=<span class="string">&quot;DisplayName&quot;</span>; e=&#123;<span class="variable">$_</span>.DisplayName&#125;&#125; | <span class="built_in">Export-Csv</span> <span class="literal">-NoTypeInformation</span> <span class="literal">-Encoding</span> UTF8 <span class="literal">-Path</span> <span class="variable">$path</span></span><br></pre></td></tr></table></figure>
