@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/review-admin-consent.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/delete-enterprise-application.png">
 <meta property="article:published_time" content="2020-05-21T15:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-30T01:10:06.831Z">
+<meta property="article:modified_time" content="2023-05-01T15:15:17.273Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="OAuth">
@@ -58,6 +58,7 @@
   
 <link rel="stylesheet" href="../../css/style.css">
 
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
@@ -116,19 +117,76 @@
 
       </header>
       <div class="article-share">
-        Last Update: 
+        Published: 
         <a href="" class="article-date-single">
   <time datetime="2020-05-21T15:00:00.000Z" itemprop="datePublished">2020-05-22</time>
 </a>
         
+          / Last update: <a id="update-time" class="article-date-single"></a>
+/ Contributors: <ul style="display: inline-block; list-style:none" id="contributors" class="github-contributors"> </ul>
+
+<script type="text/javascript">
+  const sourceUrl = "https://github.com/jpazureid/blog/blob/main/articles/azure-active-directory/azure-ad-consent-framework.md";
+  const urlParts = sourceUrl.split("/");
+  const user = urlParts[3];
+  const repo = urlParts[4];
+  const filePath = urlParts.slice(7).join("/");
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/commits?path=${filePath}`;
+  function formatDate(date) {
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+
+    return year + '-' + month + '-' + day;
+  }
+
+  $.getJSON(apiUrl, function (data) {
+    const commit = data[0];
+    const updateDate = new Date(commit.commit.author.date);
+    const localDate = formatDate(updateDate);
+    const contributors = new Map();
+
+    data.reverse().forEach(function (commit) {
+      if (commit.author == null) {
+        return;
+      } else {
+        const name = commit.author.login;
+        const url = commit.author.html_url;
+        const avatar = commit.author.avatar_url;
+        contributors.set(name, { name, url, avatar });
+      }
+    });
+
+    $("#update-time").text(localDate);
+    $("#update-time").href = commit.html_url;
+    Array.from(contributors, ([_, value]) => value).reverse().forEach(function (contributor) {
+      $("#contributors").append(`<li class="contributor-avatar"><a target="_blank" rel="noopener" href="https://github.com/${contributor.name}" title="${contributor.name}"><img src="${contributor.avatar}" alt="${contributor.name}"/></a></li>`);
+    });
+  });
+</script>
+        
+        
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+361dbc73-4d3e-560d-a432-84a87db90f49%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5B%E3%80%8C%E7%AE%A1%E7%90%86%E8%80%85%E3%81%AE%E6%89%BF%E8%AA%8D%E3%81%8C%E5%BF%85%E8%A6%81%E3%80%8D%E3%81%AE%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fazure-ad-consent-framework%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fazure-ad-consent-framework.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fazure-ad-consent-framework.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/" data-id="clh2psvwm00on0np7ee8094yu" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/azure-ad-consent-framework/" data-id="clh4zfmxb00on0opeapz8g2gb" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
+        
+        <div class="toc-wrapper">
+          <h2 id="toc-header" class="toc-header">この記事の内容</h2>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%95%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E6%A9%9F%E8%83%BD%E3%81%AA%E3%81%AE%E3%81%8B"><span class="toc-text">1. 何のための機能なのか</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E5%90%8C%E6%84%8F%E3%82%92%E8%A1%8C%E3%81%86%E3%81%93%E3%81%A8%E3%81%A7%E4%BD%95%E3%81%8C%E8%B5%B7%E3%81%8D%E3%82%8B%E3%81%AE%E3%81%8B"><span class="toc-text">2. アプリケーションに同意を行うことで何が起きるのか</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AA%E5%90%8C%E6%84%8F%E3%81%AE%E7%A8%AE%E9%A1%9E%E3%81%8C%E3%81%82%E3%82%8B%E3%81%AE%E3%81%8B"><span class="toc-text">3. どのような同意の種類があるのか</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%AE%A1%E7%90%86%E8%80%85%E3%81%AE%E5%90%8C%E6%84%8F%E3%81%8C%E5%BF%85%E8%A6%81%E3%81%A8%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%9F%E9%9A%9B%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95"><span class="toc-text">4. 管理者の同意が必要と表示された際の対処法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%AE%A1%E7%90%86%E8%80%85%E3%81%AB%E3%82%88%E3%82%8B%E5%90%8C%E6%84%8F%E3%81%AE%E4%BB%98%E4%B8%8E%E6%89%8B%E9%A0%86"><span class="toc-text">5. 管理者による同意の付与手順</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E5%90%8C%E6%84%8F%E6%B8%88%E3%81%BF%E3%81%AE%E6%A8%A9%E9%99%90%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95"><span class="toc-text">6. アプリケーションに同意済みの権限を確認する方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AB%E4%BB%98%E4%B8%8E%E3%81%97%E3%81%9F-API-%E3%81%AE%E6%A8%A9%E9%99%90%E3%82%92%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%99%E6%96%B9%E6%B3%95"><span class="toc-text">7. アプリケーションに付与した API の権限を取り消す方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAQ"><span class="toc-text">FAQ</span></a></li></ol>
+        </div>
+          
         <p>こんにちは。Azure Identity チームの埴山です。<br>今回は、Azure AD の同意のフレームワークについて解説します。</p>
 <p>早速ですが、皆さんはアプリケーションを利用しようと思った際に、以下のように、”管理者の承認が必要” と表示されてしまったことは無いでしょうか。</p>
 <p><img src="/blog/azure-active-directory/azure-ad-consent-framework/blocked-user-consent.png" alt="管理者の承認が必要"></p>
@@ -260,7 +318,7 @@
 <h3 id="パターン-3-同意エンドポイントへアクセスを行い、同意を付与する"><a href="#パターン-3-同意エンドポイントへアクセスを行い、同意を付与する" class="headerlink" title="パターン 3. 同意エンドポイントへアクセスを行い、同意を付与する"></a>パターン 3. 同意エンドポイントへアクセスを行い、同意を付与する</h3><p>通常は上述の 2 つの手順にて、アプリケーションに同意を行うことが多いですが、アプリケーションの提供元によっては、同意のエンドポイントを利用し、事前に管理者による同意を行うよう指定されているものがあります。</p>
 <p>同意のエンドポイントについて、詳しくは Microsoft ID プラットフォームのスコープ、アクセス許可、および同意ドキュメント内の <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-JP/azure/active-directory/develop/v2-admin-consent">ディレクトリ管理者にアクセス許可を要求する</a> を確認ください。</p>
 <div class="alert is-important"><p class="alert-title">重要</p><p>管理者の同意を実施したにも関わらず、「管理者の承認が必要です」の画面が表示される場合の対処方法については<a href="/blog/azure-active-directory/azure-ad-consent-framework-advance/">関連ブログ</a>を確認してください。</p></div>
-<h3 id="6-アプリケーションに同意済みの権限を確認する方法"><a href="#6-アプリケーションに同意済みの権限を確認する方法" class="headerlink" title="6. アプリケーションに同意済みの権限を確認する方法"></a>6. アプリケーションに同意済みの権限を確認する方法</h3><p>アプリケーションに同意を行うと、アプリは付与された権限の範囲で Azure AD で保護されたリソースにアクセスすることが可能です。<br>実際に、どのユーザーが (あるいは管理者が) アプリに同意を行っているかは、Azure AD のエンタープライズ アプリケーション、対象のアプリより確認できます。</p>
+<h2 id="6-アプリケーションに同意済みの権限を確認する方法"><a href="#6-アプリケーションに同意済みの権限を確認する方法" class="headerlink" title="6. アプリケーションに同意済みの権限を確認する方法"></a>6. アプリケーションに同意済みの権限を確認する方法</h2><p>アプリケーションに同意を行うと、アプリは付与された権限の範囲で Azure AD で保護されたリソースにアクセスすることが可能です。<br>実際に、どのユーザーが (あるいは管理者が) アプリに同意を行っているかは、Azure AD のエンタープライズ アプリケーション、対象のアプリより確認できます。</p>
 <ol>
 <li>Azure ポータル (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com/</a>) にグローバル管理者としてサインインします。</li>
 <li>左ペインから Azure Active Directory を選択します。</li>
@@ -272,7 +330,7 @@
 <p><img src="/blog/azure-active-directory/azure-ad-consent-framework/review-user-consent.png" alt="ユーザー同意の確認"></p>
 <p>一方、管理者の同意が完了している場合には、[管理者の同意] タブに同意済みの権限一覧が表示されます。<br>[種類] が [Delegated] となっているものが、ユーザー委任の権限、Application となっているものがアプリケーション権限の API のアクセス許可です。</p>
 <p><img src="/blog/azure-active-directory/azure-ad-consent-framework/review-admin-consent.png" alt="管理者による同意の確認"></p>
-<h3 id="7-アプリケーションに付与した-API-の権限を取り消す方法"><a href="#7-アプリケーションに付与した-API-の権限を取り消す方法" class="headerlink" title="7. アプリケーションに付与した API の権限を取り消す方法"></a>7. アプリケーションに付与した API の権限を取り消す方法</h3><p>アプリケーションに付与した API の権限を取り消すには、エンタープライズ アプリケーションよりアプリを削除いただくことが有効です。</p>
+<h2 id="7-アプリケーションに付与した-API-の権限を取り消す方法"><a href="#7-アプリケーションに付与した-API-の権限を取り消す方法" class="headerlink" title="7. アプリケーションに付与した API の権限を取り消す方法"></a>7. アプリケーションに付与した API の権限を取り消す方法</h2><p>アプリケーションに付与した API の権限を取り消すには、エンタープライズ アプリケーションよりアプリを削除いただくことが有効です。</p>
 <ol>
 <li>Azure ポータル (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com/</a>) にグローバル管理者としてサインインします。</li>
 <li>左ペインから Azure Active Directory を選択します。</li>
@@ -402,6 +460,9 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
+      <a href="https://privacy.microsoft.com/ja-jp/privacystatement" target="_blank" rel=”noopener”>Privacy & Cookies</a> |  
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/copyright" target="_blank" rel=”noopener”>Terms of use</a> |
+      <a href="https://www.microsoft.com/ja-jp/legal/intellectualproperty/trademarks" target="_blank" rel=”noopener”>Trademarks</a> |
       &copy; 2023 Azure Identity Support Japan<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
@@ -416,8 +477,6 @@
   
 </nav>
     
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
 <script src="../../js/script.js"></script>
