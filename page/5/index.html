@@ -83,6 +83,66 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-active-directory-federation-service/update-ssl-server-certificate-netsh" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <div class="article-inner">
+    <!-- post date -->
+    <div class="article-meta">
+      <a href="../../active-directory-federation-service/update-ssl-server-certificate-netsh/" class="article-date">
+  <time datetime="2023-02-19T15:00:00.000Z" itemprop="datePublished">2023-02-20</time>
+</a>
+      
+    </div>
+
+    
+    <!-- post title -->
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../active-directory-federation-service/update-ssl-server-certificate-netsh/">netsh コマンドで AD FS サーバーの SSL 証明書を更新する手順</a>
+    </h1>
+  
+
+      </header>
+    
+
+    <!-- post caption -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        皆様、こんにちは。Azure &amp; Identity サポート担当の竹村です。
+本ブログでは、netsh コマンドで AD FS サーバーの SSL 証明書を更新する手順をご案内します。AD FS サーバーのバージョンに依らず、汎用的に利用できる手順ですので、Powershell のコマンドによる更新がエラーで失敗する場合などにご利用ください。
+以下の流れで更新作業を行います。
+手順の概要
+証明書の取得
+SSL サーバー証明書、ルート証明書、中間証明書のインストール
+SSL サーバー証明書のアクセス権設定
+AD FS のサービス通信証明書へ SSL サーバー証明書を設定
+AD FS の SSL サーバー証明書を更新
+WAP サーバーを再構成
+
+それぞれの手順の詳細を紹介します。
+1. 証明書の取得ご利用になる認証機関から SSL サーバー証明書とルート証明書、中間証明書を取得します。...
+        <p class="article-readmore">
+          <a href="../../active-directory-federation-service/update-ssl-server-certificate-netsh/">Read more</a>
+        </p>
+      
+    </div>
+
+    <footer class="article-footer">
+      <!--a data-url="https://jpazureid.github.io/blog/active-directory-federation-service/update-ssl-server-certificate-netsh/" data-id="clj0dji15000u0noh3stk5fwu" class="article-share-link">共有</a-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/AD-FS/" rel="tag">AD FS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-azure-active-directory/defend-your-users-from-mfa-fatigue-attacks" class="article article-type-post" itemscope itemprop="blogPost">
 
   <div class="article-inner">
@@ -123,7 +183,7 @@ Note下記でご紹介する機能のうち「プッシュ通知に番号の一�
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/defend-your-users-from-mfa-fatigue-attacks/" data-id="clix3wkpi00q70nliepc69b96" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/defend-your-users-from-mfa-fatigue-attacks/" data-id="clj0djib500q90noh8wm8hlj8" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
@@ -174,7 +234,7 @@ Note下記でご紹介する機能のうち「プッシュ通知に番号の一�
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/combatting-risky-sign-ins/" data-id="clix3wkih00600nli59wv7frj" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/combatting-risky-sign-ins/" data-id="clj0dji3u00600noh3r6ehmyl" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
@@ -225,7 +285,7 @@ Note下記でご紹介する機能のうち「プッシュ通知に番号の一�
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/cross-tenant-sync-publicpreview/" data-id="clix3wkir006p0nliap7j01t7" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/cross-tenant-sync-publicpreview/" data-id="clj0dji49006p0noh5zl56xtb" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD-B2B/" rel="tag">Azure AD B2B</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/B2B/" rel="tag">B2B</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Cross-Tenat-Synchronization/" rel="tag">Cross-Tenat Synchronization</a></li></ul>
@@ -277,7 +337,7 @@ Note2023/03/20 更新: Azure AD サービスにおける IPv6 サポートの導
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/ipv6-coming-to-azuread/" data-id="clix3wkke00a20nlif1171wgg" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/ipv6-coming-to-azuread/" data-id="clj0dji5u00a40nohcxot2fky" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
@@ -335,7 +395,7 @@ Note2023/03/20 更新: Azure AD サービスにおける IPv6 サポートの導
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/GuestUser-Inventory/" data-id="clix3wkoy00p60nlids6mbbq6" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/GuestUser-Inventory/" data-id="clj0djiam00p80nohce62a9uc" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Access-review/" rel="tag">Access review</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/B2B/" rel="tag">B2B</a></li></ul>
@@ -394,7 +454,7 @@ Azure AD
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/end-user-passwordless-utopia/" data-id="clix3wkj500790nliabm08g5j" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/end-user-passwordless-utopia/" data-id="clj0dji4h00790noh1t9290i6" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
@@ -446,7 +506,7 @@ Microsoft Authenticator の認証方法 - Azure Active Directory - Microsoft Ent
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/microsoft-brings-fips-140-compliance/" data-id="clix3wkko00at0nli55kv86sc" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/microsoft-brings-fips-140-compliance/" data-id="clj0dji6500av0nohfm733k84" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
@@ -498,7 +558,7 @@ Microsoft Authenticator の認証方法 - Azure Active Directory - Microsoft Ent
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/introducing-enhanced-company-branding-for-sign-in-experiences/" data-id="clix3wkk9009q0nli2ga2anev" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/introducing-enhanced-company-branding-for-sign-in-experiences/" data-id="clj0dji5p009s0noheasv9h7x" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
@@ -549,59 +609,7 @@ Microsoft Authenticator の認証方法 - Azure Active Directory - Microsoft Ent
     </div>
 
     <footer class="article-footer">
-      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/microsoft-entra-workload-id-ga/" data-id="clix3wkkr00b00nli3oqh9j76" class="article-share-link">共有</a-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-azure-active-directory/new-admin-center-unifies-azure-ad-with-other-identity-and-access-product" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <div class="article-inner">
-    <!-- post date -->
-    <div class="article-meta">
-      <a href="../../azure-active-directory/new-admin-center-unifies-azure-ad-with-other-identity-and-access-product/" class="article-date">
-  <time datetime="2022-12-18T03:00:00.000Z" itemprop="datePublished">2022-12-18</time>
-</a>
-      
-    </div>
-
-    
-    <!-- post title -->
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../azure-active-directory/new-admin-center-unifies-azure-ad-with-other-identity-and-access-product/">新しい管理センターにおける Azure AD および他の ID とアクセス製品の統合</a>
-    </h1>
-  
-
-      </header>
-    
-
-    <!-- post caption -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        こんにちは、Azure Identity サポート チームの 竜 です。
-本記事は、2022 年 12 月 1 日に米国の Azure Active Directory Identity Blog で公開された New Admin Center Unifies Azure AD with Other Identity and Access Products を意訳したものになります。
-
-Microsoft の ID に関するビジョンは、従来の ID 管理を超えて、マルチクラウドやマルチプラットフォーム環境におけるすべての人、すべてのものへのアクセスを保護するツールセットをお客様に提供することです。今年初めには、Microsoft Entra と新しい Microsoft Entra 管理センターを発表し、このビジョンを大幅に前進させました。
-Microsoft 365 および Azure ...
-        <p class="article-readmore">
-          <a href="../../azure-active-directory/new-admin-center-unifies-azure-ad-with-other-identity-and-access-product/">Read more</a>
-        </p>
-      
-    </div>
-
-    <footer class="article-footer">
-      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/new-admin-center-unifies-azure-ad-with-other-identity-and-access-product/" data-id="clix3wkl400br0nlid8e5cr80" class="article-share-link">共有</a-->
+      <!--a data-url="https://jpazureid.github.io/blog/azure-active-directory/microsoft-entra-workload-id-ga/" data-id="clj0dji6800b30noh42in7f46" class="article-share-link">共有</a-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Azure-AD/" rel="tag">Azure AD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/US-Identity-Blog/" rel="tag">US Identity Blog</a></li></ul>
@@ -630,6 +638,10 @@ Microsoft 365 および Azure ...
       <ul>
         
           <li>
+            <a href="../../azure-active-directory/important-azure-ad-graph-retirement-and-powershell-module/">重要 - Azure AD Graph の廃止と PowerShell モジュールの非推奨</a>
+          </li>
+        
+          <li>
             <a href="../../active-directory-federation-service/migrate-msol-update-federation-domain/">AD FS のトークン署名証明書を手動でアップデートする方法</a>
           </li>
         
@@ -643,10 +655,6 @@ Microsoft 365 および Azure ...
         
           <li>
             <a href="../../azure-active-directory/ga-system-preferred-multifactor-authentication/">システムが優先する MFA 機能 一般提供の開始</a>
-          </li>
-        
-          <li>
-            <a href="../../azure-active-directory/public-preview-token-protection-for-sign-in-sessions/">パブリック プレビュー: サインイン セッションのトークン保護</a>
           </li>
         
       </ul>
