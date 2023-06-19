@@ -6,20 +6,21 @@
   
   <title>Azure AD B2B とは | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い TechNet Blog の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 Note2017-12-12: 本記事の初版を投稿2023-04-01: 画面ショットや Azure ポータル上のメニューの変更に伴い内容を更新 こんにちは、Azure &amp; Identity サポート チームの三輪で">
+  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い TechNet Blog の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 Note2017-12-12: 本記事の初版を投稿2023-04-01: Azure ポータル上のメニューの変更に伴い画面ショットや内容を更新2023-06-26: Azure ポータル上のメニューの変更に伴い画面ショットや">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Azure AD B2B とは">
 <meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い TechNet Blog の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 Note2017-12-12: 本記事の初版を投稿2023-04-01: 画面ショットや Azure ポータル上のメニューの変更に伴い内容を更新 こんにちは、Azure &amp; Identity サポート チームの三輪で">
+<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い TechNet Blog の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 Note2017-12-12: 本記事の初版を投稿2023-04-01: Azure ポータル上のメニューの変更に伴い画面ショットや内容を更新2023-06-26: Azure ポータル上のメニューの変更に伴い画面ショットや">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/subscription-user.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/subscription-user-inaccessible.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/invite-user-to-tenant.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/screenshot-new-guest-user-new.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/screenshot-sendmail.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/screenshot-iam-new.png">
-<meta property="article:published_time" content="2023-03-31T15:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-19T07:49:02.247Z">
+<meta property="article:published_time" content="2023-06-25T15:00:00.000Z">
+<meta property="article:modified_time" content="2023-06-19T07:52:32.003Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="RBAC">
@@ -105,7 +106,7 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2023-03-31T15:00:00.000Z" itemprop="datePublished">2023-04-01</time>
+  <time datetime="2023-06-25T15:00:00.000Z" itemprop="datePublished">2023-06-26</time>
 </a>
         
           / Last update: <a id="update-time" class="article-date-single"></a>
@@ -162,15 +163,15 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+b63867b2-b334-5433-a9f5-e29651015742%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BAzure+AD+B2B+%E3%81%A8%E3%81%AF%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fwhat-is-b2b%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fwhat-is-b2b.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fwhat-is-b2b.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/" data-id="clj2k2hil00es0ony6k8o997z" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/what-is-b2b/" data-id="clj2k70ou00es0nru0h89bo0u" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
         <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Technet Blog の更新停止に伴い <a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2017/12/12/about-azure-ad-b2b/">TechNet Blog</a> の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。</p></div>
-<div class="alert is-info"><p class="alert-title">Note</p><p>2017-12-12: 本記事の初版を投稿</p><p>2023-04-01: 画面ショットや Azure ポータル上のメニューの変更に伴い内容を更新</p></div>
+<div class="alert is-info"><p class="alert-title">Note</p><p>2017-12-12: 本記事の初版を投稿</p><p>2023-04-01: Azure ポータル上のメニューの変更に伴い画面ショットや内容を更新</p><p>2023-06-26: Azure ポータル上のメニューの変更に伴い画面ショットや内容を更新</p></div>
 <p>こんにちは、Azure &amp; Identity サポート チームの三輪です。</p>
-<p>今回は Azure AD B2B (Business-To-Business) コラボレーション機能 (以下、Azure AD B2B) について紹介します。この記事はもともと 2017 年 12 月に公開されましたが、その後 Azure ポータルのメニューなどが変更されたため、内容を最新版に更新いたしました</p>
+<p>今回は Azure AD B2B (Business-To-Business) コラボレーション機能 (以下、Azure AD B2B) について紹介します。この記事はもともと 2017 年 12 月に公開されましたが、その後 Azure ポータルのメニューなどが変更されたため、内容を最新版に更新いたしました。</p>
 <p>Azure AD B2B の概要については、公開ドキュメントである <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b">B2B コラボレーションの概要</a> をまずご覧ください。</p>
 <p>Azure AD B2B と聞くと、もしかしたら小難しく聞こえるかもしれませんが、要は他の Azure AD テナント上のユーザーを自テナントに追加 (招待) する機能のことです。具体的には、Azure AD を利用する中で、次のような要望がでてくることがあります。</p>
 <ul>
@@ -186,8 +187,10 @@
 <p>こんな時、Azure AD B2B を利用することで、自身の Azure AD テナントに他テナントのユーザーを招待することで、ユーザー本体は別の Azure AD テナントに所属しながら、招待した側のテナントのリソースを利用することが可能となります。</p>
 <p><img src="/blog/azure-active-directory/what-is-b2b/invite-user-to-tenant.png"></p>
 <h2 id="詳細"><a href="#詳細" class="headerlink" title="詳細"></a>詳細</h2><p>別の Azure AD テナントのユーザーを自テナントに招待する方法で多く利用されるものを 2 つ紹介します。</p>
-<h3 id="1-ゲスト-ユーザーの直接的な招待"><a href="#1-ゲスト-ユーザーの直接的な招待" class="headerlink" title="1. ゲスト ユーザーの直接的な招待"></a>1. ゲスト ユーザーの直接的な招待</h3><p>明示的に別の Azure AD テナントのユーザー (または outlook.com や gmail.com など外部アカウント) を招待し追加する操作です。Azure ポータルのメニューより [Azure Active Directory] – [ユーザーとグループ] – [すべてのユーザー] – [新しいユーザー] の順に進みます。下記、[外部ユーザーの招待] からユーザーの E メール アドレス (もしくは Azure AD の UPN) を追加します。指定されたユーザーに招待 E メールが送られますので、E メールを受け取ったユーザーは、その E メールのリンクからウィザードを完了する必要があります。</p>
+<h3 id="1-ゲスト-ユーザーの直接的な招待"><a href="#1-ゲスト-ユーザーの直接的な招待" class="headerlink" title="1. ゲスト ユーザーの直接的な招待"></a>1. ゲスト ユーザーの直接的な招待</h3><p>明示的に別の Azure AD テナントのユーザー (または outlook.com や gmail.com など外部アカウント) を招待し追加する操作です。Azure ポータルのメニューより [Azure Active Directory] – [ユーザーとグループ] – [すべてのユーザー] – [新しいユーザー] の順に進みます。下記、[外部ユーザーの招待] からユーザーの E メール アドレス (もしくは Azure AD の UPN) を追加します。</p>
 <p><img src="/blog/azure-active-directory/what-is-b2b/screenshot-new-guest-user-new.png"></p>
+<p>[招待メッセージの送信] にチェックを入れると、指定されたユーザーに招待 E メールが送られますので、E メールを受け取ったユーザーは、その E メールのリンクからウィザードを完了することができます。</p>
+<p><img src="/blog/azure-active-directory/what-is-b2b/screenshot-sendmail.png"></p>
 <h3 id="2-RBAC-アクセス制御-IAM-によるユーザーの招待"><a href="#2-RBAC-アクセス制御-IAM-によるユーザーの招待" class="headerlink" title="2. RBAC (アクセス制御 IAM) によるユーザーの招待"></a>2. RBAC (アクセス制御 IAM) によるユーザーの招待</h3><p>RBAC を用いて、Azure サブスクリプションに紐づけられている Azure AD テナント上のユーザーに対してアクセス許可を割り当てることができます。では、RBAC でアクセス権を割り当てるときに別の Azure AD テナントのユーザーを指定したい時には、先に 1 の作業を実施しておく必要があるのでしょうか？</p>
 <p>いいえ、もしアクセス許可を割り当てようとしているユーザーがそのテナントに存在していない場合には、RBAC の設定時に自動的に 1 のユーザー招待も併せて行われます。手順としては、Azure ポータルの [サブスクリプション] – [サブスクリプション名] – [アクセス制御 (IAM)] の順にお進みください。下記、[追加] から別の Azure AD テナントのユーザーを追加することができます。指定された E メール アドレスには、招待 E メールが送られ、その E メールよりウィザードを完了する流れは同様になりますが、同時にサブスクリプションに対するロールが割り当てられます。</p>
 <p><img src="/blog/azure-active-directory/what-is-b2b/screenshot-iam-new.png"></p>
@@ -220,19 +223,19 @@
     
 <nav id="article-nav">
   
-    <a href="../microsoft-entra-change-announcements-march-2023-train/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../roles-and-administrators/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          Microsoft Entra の変更のアナウンス (2023 年 3 月の状況)
+          Azure AD におけるロール管理の新しい方法
         
       </div>
     </a>
   
   
-    <a href="../azuread-b2b-troubleshooting/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../about-staged-rollout/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">招待したユーザーが利用できない</div>
+      <div class="article-nav-title">Staged Rollout について</div>
     </a>
   
 </nav>
@@ -251,23 +254,23 @@
       <ul>
         
           <li>
+            <a href="../azuread-b2b-troubleshooting/">招待したユーザーが利用できない</a>
+          </li>
+        
+          <li>
+            <a href="../roles-and-administrators/">Azure AD におけるロール管理の新しい方法</a>
+          </li>
+        
+          <li>
+            <a href="">Azure AD B2B とは</a>
+          </li>
+        
+          <li>
             <a href="../about-staged-rollout/">Staged Rollout について</a>
           </li>
         
           <li>
             <a href="../important-azure-ad-graph-retirement-and-powershell-module/">重要 - Azure AD Graph の廃止と PowerShell モジュールの非推奨</a>
-          </li>
-        
-          <li>
-            <a href="../ca-authentication-strength-ga/">条件付きアクセスの認証強度 一般提供開始のお知らせ</a>
-          </li>
-        
-          <li>
-            <a href="../../azure-active-directory-connect/azureadconnect_faq/">Azure AD Connect に関するよくある質問</a>
-          </li>
-        
-          <li>
-            <a href="../../active-directory-federation-service/migrate-msol-update-federation-domain/">AD FS のトークン署名証明書を手動でアップデートする方法</a>
           </li>
         
       </ul>

@@ -6,26 +6,27 @@
   
   <title>Azure AD におけるロール管理の新しい方法 | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2018&#x2F;08&#x2F;23&#x2F;roles-and-administrators&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、Azure &amp; Identity サポート チームの栗井です。">
+  <meta name="description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2018&#x2F;08&#x2F;23&#x2F;roles-and-administrators&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 また、PIM の活用法については、こちら でご紹介しています。 Note2018-0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Azure AD におけるロール管理の新しい方法">
 <meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2018&#x2F;08&#x2F;23&#x2F;roles-and-administrators&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 こんにちは、Azure &amp; Identity サポート チームの栗井です。">
+<meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2018&#x2F;08&#x2F;23&#x2F;roles-and-administrators&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 また、PIM の活用法については、こちら でご紹介しています。 Note2018-0">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/roles-and-administrators.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/list-administrators.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/role-member.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/add-role.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/user-role.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/pim-link.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/pim.png">
-<meta property="article:published_time" content="2018-08-22T15:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-19T07:49:02.207Z">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/01.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/02.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/03.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/04.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/05.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/06.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/07.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/08.png">
+<meta property="article:published_time" content="2023-06-25T15:00:00.000Z">
+<meta property="article:modified_time" content="2023-06-19T07:52:31.947Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/roles-and-administrators.png">
+<meta name="twitter:image" content="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/01.png">
   
     <link rel="alternate" href="../../atom.xml" title="Japan Azure Identity Support Blog" type="application/atom+xml">
   
@@ -105,7 +106,7 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2018-08-22T15:00:00.000Z" itemprop="datePublished">2018-08-23</time>
+  <time datetime="2023-06-25T15:00:00.000Z" itemprop="datePublished">2023-06-26</time>
 </a>
         
           / Last update: <a id="update-time" class="article-date-single"></a>
@@ -162,12 +163,14 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+f3b5053c-6f54-5a24-874c-d5a25226eab6%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BAzure+AD+%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%AD%E3%83%BC%E3%83%AB%E7%AE%A1%E7%90%86%E3%81%AE%E6%96%B0%E3%81%97%E3%81%84%E6%96%B9%E6%B3%95%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Froles-and-administrators%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Froles-and-administrators.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Froles-and-administrators.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/" data-id="clj2k2hhv00dd0ony599pae7h" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/roles-and-administrators/" data-id="clj2k70o100dd0nru2key5te2" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Technet Blog の更新停止に伴い <a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2018/08/23/roles-and-administrators/">https://blogs.technet.microsoft.com/jpazureid/2018/08/23/roles-and-administrators/</a> の内容を移行したものです。</p><p>元の記事の最新の更新情報については、本内容をご参照ください。</p></div>
+        <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Technet Blog の更新停止に伴い <a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2018/08/23/roles-and-administrators/">https://blogs.technet.microsoft.com/jpazureid/2018/08/23/roles-and-administrators/</a> の内容を移行したものです。</p><p>元の記事の最新の更新情報については、本内容をご参照ください。</p>
+<p>また、PIM の活用法については、<a href="https://jpazureid.github.io/blog/azure-active-directory/pim-overview/">こちら</a> でご紹介しています。</p></div>
+<div class="alert is-info"><p class="alert-title">Note</p><p>2018-08-23: 本記事の初版を投稿</p><p>2023-06-26: Azure ポータル上のメニューの変更に伴い画面ショットや内容を更新</p></div>
 <p>こんにちは、Azure &amp; Identity サポート チームの栗井です。</p>
 <p>本記事は、2018 年 7 月末に公開された A new way to manage roles and administrators in Azure AD を元にしています。<br>これまで、 Azure AD の全体管理者などのロールを割り当てられているユーザー一覧を取得することができなかったのですが、最近の更新により、簡単に確認できるようになりました。<br>元記事を参考に、ユーザーへのディレクトリロールの新しい割り当て・管理方法について、画面キャプチャを含めてご紹介します。</p>
 <p>ユーザの役割の確認や管理者権限の割り当てを、これまでより簡単におこなうことができます。</p>
@@ -178,23 +181,24 @@
 <li>関連ドキュメントへのリンク追加</li>
 </ul>
 <p>言い換えますと 「全体管理者は何人いるのか？」「このユーザーに割り当てられているのは何の役割か？」がすぐ分かるようになりました。</p>
-<p><img src="/blog/azure-active-directory/roles-and-administrators/roles-and-administrators.png"></p>
-<p>概要画面から、新機能「ロールと管理者」がご利用できます</p>
+<p><img src="/blog/azure-active-directory/roles-and-administrators/01.png"></p>
+<p>概要画面から、新機能「ロールと管理者」がご利用できます。</p>
 <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>ビルトイン ディレクトリ ロールの一覧とそれぞれの簡単な説明は 「ロールと管理者」をクリックすることで確認できます。これも最近追加されました Azure AD と連携するアプリケーションの管理を目的とした新しいロールも含まれます。</p>
 <p>現在サインインして操作を実施しているユーザー自身に何かしらのロールが割り当てられている場合、画面上部に表示されます。「ロール」をクリックすると、自身に割り当てられているロールと、それぞれの概要の一覧を確認できます。</p>
-<p><img src="/blog/azure-active-directory/roles-and-administrators/list-administrators.png"><br>図: 「ロールと管理者」下の、各ロールと説明の一覧</p>
+<p><img src="/blog/azure-active-directory/roles-and-administrators/02.png"><br>図: 「ロールと管理者」下の、各ロールと説明の一覧</p>
 <p>また、ロールの行をクリックすると、そのロールに割り当てられているユーザーの一覧が確認できます。</p>
-<p><img src="/blog/azure-active-directory/roles-and-administrators/role-member.png"><br>図: ロールに割り当てられているユーザー (メンバー) 一覧</p>
+<p><img src="/blog/azure-active-directory/roles-and-administrators/03.png"><br>図: ロールに割り当てられているユーザー (メンバー) 一覧</p>
 <p>各ロールによりどのようなことができるのかという質問をよく頂きますが、それぞれのロールに何の権限があるのか、その詳細を一覧でみられるようになりました。同じ画面で、関連記事のリンクも見ることができます。ロールを最大限有効に使うためにぜひご活用ください。<br>画像に示すように、ブレードの「説明」をクリックするとこの画面が見られます。もしくはロールの一覧画面から、各行の右側にある「・・・」をクリックをすることでも、同じ画面に辿り着くことができます。</p>
-<p>あるロールに割り当てられているユーザの一覧に加えて、その逆引きである「あるユーザーに割り当てられているロールの一覧」を見ることができるようになりました。同じ画面から、ユーザーに新たなロールを追加することができます。<br>詳細は <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles">Assigning administrator roles in Azure Active Directory</a>をご参照ください (英語ドキュメント)。</p>
-<p><img src="/blog/azure-active-directory/roles-and-administrators/add-role.png"><br>図: ユーザーに割り当てられているロールの一覧と「ロールの追加」ボタン</p>
+<p>あるロールに割り当てられているユーザの一覧に加えて、その逆引きである「あるユーザーに割り当てられているロールの一覧」を見ることができるようになりました。同じ画面から、ユーザーに新たなロールを追加することができます。<br>詳細は <a target="_blank" rel="noopener" href="https://learn.microsoft.com/ja-jp/azure/active-directory/roles/manage-roles-portal">Azure AD ロールをユーザーに割り当てる</a> をご参照ください。</p>
+<p><img src="/blog/azure-active-directory/roles-and-administrators/04.png"><br>図: ユーザーに割り当てられているロールの一覧と「割り当ての追加」ボタン</p>
 <p>一人のユーザーに複数の特権ロール (privileged roles) を割り当てることも可能です。既に割り当てられているものは表示されません。</p>
-<p><img src="/blog/azure-active-directory/roles-and-administrators/user-role.png"><br>図: 割り当て可能なロールの一覧</p>
-<h2 id="Azure-AD-PIM-での更新"><a href="#Azure-AD-PIM-での更新" class="headerlink" title="Azure AD PIM での更新"></a>Azure AD PIM での更新</h2><p>より細やかな権限管理は Azure AD Privileged Identity Management (PIM) で可能です。 Azure AD PIM の管理ブレードにも「ロールと管理者」へのリンクがあります。</p>
-<p><img src="/blog/azure-active-directory/roles-and-administrators/pim-link.png"><br>図: Privileged Identity Management 画面から「ロールと管理者」へのリンク</p>
-<p>もし組織で PIM を有効にしていなくても、「PIM で管理」をクリックすれば、管理者保護のために PIM をどのように活用できるか確認できます。無料のトライアルもご利用可能です。</p>
-<p><img src="/blog/azure-active-directory/roles-and-administrators/pim.png"></p>
-<p>「PIM」で管理から、Privileged Identity Management の情報が閲覧できます。</p>
+<p><img src="/blog/azure-active-directory/roles-and-administrators/05.png"><br>図: 割り当て可能なロールの一覧</p>
+<h2 id="PIM-での更新"><a href="#PIM-での更新" class="headerlink" title="PIM での更新"></a>PIM での更新</h2><p>Privileged Identity Management (PIM) を使用することで、より細やかな権限管理が可能です。<br>尚、PIM の使用には、Azure AD Premium P2 ライセンスが必要となります。<br>PIM の管理画面は、検索窓に「PIM」と入力し、検索することで開くことができます。</p>
+<p><img src="/blog/azure-active-directory/roles-and-administrators/06.png"><br>図: Privileged Identity Management 画面の開き方</p>
+<p>PIM 上で Azure AD ロールを管理する際には、左ブレードで「Azure AD ロール」をクリックします。</p>
+<p><img src="/blog/azure-active-directory/roles-and-administrators/07.png"><br>図: PIM 上で Azure AD ロールを管理する</p>
+<p>また、Azure AD Premium P2 ライセンスをお持ちのテナントで、PIM の画面を開くと、以降、Azure AD 上の 「ロールと管理」から Azure AD ロールの管理を行う際にも、各ロールの管理画面では PIM の画面が表示されるようになります。</p>
+<p><img src="/blog/azure-active-directory/roles-and-administrators/08.png"><br>図: 各 Azure AD ロールの管理画面の例</p>
 <p>上記内容が少しでも参考となりますと幸いです。製品動作に関する正式な見解や回答については、お客様環境などを十分に把握したうえでサポート部門より提供させていただきますので、ぜひ弊社サポート サービスをご利用ください。</p>
 
       
@@ -220,19 +224,19 @@
     
 <nav id="article-nav">
   
-    <a href="../mfasetupinteg/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../azuread-b2b-troubleshooting/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          Azure MFA の多要素認証設定の統合
+          招待したユーザーが利用できない
         
       </div>
     </a>
   
   
-    <a href="../users-can-register-applications/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../what-is-b2b/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">「ユーザーはアプリケーションを登録できる」の設定について</div>
+      <div class="article-nav-title">Azure AD B2B とは</div>
     </a>
   
 </nav>
@@ -251,23 +255,23 @@
       <ul>
         
           <li>
+            <a href="../azuread-b2b-troubleshooting/">招待したユーザーが利用できない</a>
+          </li>
+        
+          <li>
+            <a href="">Azure AD におけるロール管理の新しい方法</a>
+          </li>
+        
+          <li>
+            <a href="../what-is-b2b/">Azure AD B2B とは</a>
+          </li>
+        
+          <li>
             <a href="../about-staged-rollout/">Staged Rollout について</a>
           </li>
         
           <li>
             <a href="../important-azure-ad-graph-retirement-and-powershell-module/">重要 - Azure AD Graph の廃止と PowerShell モジュールの非推奨</a>
-          </li>
-        
-          <li>
-            <a href="../ca-authentication-strength-ga/">条件付きアクセスの認証強度 一般提供開始のお知らせ</a>
-          </li>
-        
-          <li>
-            <a href="../../azure-active-directory-connect/azureadconnect_faq/">Azure AD Connect に関するよくある質問</a>
-          </li>
-        
-          <li>
-            <a href="../../active-directory-federation-service/migrate-msol-update-federation-domain/">AD FS のトークン署名証明書を手動でアップデートする方法</a>
           </li>
         
       </ul>
