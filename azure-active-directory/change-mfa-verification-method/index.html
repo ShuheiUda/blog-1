@@ -4,21 +4,22 @@
   <meta charset="utf-8">
   
   
-  <title>MFA 認証方法を、変更 / 再登録 / 追加 したい！ | Japan Azure Identity Support Blog</title>
+  <title>MFA 認証方法を 変更 / 再登録 / 追加 したい！ | Japan Azure Identity Support Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="こんにちは。Azure Identity サポート チームの栗井です。 弊社サポートチームでは、 Azure Active Directory に関して、以下のようなご要望に関するお問い合わせをよくいただきます。  スマートフォンを買い替えたので、MFA 認証方法を変更したい。 スマートフォンを紛失したので、MFA 認証方法を再登録したい。 社用のスマートフォンに加えて、私用スマートフォンを、MF">
+  <meta name="description" content="Note本記事は 2020 年に公開したものですが、サポートへのお問い合わせ状況などをふまえ、2023 年 6 月時点での最新の情報にアップデートいたしました。 こんにちは。Azure Identity サポート チームの栗井です。 弊社サポートチームでは、 Azure Active Directory に関して、以下のようなご要望に関するお問い合わせをよくいただきます。  スマートフォンを買い替">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MFA 認証方法を、変更 &#x2F; 再登録 &#x2F; 追加 したい！">
+<meta property="og:title" content="MFA 認証方法を 変更 &#x2F; 再登録 &#x2F; 追加 したい！">
 <meta property="og:url" content="https://jpazureid.github.io/blog/azure-active-directory/change-mfa-verification-method/index.html">
 <meta property="og:site_name" content="Japan Azure Identity Support Blog">
-<meta property="og:description" content="こんにちは。Azure Identity サポート チームの栗井です。 弊社サポートチームでは、 Azure Active Directory に関して、以下のようなご要望に関するお問い合わせをよくいただきます。  スマートフォンを買い替えたので、MFA 認証方法を変更したい。 スマートフォンを紛失したので、MFA 認証方法を再登録したい。 社用のスマートフォンに加えて、私用スマートフォンを、MF">
+<meta property="og:description" content="Note本記事は 2020 年に公開したものですが、サポートへのお問い合わせ状況などをふまえ、2023 年 6 月時点での最新の情報にアップデートいたしました。 こんにちは。Azure Identity サポート チームの栗井です。 弊社サポートチームでは、 Azure Active Directory に関して、以下のようなご要望に関するお問い合わせをよくいただきます。  スマートフォンを買い替">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/change-mfa-verification-method/figure1.png">
-<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/change-mfa-verification-method/figure2.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/change-mfa-verification-method/mfa-reset-2022/auth-method-tab.png">
+<meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/change-mfa-verification-method/mfa-reset-2022/auth-method-reset.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/change-mfa-verification-method/figure3.png">
 <meta property="og:image" content="https://jpazureid.github.io/blog/azure-active-directory/change-mfa-verification-method/figure4.png">
-<meta property="article:published_time" content="2020-10-09T03:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-21T16:00:07.538Z">
+<meta property="article:published_time" content="2022-06-21T19:00:00.000Z">
+<meta property="article:modified_time" content="2023-06-21T20:48:01.668Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="Azure AD">
 <meta property="article:tag" content="MFA">
@@ -95,7 +96,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      MFA 認証方法を、変更 / 再登録 / 追加 したい！
+      MFA 認証方法を 変更 / 再登録 / 追加 したい！
     </h1>
   
 
@@ -103,7 +104,7 @@
       <div class="article-share">
         Published: 
         <a href="" class="article-date-single">
-  <time datetime="2020-10-09T03:00:00.000Z" itemprop="datePublished">2020-10-09</time>
+  <time datetime="2022-06-21T19:00:00.000Z" itemprop="datePublished">2022-06-22</time>
 </a>
         
           / Last update: <a id="update-time" class="article-date-single"></a>
@@ -158,98 +159,88 @@
         
         
         
-        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+3fa611cc-eca8-5ebd-8acc-4f10cb32fa0d%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BMFA+%E8%AA%8D%E8%A8%BC%E6%96%B9%E6%B3%95%E3%82%92%E3%80%81%E5%A4%89%E6%9B%B4+%2F+%E5%86%8D%E7%99%BB%E9%8C%B2+%2F+%E8%BF%BD%E5%8A%A0+%E3%81%97%E3%81%9F%E3%81%84%EF%BC%81%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fchange-mfa-verification-method%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fchange-mfa-verification-method.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fchange-mfa-verification-method.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+3fa611cc-eca8-5ebd-8acc-4f10cb32fa0d%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BMFA+%E8%AA%8D%E8%A8%BC%E6%96%B9%E6%B3%95%E3%82%92+%E5%A4%89%E6%9B%B4+%2F+%E5%86%8D%E7%99%BB%E9%8C%B2+%2F+%E8%BF%BD%E5%8A%A0+%E3%81%97%E3%81%9F%E3%81%84%EF%BC%81%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Fazure-active-directory%2Fchange-mfa-verification-method%2F%29%0A*+Content+Source%3A+%5Barticles%2Fazure-active-directory%2Fchange-mfa-verification-method.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Fazure-active-directory%2Fchange-mfa-verification-method.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/change-mfa-verification-method/" data-id="clj5whr90005m0np23bncb8p1" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/azure-active-directory/change-mfa-verification-method/" data-id="clj66rzp7005m0nll7vptf2pf" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>こんにちは。Azure Identity サポート チームの栗井です。</p>
+        <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は 2020 年に公開したものですが、サポートへのお問い合わせ状況などをふまえ、2023 年 6 月時点での最新の情報にアップデートいたしました。</p></div>
+<p>こんにちは。Azure Identity サポート チームの栗井です。</p>
 <p>弊社サポートチームでは、 Azure Active Directory に関して、以下のようなご要望に関するお問い合わせをよくいただきます。</p>
 <ul>
 <li>スマートフォンを買い替えたので、MFA 認証方法を変更したい。</li>
 <li>スマートフォンを紛失したので、MFA 認証方法を再登録したい。</li>
 <li>社用のスマートフォンに加えて、私用スマートフォンを、MFA 認証方法として追加したい。</li>
 </ul>
-<p>このブログでは、こういったご要望に答えるために、MFA 認証方法の変更 / 再登録 / 追加 するための方法と手順を、ご紹介いたします。</p>
-<p><strong>読者のターゲット :</strong> テナントの管理者。組織内のユーザーが、MFA 認証方法の変更 / 再登録 / 追加 が必要となった際に、ご参考になれば幸いです。</p>
+<p>このブログでは、こういったご要望に答えるために、MFA の方法を 変更 / 再登録 / 追加 するための方法と手順をご紹介いたします。</p>
+<p><strong>読者のターゲット:</strong> テナントの管理者。組織内のユーザーが MFA 認証方法の変更 / 再登録 / 追加 が必要となった際にご参照ください。</p>
 <p>操作の手順は、以下の場合ごとに異なるため、それぞれ別項目でご説明します。</p>
 <ul>
-<li>現在登録されているモバイル デバイスで、MFA 認証ができる場合 (モバイル デバイスの買い替え、追加など)</li>
-<li>現在登録されているモバイル デバイスで、MFA 認証ができない場合 (モバイル デバイスの紛失、故障など)</li>
+<li>現在登録されているモバイル デバイスで MFA 認証ができる場合 (モバイル デバイスの買い替えや追加など)</li>
+<li>現在登録されているモバイル デバイスで MFA 認証ができない場合 (モバイル デバイスの紛失や故障など)</li>
 </ul>
-<h2 id="現在登録されているモバイル-デバイスで、MFA-認証ができる場合"><a href="#現在登録されているモバイル-デバイスで、MFA-認証ができる場合" class="headerlink" title="現在登録されているモバイル デバイスで、MFA 認証ができる場合"></a>現在登録されているモバイル デバイスで、MFA 認証ができる場合</h2><p>この場合、MFA 認証方法の変更 / 追加は、ユーザー自身の操作のみで行うことができます。ユーザーには以下の方法で、MFA 認証方法の変更 / 追加を行ってもらってください。</p>
-<h3 id="MFA-認証方法の変更-追加手順"><a href="#MFA-認証方法の変更-追加手順" class="headerlink" title="MFA 認証方法の変更 / 追加手順"></a>MFA 認証方法の変更 / 追加手順</h3><p>ユーザーに、任意のデバイス (※) で <a target="_blank" rel="noopener" href="https://aka.ms/mfasetup">https://aka.ms/mfasetup</a> にアクセスしてもらいます。</p>
-<p>(※作業の途中で、新しいモバイル デバイスのカメラで読みこむための、QR コードが表示されます。PC やタブレットなど、新しいモバイル デバイス以外の端末にしましょう。)</p>
-<p>サインインと MFA が要求されます。それぞれ認証を行いましょう。</p>
-<p>この先は、2 パターンに分かれます。</p>
-<h4 id="パターン-1-以下の画面が出てきた場合-URL-https-mysignins-microsoft-com-security-info"><a href="#パターン-1-以下の画面が出てきた場合-URL-https-mysignins-microsoft-com-security-info" class="headerlink" title="パターン 1 : 以下の画面が出てきた場合 (URL : https://mysignins.microsoft.com/security-info)"></a>パターン 1 : 以下の画面が出てきた場合 (URL : <a target="_blank" rel="noopener" href="https://mysignins.microsoft.com/security-info">https://mysignins.microsoft.com/security-info</a>)</h4><p><img src="/blog/azure-active-directory/change-mfa-verification-method/figure1.png"></p>
-<p>[+ 方法の追加] を選択してください。画面の表示に従って、新しいモバイル デバイスを、MFA 認証方法として登録しましょう。</p>
-<h4 id="パターン-2-以下の画面が出てきた場合-URL-https-account-activedirectory-windowsazure-com-proofup-aspx"><a href="#パターン-2-以下の画面が出てきた場合-URL-https-account-activedirectory-windowsazure-com-proofup-aspx" class="headerlink" title="パターン 2 : 以下の画面が出てきた場合 (URL : https://account.activedirectory.windowsazure.com/proofup.aspx)"></a>パターン 2 : 以下の画面が出てきた場合 (URL : <a target="_blank" rel="noopener" href="https://account.activedirectory.windowsazure.com/proofup.aspx">https://account.activedirectory.windowsazure.com/proofup.aspx</a>)</h4><p><img src="/blog/azure-active-directory/change-mfa-verification-method/figure2.png"></p>
-<p>SMS もしくは 音声通話認証の場合 : [認証用電話] の番号を変更し、保存してください。<br>Microsoft Authenticator をご利用の場合 :  [Authenticator アプリの設定] を選択し、画面の指示に従ってください。</p>
-<p>いずれの画面も、登録済みの MFA 認証方法を一覧で確認できます。<br>もし、「既存のデバイスでは、もう MFA 認証を行わない！」と決まっている場合、一覧から削除してしまいましょう。</p>
-<p>※ 複数端末を MFA 認証方法として登録する場合 : 認証方法としては、SMS / 電話は 1 つの電話番号のみ、Microsoft Authenticator は複数の端末が登録可能です。複数モバイル デバイスによる MFA 認証を行いたい場合は、Microsoft Authenticator をご利用ください。</p>
-<h2 id="現在登録されているモバイル-デバイスで、MFA-認証ができない場合"><a href="#現在登録されているモバイル-デバイスで、MFA-認証ができない場合" class="headerlink" title="現在登録されているモバイル デバイスで、MFA 認証ができない場合"></a>現在登録されているモバイル デバイスで、MFA 認証ができない場合</h2><p>この場合、以下のいずれかの方法によって、管理者がユーザーの MFA 認証方法をリセット / 変更ください。</p>
-<p>【 1 】管理者による MFA 認証方法のリセット</p>
-<p>【 2 】管理者が直接 MFA 認証用電話番号を指定 (プレビュー機能)</p>
-<h3 id="【-1-】管理者によるMFA-認証方法のリセット"><a href="#【-1-】管理者によるMFA-認証方法のリセット" class="headerlink" title="【 1 】管理者によるMFA 認証方法のリセット"></a>【 1 】管理者によるMFA 認証方法のリセット</h3><p>管理者によって現在の MFA 認証方法をリセットした上で、ユーザーが再登録を行う方法です。 <br><br>現在の MFA 認証方法をリセットすることができるのは、テナント管理者 (グローバル管理者ロール) です。リセットする対象が管理者ユーザー以外であれば、ユーザー管理者、特権認証管理者、認証管理者のロールを持つアカウントでも行うことができます。</p>
-<p>(A) <a target="_blank" rel="noopener" href="https://portal.azure.com/">Azure Portal</a> からリセット</p>
-<p>(B) <a target="_blank" rel="noopener" href="https://account.activedirectory.windowsazure.com/usermanagement/multifactorverification.aspx">Azure MFA Portal</a> からリセット※ この方法は、テナント管理者 (グローバル管理者ロール) のみ実行可能です。</p>
-<p>(C) PowerShell からリセット</p>
+<h2 id="現在登録されているモバイル-デバイスで、MFA-認証ができる場合"><a href="#現在登録されているモバイル-デバイスで、MFA-認証ができる場合" class="headerlink" title="現在登録されているモバイル デバイスで、MFA 認証ができる場合"></a>現在登録されているモバイル デバイスで、MFA 認証ができる場合</h2><p>この場合、MFA 認証方法の変更 / 追加は、ユーザー自身の操作のみで行うことができます。管理者側での操作は不要です。ユーザーには以下の方法で、MFA 認証方法の変更 / 追加を行ってもらってください。</p>
+<h3 id="MFA-認証方法の変更-追加手順"><a href="#MFA-認証方法の変更-追加手順" class="headerlink" title="MFA 認証方法の変更 / 追加手順"></a>MFA 認証方法の変更 / 追加手順</h3><p>ユーザーに、任意のデバイスで <a target="_blank" rel="noopener" href="https://aka.ms/mfasetup">https://aka.ms/mfasetup</a> にアクセスします。サインインと MFA が要求たら、それぞれ認証を行いましょう。</p>
+<p>以下の画面 (URL: <a target="_blank" rel="noopener" href="https://mysignins.microsoft.com/security-info">https://mysignins.microsoft.com/security-info</a>) が表示されます。[+ 方法の追加] を選択してください。画面の表示に従って、新しいモバイル デバイスを、MFA 認証方法として登録しましょう。</p>
+<p><img src="/blog/azure-active-directory/change-mfa-verification-method/figure1.png"></p>
+<h2 id="現在登録されているモバイル-デバイスで、MFA-認証ができない場合"><a href="#現在登録されているモバイル-デバイスで、MFA-認証ができない場合" class="headerlink" title="現在登録されているモバイル デバイスで、MFA 認証ができない場合"></a>現在登録されているモバイル デバイスで、MFA 認証ができない場合</h2><p>この場合、以下のいずれかの方法によって、管理者がユーザーの MFA 認証方法をリセットもしくは変更ください。</p>
 <ul>
-<li><p>(A) の方法は、以下の公開情報にてご紹介しております。</p>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/authentication/howto-mfa-userdevicesettings#manage-user-authentication-options">Azure Multi-factor Authentication のユーザー設定の管理 - ユーザー認証オプションを管理する</a></p>
+<li><ol>
+<li>管理者による MFA 認証方法のリセット</li>
+</ol>
 </li>
-<li><p>(B) と (C) の方法は、以下のブログにてご紹介しております。 </p>
-<p><a href="https://jpazureid.github.io/blog/azure-active-directory/mfa-reset/">多要素認証 (MFA) のリセット手順</a> </p>
+<li><ol start="2">
+<li>管理者による MFA 認証用電話番号の指定</li>
+</ol>
 </li>
 </ul>
-<p>管理者によって、ユーザーの MFA 認証方法がリセットされたら、ユーザーは MFA 認証方法を再登録する必要があります。<br>前述の、現在登録されているモバイル デバイスで、MFA 認証ができる場合の手順に従って、新しいデバイスを MFA 認証方法として登録して下さい。</p>
-<h3 id="【-2-】管理者が直接-MFA-認証用電話番号を指定-プレビュー機能"><a href="#【-2-】管理者が直接-MFA-認証用電話番号を指定-プレビュー機能" class="headerlink" title="【 2 】管理者が直接 MFA 認証用電話番号を指定 (プレビュー機能)"></a>【 2 】管理者が直接 MFA 認証用電話番号を指定 (プレビュー機能)</h3><p>こちらは現在、プレビュー機能として公開されている方法です。</p>
-<p>Azure Portal 上で、管理者はユーザーの MFA 認証のための電話番号を、直接指定することができます。</p>
+<h3 id="1-管理者によるMFA-認証方法のリセット"><a href="#1-管理者によるMFA-認証方法のリセット" class="headerlink" title="1. 管理者によるMFA 認証方法のリセット"></a>1. 管理者によるMFA 認証方法のリセット</h3><p>管理者によって現在の MFA 認証方法をリセットした後、ユーザーが再登録を行う方法です。</p>
+<ol>
+<li><p>特権認証管理者、もしくはグローバル管理者のアカウントで Azure Portal (<a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com</a>) へアクセスします。</p>
+</li>
+<li><p>[すべてのサービス] &gt; [Azure Active Directory] &gt; [ユーザー] に移動します。</p>
+</li>
+<li><p>ユーザー一覧から、該当ユーザーの行を選択して開きます。 </p>
+</li>
+<li><p>画面左側のメニューから [認証方法] タブを選択します。</p>
+<p> <img src="./mfa-reset-2022/auth-method-tab.png">  </p>
+</li>
+<li><p>[MFA の再登録が必要] を押下します。</p>
+<p> <img src="./mfa-reset-2022/auth-method-reset.png">  </p>
+</li>
+</ol>
+<p>管理者によって、ユーザーの MFA 認証方法がリセットされたら、ユーザーは MFA 認証方法を再登録する必要があります。前述の「現在登録されているモバイル デバイスで、MFA 認証ができる場合」の手順に従って、新しいデバイスを MFA 認証方法として登録ください。</p>
+<h3 id="2-管理者が直接-MFA-認証用電話番号を指定"><a href="#2-管理者が直接-MFA-認証用電話番号を指定" class="headerlink" title="2. 管理者が直接 MFA 認証用電話番号を指定"></a>2. 管理者が直接 MFA 認証用電話番号を指定</h3><p>管理者は Azure Portal 上で、ユーザーの MFA 認証のための電話番号を直接指定することができます。以下の流れで操作します。</p>
 <p><a target="_blank" rel="noopener" href="https://portal.azure.com/">Azure Portal</a> &gt; [Azure Active Directory] &gt; [ユーザー] &gt; (一覧からユーザーを選択) &gt; [認証方法]</p>
-<p>「新しいユーザー認証方法エクスペリエンスをお試しください。こちらをクリックすると、プレビューを使用できます。」というメッセージを選択すると、以下のプレビュー版の機能が、ご利用可能になります。</p>
-<p>[ + 認証方法の追加] から、[電話番号] を選択し、ユーザーのモバイル デバイスの電話番号を追加して下さい。</p>
+<p>上記ページの [+ 認証方法の追加] から、[電話番号] を選択し、ユーザーのモバイル デバイスの電話番号を追加ください。</p>
 <p><img src="/blog/azure-active-directory/change-mfa-verification-method/figure3.png"></p>
-<p>※ [方法の選択] で選択可能な [メール] は、MFA ではなく セルフサービス パスワード リセットの連絡先追加のための項目です。ここでは選択しないでください。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>電話番号の入力は “+81 8099999999” のように、「国番号の指定が必須」かつ「ハイフン不要」である点にご留意ください。</p><p>[方法の選択] で選択可能な [メール] は、MFA ではなく セルフサービス パスワード リセットの連絡先追加のための項目です。ここでは選択しないでください。</p></div>
 <p><img src="/blog/azure-active-directory/change-mfa-verification-method/figure4.png"></p>
 <p>次回からは、指定した電話番号に MFA の要求が届くようになります。</p>
-<h2 id="例外-テナント管理者の-MFA-認証方法をリセットする必要がある場合"><a href="#例外-テナント管理者の-MFA-認証方法をリセットする必要がある場合" class="headerlink" title="例外 : テナント管理者の MFA 認証方法をリセットする必要がある場合"></a>例外 : テナント管理者の MFA 認証方法をリセットする必要がある場合</h2><p>MFA 認証方法の再登録には、テナントの管理者による、MFA 認証方法のリセットが必要です。</p>
-<p>ただし、テナントの管理者自身のモバイル デバイスの紛失 / 故障などにより、MFA 認証方法の再登録したい場合、上記の手順を進めることができない場合がございます。</p>
-<p>「Azure Portal、Azure MFA Portal のいずれにも、MFA が必要な設定をしているので、アクセスすることができない！」といった場合です。</p>
+<h2 id="例外-テナント管理者の-MFA-認証方法をリセットする必要がある場合"><a href="#例外-テナント管理者の-MFA-認証方法をリセットする必要がある場合" class="headerlink" title="例外 : テナント管理者の MFA 認証方法をリセットする必要がある場合"></a>例外 : テナント管理者の MFA 認証方法をリセットする必要がある場合</h2><p>MFA 認証方法の再登録には、テナントの管理者による、MFA 認証方法のリセットが必要です。ただし、テナントの管理者自身のモバイル デバイスの紛失および故障などにより、MFA 認証方法の再登録したい場合、上記の手順を進めることができない場合がございます。これは、「Azure Portal、Azure MFA Portal のいずれにも、MFA が必要な設定をしているので、アクセスすることができない！」といった場合です。</p>
 <p>このようなときの、対処法をご案内いたします。</p>
-<h3 id="I-テナントに管理者が複数存在する場合"><a href="#I-テナントに管理者が複数存在する場合" class="headerlink" title="I. テナントに管理者が複数存在する場合"></a>I. テナントに管理者が複数存在する場合</h3><p>MFA 認証方法を再登録する必要がある管理者以外に、別の管理者が存在する場合は、その管理者によって、前述の [管理者による MFA 認証方法のリセット方法] を行ってください。</p>
-<p>その後、MFA 認証方法を再登録する必要がある管理者によって、前述の [MFA 認証方法の変更 / 追加手順] の手順を行ってください。</p>
-<h3 id="II-Azure-のサブスクリプションを-クラウド-ソリューション-プロバイダー-パートナー-CSP-パートナー-からご購入頂いている場合"><a href="#II-Azure-のサブスクリプションを-クラウド-ソリューション-プロバイダー-パートナー-CSP-パートナー-からご購入頂いている場合" class="headerlink" title="II. Azure のサブスクリプションを クラウド ソリューション プロバイダー パートナー (CSP パートナー) からご購入頂いている場合"></a>II. Azure のサブスクリプションを クラウド ソリューション プロバイダー パートナー (CSP パートナー) からご購入頂いている場合</h3><p>CSP パートナーのアカウントは、お客様のテナントにアクセスする権限を持っています。</p>
-<p>CSP パートナーに連絡を取り、お客様のテナントにアクセスができる CSP アカウントによって、前述の [管理者による MFA 認証方法のリセット方法] を行ってもらいましょう。</p>
+<h3 id="1-テナントに管理者が複数存在する場合"><a href="#1-テナントに管理者が複数存在する場合" class="headerlink" title="1. テナントに管理者が複数存在する場合"></a>1. テナントに管理者が複数存在する場合</h3><p>MFA 認証方法を再登録する必要がある管理者以外に、別の管理者が存在する場合は、その管理者によって、前述の [管理者による MFA 認証方法のリセット方法] を行います。その後、MFA 認証方法を再登録する必要がある管理者によって、前述の [MFA 認証方法の変更 / 追加手順] の手順を進めます。</p>
+<h3 id="2-Azure-のサブスクリプションをクラウド-ソリューション-プロバイダー-パートナー-CSP-パートナー-からご購入頂いている場合"><a href="#2-Azure-のサブスクリプションをクラウド-ソリューション-プロバイダー-パートナー-CSP-パートナー-からご購入頂いている場合" class="headerlink" title="2. Azure のサブスクリプションをクラウド ソリューション プロバイダー パートナー (CSP パートナー) からご購入頂いている場合"></a>2. Azure のサブスクリプションをクラウド ソリューション プロバイダー パートナー (CSP パートナー) からご購入頂いている場合</h3><p>CSP パートナーのアカウントは、お客様のテナントにアクセスする権限を持っています。CSP パートナーに連絡を取り、お客様のテナントにアクセスができる CSP アカウントによって、前述の [管理者による MFA 認証方法のリセット方法] を行ってもらいましょう。</p>
 <p>その後、MFA 認証方法を再登録する必要がある管理者によって、前述の [MFA 認証方法の変更 / 追加手順] を行ってください。</p>
-<h3 id="III-I-と-II-のいずれにも当てはまらない場合"><a href="#III-I-と-II-のいずれにも当てはまらない場合" class="headerlink" title="III. I と II のいずれにも当てはまらない場合"></a>III. I と II のいずれにも当てはまらない場合</h3><p>これは、これまでご紹介した方法がいずれも実行不可能場合のみに行っていただく、最終手段です。</p>
-<p>テナントのすべての全体管理者がサインイン不可能になった場合には、弊社データセンター側で、管理者の MFA を、一時的に解除させていただきます。</p>
-<p>その間に管理者自身の MFA の再セットアップ (前述の [MFA 認証方法の変更 / 追加手順] の手順) を、行っていただく必要があります。</p>
-<p>解除には、数営業日いただくことになりますので予めご留意ください。</p>
-<p>この場合、弊社サポート チームまでお問い合わせください。必要な手順をご案内いたします。</p>
+<h3 id="3-上記-1-と-2-のいずれにも当てはまらない場合"><a href="#3-上記-1-と-2-のいずれにも当てはまらない場合" class="headerlink" title="3. 上記 1. と 2. のいずれにも当てはまらない場合"></a>3. 上記 1. と 2. のいずれにも当てはまらない場合</h3><p>これは、これまでご紹介した方法がいずれも実行不可能場合のみに行っていただく、最終手段です。テナントのすべてのグローバル管理者がサインイン不可能になった場合には、弊社データセンター側で、管理者の MFA を、一時的に解除いたします。解除には、数営業日いただくことになり、場合によっては解除ができない場合もございます。まずは、弊社サポート チームまでお問い合わせいただければと思います。</p>
 <p>お問い合わせ時には下記の情報を予めお知らせください。</p>
 <ul>
 <li>テナント名 (~.onmicrosoft.com) またはテナント ID</li>
-<li>全体管理者の UPN</li>
+<li>グローバル管理者の UPN</li>
 <li>状況 (何かしら操作をした日時、操作内容など)</li>
 </ul>
-<p>Azure Portal にログインできない場合は、<a target="_blank" rel="noopener" href="https://aka.ms/AzurePortalHelp">https://aka.ms/AzurePortalHelp</a> からリクエストをご起票ください。</p>
-<h2 id="参考文献やリンクなど"><a href="#参考文献やリンクなど" class="headerlink" title="参考文献やリンクなど"></a>参考文献やリンクなど</h2><p>本記事に関連する公開情報、サポート ブログ、サービスの URL をご紹介いたします。ご参考になれば幸いです。</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
-<li><p>公開情報「Azure Multi-factor Authentication のユーザー設定の管理」: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/authentication/howto-mfa-userdevicesettings">https://docs.microsoft.com/ja-jp/azure/active-directory/authentication/howto-mfa-userdevicesettings</a></p>
-</li>
-<li><p>公開情報　「追加の確認方法を変更する」: <a target="_blank" rel="noopener" href="https://support.microsoft.com/ja-jp/office/%e8%bf%bd%e5%8a%a0%e3%81%ae%e7%a2%ba%e8%aa%8d%e6%96%b9%e6%b3%95%e3%82%92%e5%a4%89%e6%9b%b4%e3%81%99%e3%82%8b-956ec8d0-7081-4518-a701-f8414cc20831?ui=ja-JP&amp;rs=ja-JP&amp;ad=JP">https://support.microsoft.com/ja-jp/office/%e8%bf%bd%e5%8a%a0%e3%81%ae%e7%a2%ba%e8%aa%8d%e6%96%b9%e6%b3%95%e3%82%92%e5%a4%89%e6%9b%b4%e3%81%99%e3%82%8b-956ec8d0-7081-4518-a701-f8414cc20831?ui=ja-JP&amp;rs=ja-JP&amp;ad=JP</a></p>
-</li>
-<li><p>サポート ブログ 「多要素認証 (MFA) のリセット手順」: <a href="https://jpazureid.github.io/blog/azure-active-directory/mfa-reset/">https://jpazureid.github.io/blog/azure-active-directory/mfa-reset/</a></p>
-</li>
+<p>また併せて、<a href="https://jpazureid.github.io/blog/azure-active-directory/ga-is-locked-out/">グローバル管理者ロールを持つユーザーでサインインできない！</a> の記事もご覧ください。Azure Portal にログインできない場合は、<a target="_blank" rel="noopener" href="https://aka.ms/AzurePortalHelp">https://aka.ms/AzurePortalHelp</a> からリクエストを起票することも検討ください。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li>公開情報: <a target="_blank" rel="noopener" href="https://docs.microsoft.com/ja-jp/azure/active-directory/authentication/howto-mfa-userdevicesettings">Azure Multi-factor Authentication のユーザー設定の管理</a></li>
+<li>公開情報: <a target="_blank" rel="noopener" href="https://support.microsoft.com/ja-jp/office/%e8%bf%bd%e5%8a%a0%e3%81%ae%e7%a2%ba%e8%aa%8d%e6%96%b9%e6%b3%95%e3%82%92%e5%a4%89%e6%9b%b4%e3%81%99%e3%82%8b-956ec8d0-7081-4518-a701-f8414cc20831?ui=ja-JP&rs=ja-JP&ad=JP">追加の確認方法を変更する</a></li>
+<li>サポート ブログ: <a href="https://jpazureid.github.io/blog/azure-active-directory/mfa-reset/">多要素認証 (MFA) のリセット手順</a></li>
 </ul>
-<h3 id="サービスの-URL"><a href="#サービスの-URL" class="headerlink" title="サービスの URL"></a>サービスの URL</h3><ul>
-<li>Azure Portal : <a target="_blank" rel="noopener" href="https://portal.azure.com/">https://portal.azure.com/</a></li>
-<li>Azure Portal (プレビュー版) : <a target="_blank" rel="noopener" href="https://preview.portal.azure.com/">https://preview.portal.azure.com/</a></li>
-<li>Azure MFA Portal (管理者専用) : <a target="_blank" rel="noopener" href="https://account.activedirectory.windowsazure.com/usermanagement/multifactorverification.aspx">https://account.activedirectory.windowsazure.com/usermanagement/multifactorverification.aspx</a></li>
-<li>MFA 認証情報確認 / 登録ページ : <a target="_blank" rel="noopener" href="https://aka.ms/mfasetup">https://aka.ms/mfasetup</a></li>
+<h2 id="サービスの-URL"><a href="#サービスの-URL" class="headerlink" title="サービスの URL"></a>サービスの URL</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://portal.azure.com/">Azure Portal</a></li>
+<li><a target="_blank" rel="noopener" href="https://account.activedirectory.windowsazure.com/usermanagement/multifactorverification.aspx">Azure MFA Portal (管理者専用)</a></li>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/mfasetup">MFA 認証情報確認 / 登録ページ</a></li>
 </ul>
 
       
@@ -275,19 +266,19 @@
     
 <nav id="article-nav">
   
-    <a href="../oauth2-application-resource-and-api-permissions/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../access-management-with-access-package/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">次の記事</strong>
       <div class="article-nav-title">
         
-          Azure AD に登録できる 「アプリ」と「リソース」、「API 権限」を理解する
+          アクセス パッケージを利用した一括でのアクセス権の管理
         
       </div>
     </a>
   
   
-    <a href="../20200928-rca-azure-ad/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../create-nested-groups-with-azure-ad-dynamic-groups/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前の記事</strong>
-      <div class="article-nav-title">9/28 (日本語抄訳) RCA – 複数の Microsoft サービスおよび Azure Active Directory と連携したアプリケーションでの認証エラー (Tracking ID SM79-F88)</div>
+      <div class="article-nav-title">Azure AD 動的グループで入れ子 (ネスト) グループを作成する</div>
     </a>
   
 </nav>
