@@ -14,7 +14,7 @@
 <meta property="og:description" content="Note本記事は Technet Blog の更新停止に伴い https:&#x2F;&#x2F;blogs.technet.microsoft.com&#x2F;jpazureid&#x2F;2017&#x2F;10&#x2F;03&#x2F;ad-fs-tokencert&#x2F; の内容を移行したものです。元の記事の最新の更新情報については、本内容をご参照ください。 皆様、こんにちは。Azure &amp; Identity サポート担当の竹村です。 前回に引き続き、">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2017-10-02T15:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-23T05:15:49.510Z">
+<meta property="article:modified_time" content="2023-06-23T05:33:48.818Z">
 <meta property="article:author" content="Azure Identity Support Japan">
 <meta property="article:tag" content="AD FS">
 <meta name="twitter:card" content="summary">
@@ -154,7 +154,7 @@
         
         <a href="https://github.com/jpazureid/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+07cbe1ea-367c-5f51-8ad0-0e5940c32c04%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BAD+FS+%E3%81%AE%E8%A8%BC%E6%98%8E%E6%9B%B8%E6%9B%B4%E6%96%B0%E6%89%8B%E9%A0%86%EF%BC%88%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E7%BD%B2%E5%90%8D%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%80%81%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E6%9A%97%E5%8F%B7%E5%8C%96%E8%A7%A3%E9%99%A4%E8%A8%BC%E6%98%8E%E6%9B%B8%EF%BC%89%5D%28https%3A%2F%2Fjpazureid.github.io%2Fblog%2Factive-directory-federation-service%2Fupdate-token-certificate%2F%29%0A*+Content+Source%3A+%5Barticles%2Factive-directory-federation-service%2Fupdate-token-certificate.md%5D%28https%3A%2F%2Fgithub.com%2Fjpazureid%2Fblog%2Fblob%2Fmain%2Farticles%2Factive-directory-federation-service%2Fupdate-token-certificate.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpazureid.github.io/blog/active-directory-federation-service/update-token-certificate/" data-id="clj84cvna00p10nmj5yrmct7p" class="article-share-link">共有</a>
+        <a data-url="https://jpazureid.github.io/blog/active-directory-federation-service/update-token-certificate/" data-id="clj8500vx00p10oqn1wx6a9nz" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -162,7 +162,7 @@
         <div class="alert is-info"><p class="alert-title">Note</p><p>本記事は Technet Blog の更新停止に伴い <a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpazureid/2017/10/03/ad-fs-tokencert/">https://blogs.technet.microsoft.com/jpazureid/2017/10/03/ad-fs-tokencert/</a> の内容を移行したものです。</p><p>元の記事の最新の更新情報については、本内容をご参照ください。</p></div>
 <p>皆様、こんにちは。Azure &amp; Identity サポート担当の竹村です。</p>
 <p>前回に引き続き、本エントリではトークン署名証明書、トークン暗号化解除証明書の更新手順をご紹介いたします。</p>
-<p>トークン署名証明書、トークン暗号化解除証明書は AD FS が発行する自己証明書であり、既定では 1 年に 1 回自動的に新しい証明書の作成、更新処理が行われます。これを、<a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpntsblog/2016/10/13/ad-fs-%E3%81%AE%E8%87%AA%E5%8B%95%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%83%AD%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E6%A9%9F%E8%83%BD%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">自動ロールオーバー機能</a> と呼びます。</p>
+<p>トークン署名証明書、トークン暗号化解除証明書は AD FS が発行する自己証明書であり、既定では 1 年に 1 回自動的に新しい証明書の作成、更新処理が行われます。これを、<a href="/blog/active-directory-federation-service/ad-fs-auto-rollover/">自動ロールオーバー機能</a> と呼びます。</p>
 <p>自動ロールオーバー機能は、具体的には以下のように動作します。</p>
 <ol>
 <li>有効期限が切れる 20 日前に、セカンダリのトークン署名/トークン暗号化解除証明書を作成します。</li>
@@ -197,7 +197,7 @@
 <li><p>起動した PowerShell で以下のコマンドを実行してセカンダリのトークン署名/トークン暗号化解除証明書を作成します。</p>
  <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Update-ADFSCertificate</span></span><br></pre></td></tr></table></figure>
 
-<p> ※ このコマンドを実行するためには、<a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpntsblog/2016/10/13/ad-fs-%E3%81%AE%E8%87%AA%E5%8B%95%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%83%AD%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E6%A9%9F%E8%83%BD%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">自動ロールオーバー機能</a> が有効である必要がございます。無効の場合には、事前に以下のコマンドを実行し、有効にしてください。</p>
+<p> ※ このコマンドを実行するためには、<a href="/blog/active-directory-federation-service/ad-fs-auto-rollover/">自動ロールオーバー機能</a> が有効である必要がございます。無効の場合には、事前に以下のコマンドを実行し、有効にしてください。</p>
  <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ADFSProperties</span> <span class="literal">-AutoCertificateRollover</span> <span class="variable">$true</span></span><br></pre></td></tr></table></figure></li>
 <li><p>上記 1-1. から 1-3. の手順で、セカンダリが作成されていることを確認します。</p>
 </li>
@@ -205,6 +205,7 @@
 <p>以上でセカンダリのトークン署名/トークン暗号化解除証明書作成手順は終了です。<br>次のステップに進みます。</p>
 <h3 id="2-証明書利用者信頼-Office-365-の証明書情報を更新"><a href="#2-証明書利用者信頼-Office-365-の証明書情報を更新" class="headerlink" title="2. 証明書利用者信頼 (Office 365) の証明書情報を更新"></a>2. 証明書利用者信頼 (Office 365) の証明書情報を更新</h3><p>新しいトークン署名証明書を作成いたしましたら、証明書利用者信頼にその新しい証明書を登録する必要があります。セカンダリのトークン署名/トークン暗号化解除証明書が作成されてから 5 日以内に、証明書利用者信頼に新しい証明書を登録する必要があります。これは、セカンダリのトークン署名/トークン暗号化解除証明書が作成されてから 5 日後にプライマリに昇格されて、実際に使用されるようになるためです。</p>
 <p>ここでは、例として Office 365 の場合の手順をご案内します (Office 365 以外の場合には、実際に利用されている証明書利用者信頼ごとに手順をご確認ください)。</p>
+<div class="alert is-info"><p class="alert-title">Note</p><p>2023 年 6 月 23 日更新: </p><p></p><p>MS Online モジュールは、現時点で <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/important-azure-ad-graph-retirement-and-powershell-module/ba-p/3848270">2024 年 3 月 30 日に廃止予定</a>です。</p><p>Microsoft Graph PowerShell を利用する手順は <a href="/blog/active-directory-federation-service/migrate-msol-update-federation-domain/">こちら</a>をご覧ください。</p></div>
 <ol>
 <li><p>プライマリ AD FS サーバーでスタート画面などから [Windows PowerShell 用 Windows Azure Active Directory モジュール] を管理者として起動します。</p>
 </li>
